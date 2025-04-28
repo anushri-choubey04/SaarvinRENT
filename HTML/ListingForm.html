@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stories + Listing Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Stories Section 
+  <div class="px-4 py-6">
+    <div class="flex gap-4 overflow-x-auto hide-scrollbar" id="storiesContainer"></div>
+  </div>
+
+   Modal Overlay 
+  <div id="modalOverlay" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+
+   Listing Form Modal 
+  <div id="listingForm" class="fixed inset-0 bg-white z-50 overflow-auto hidden">
+    <div class="sticky top-0 bg-white border-b border-gray-200 p-4 flex items-center justify-between shadow-md">
+      <h2 class="text-xl font-semibold">List Your Clothes</h2>
+      <button class="p-2 text-gray-600 hover:text-red-600 transition" onclick="closeModal()">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>-->
+
+    <div class="p-6 max-w-2xl mx-auto">
+      <form class="space-y-6 bg-white rounded-lg shadow-lg p-6" id="listingFormEl">
+        <!-- Full Name -->
+        <div>
+          <label for="name" class="block text-sm font-semibold text-gray-700">Full Name</label>
+          <input type="text" id="name" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm"/>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
+          <input type="email" id="email" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm"/>
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-semibold text-gray-700">Phone Number</label>
+          <input type="tel" id="phone" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm"/>
+        </div>
+
+        <!-- Gender -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700">Gender</label>
+          <div class="mt-2 space-x-6 flex">
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="gender" value="male" class="text-[#8D1C23] focus:ring-[#8D1C23]">
+              <span>Male</span>
+            </label>
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="gender" value="female" class="text-[#8D1C23] focus:ring-[#8D1C23]">
+              <span>Female</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Clothe Type -->
+        <div>
+          <label for="clotheType" class="block text-sm font-semibold text-gray-700">Clothe Type</label>
+          <select id="clotheType" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm">
+            <option value="">Select type</option>
+            <option value="lehenga">Lehenga</option>
+            <option value="gown">Gown</option>
+            <option value="anarkali">Anarkali</option>
+            <option value="sherwani">Sherwani</option>
+            <option value="indo-western">Indo-Western</option>
+            <option value="tuxedo">Tuxedo</option>
+          </select>
+        </div>
+
+        <!-- Size -->
+        <div>
+          <label for="size" class="block text-sm font-semibold text-gray-700">Size</label>
+          <select id="size" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm">
+            <option value="">Select size</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+        </div>
+
+        <!-- Description -->
+        <div>
+          <label for="description" class="block text-sm font-semibold text-gray-700">Description</label>
+          <textarea id="description" rows="4" required placeholder="Describe your clothing item..." class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-black focus:ring-black focus:ring-1 transition sm:text-sm"></textarea>
+        </div>
+
+        <!-- Upload -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1">Upload Images</label>
+          <div class="flex flex-col items-center justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-300 rounded-md bg-gray-50 hover:border-[#8D1C23] transition">
+            <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            </svg>
+            <div class="text-sm text-gray-600 mt-2">
+              <label class="relative cursor-pointer bg-white rounded-md font-medium text-[#8D1C23] hover:text-[#701216]">
+                <span>Upload files</span>
+                <input type="file" multiple accept="image/*" class="sr-only">
+              </label>
+              <p class="inline"> or drag and drop</p>
+            </div>
+            <p class="text-xs text-gray-500 mt-1">PNG, JPG up to 10MB</p>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="w-full bg-[#8D1C23] text-white py-3 px-4 rounded-md text-sm font-semibold hover:bg-[#701216] transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8D1C23]">
+          Submit Listing
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const stories = [{ id: 1, title: "List Yours", type: "form" }];
+    const storiesContainer = document.getElementById("storiesContainer");
+    const modal = document.getElementById("listingForm");
+    const overlay = document.getElementById("modalOverlay");
+
+    function openModal() {
+      modal.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      modal.classList.add("hidden");
+      overlay.classList.add("hidden");
+    }
+
+    stories.forEach(story => {
+      const btn = document.createElement("button");
+      btn.className = "flex flex-col items-center flex-shrink-0";
+      btn.innerHTML = `
+        <div class="w-16 h-16 rounded-full border-2 border-[#8D1C23] p-0.5 mb-1">
+          ${story.type === 'form' ? `
+            <div class="w-full h-full rounded-full bg-gray-100 flex items-center justify-center">
+              <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+              </svg>
+            </div>
+          ` : ''}
+        </div>
+        <span class="text-xs text-center whitespace-nowrap">${story.title}</span>
+      `;
+      if (story.type === 'form') btn.addEventListener("click", openModal);
+      storiesContainer.appendChild(btn);
+    });
+
+    overlay.addEventListener("click", closeModal);
+  </script>
+
+</body>
+</html>

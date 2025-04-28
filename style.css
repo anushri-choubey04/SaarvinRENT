@@ -1,0 +1,269 @@
+/* CSS for the Hero Section with Slides and Navigation Buttons */
+/* This CSS styles a hero section with slides, navigation buttons, and responsive text. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; }
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 60vh;
+  width: 90%;
+  border-radius: 35px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  margin: 20px auto;
+  
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 35px;
+margin: 0;
+padding: 0;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+}
+
+.slide-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.slide-text p {
+  font-size: 1.2rem;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-left { left: 10px; }
+.nav-right { right: 10px; }
+
+@media (max-width: 768px) {
+  .slide-text h2 {
+    font-size: 1.5rem;
+  }
+  .slide-text p {
+    font-size: 1rem;
+  }
+}
+/* end of hero section css */
+
+/* CSS for the category section bride groom */
+
+
+
+.container {
+  max-width: 1000px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  height: 100%;
+}
+
+.bride,
+.groom {
+  position: absolute;
+ 
+  transform: translateY(-50%);
+  width: 250px;
+  max-width: 40vw;
+  opacity: 0;
+}
+
+.bride {
+  left: -200px;
+  animation: brideIn 3s forwards;
+}
+
+.groom {
+  right: -200px;
+  animation: groomIn 3s infinite forwards;
+}
+
+@keyframes brideIn {
+  to {
+    left: 20%;
+    opacity: 1;
+  }
+}
+
+@keyframes groomIn {
+  to {
+    right: 25%;
+    opacity: 1;
+  }
+}
+
+.category-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInText 1.5s ease-out forwards;
+  animation-delay: 2.2s;
+  font-family: "Pacifico", cursive;
+  padding: 40px;
+  margin-top: 100px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-text h2 {
+  font-size: 28px;
+  color: #a83c3c;
+  margin-top: 40px;
+  font-family: "Pacifico", cursive;
+}
+
+.category-text p {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .bride,
+  .groom {
+    width: 100px;
+  }
+
+  .category-text h2 {
+    font-size: 26px;
+  }
+
+  .category-text p {
+    font-size: 14px;
+  }
+}
+
+
+
+/* CSS for the Bottom Navigation Bar */
+/* This CSS styles a bottom navigation bar with icons and labels. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  padding-bottom: 80px;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  height: 64px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 50;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #333;
+}
+button:hover svg {
+color: #06c342; /* Highlight color on hover */
+transform: scale(1.1); /* Slight zoom */
+transition: all 0.2s ease;
+}
+
+button:hover span {
+color: #06c342;
+transition: color 0.2s ease;
+}
+
+
+.center-icon {
+  background-color: #1c0405;
+  border-radius: 50%;
+  padding: 12px;
+  margin-top: -24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-icon svg {
+  color: white;
+}
+
+.active svg {
+  color: #0d0102;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* end of bottom nav css */
+
+
+
+/* CSS for the Scrollable Container */
+/* This CSS styles a scrollable container with hidden scrollbar. */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
+
