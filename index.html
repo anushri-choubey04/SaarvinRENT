@@ -8,7 +8,10 @@
   <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -20,50 +23,72 @@
     /* Category Section Title Animation */
     .typewriter {
       font-family: 'Pacifico', cursive;
-      font-size: 2rem;
+      font-size: 3rem;
       color: #141313;
-      margin-left: 20px;
+      margin-bottom: 0;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 1px solid #eee7e7;
+      border-right: 1px solid #ede4e4;
       width: 0;
-      animation: typing 3s steps(40, end) infinite, blink 1.7s infinite;
-      padding: 5px;
+      animation: typing 2s steps(40, end) infinite, blink 1.7s infinite;
+      padding:0;
+      margin: 0 ;
+      text-align: left;
     }
 
     @keyframes typing {
-      from { width: 0 }
-      to { width: 270px }
+      from { width: 0; }
+      to { width: 270px; }
     }
 
     @keyframes blink {
-      50% { border-color: transparent }
+      0%,
+      50%,
+      100% { border-color: transparent; }
     }
   </style>
 </head>
 
 <body class="bg-gray-100">
+  <!-- Starting nav bar -->
+  <header>
+    <nav class="nav-container">
+      <ul class="nav-bar">
+        <li class="title">Saarvin</li>
 
-  <!-- Navbar -->
-  <nav class="sticky top-0 bg-white shadow-sm z-60">
-    <div class="max-w-9xl mx-auto px-4 h-16 flex items-center justify-between">
-      <h1 class="text-xl font-semibold">SAARVIN</h1>
-      <div class="flex-1 max-w-md mx-4">
-        <div class="relative">
-          <input type="text" placeholder="Search." class="w-full bg-gray-100 rounded-full py-2 px-4 text-sm focus:outline-none" />
-          <i data-lucide="search" class="absolute right-3 top-2.5 h-4 w-4 text-gray-400"></i>
+        <div class="search-box">
+          <input type="text" placeholder="Search..." />
+          <i data-lucide="search"></i>
         </div>
-      </div>
-      <div class="flex items-center gap-4">
-        
-        <button class="p-1"><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
-        <button class="p-1"><i data-lucide="menu" class="h-6 w-6"></i></button>
-      </div>
-    </div>
-  </nav>
 
+        <div class="icons">
+          <button><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
+          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </div>
+        
+        <input type="checkbox" id="check" />
+        <span class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Sign In</a></li>
+          <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+        </span>
+      </ul>
+    
+    </nav>
+  </header>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      lucide.createIcons();
+    });
+  </script>
+
+  
   <!-- Story Section -->
-  <div class="px-4 py-4">
+  <div class="px-3 py-3">
     <div id="stories-strip" class="flex gap-4 overflow-x-auto hide-scrollbar"></div>
   </div>
 
@@ -74,8 +99,8 @@
         <div class="flex items-center gap-2">
           <img id="profile-pic" class="w-10 h-10 rounded-full object-cover" />
           <div>
-            <h3 id="username" class="text-black font-semibold text-sm"></h3>
-            <p id="timestamp" class="text-black/80 text-xs"></p>
+            <h3 id="username" class="text-black font-semibold text-lg"></h3>
+            <p id="timestamp" class="text-black/80 text-lg"></p>
           </div>
         </div>
         <button onclick="closeViewer()" class="text-white p-2">
@@ -133,41 +158,24 @@
   </div>
 
   <!-- Category Section -->
-  <div id="category">
+  <div id="category-text">
     <h2 class="typewriter">Shop by Category</h2>
-    <div class="grid category-grid" id="categorySection"></div>
-     <!--
-    <div id="productSection" style="display: none;">
-      <div class="back-btn" onclick="goBack()">← Back to Categories</div>
-      <h2 id="selectedCategoryTitle"></h2>
-      <div class="grid product-grid" id="productGrid"></div>
-    </div>
   </div>
-
-  <div class="container">
-    <img src="groom.jpg" alt="Bride" class="bride" />
-    <img src="bride.jpg" alt="Groom" class="groom" />
-    <div class="category-text">
-      <h2>Explore Our Categories</h2>
-      <p>👗 Bridal Clothes | 👔 Groom Attire</p>
-    </div>
-  </div>  -->
-
   <!-- Bottom Navigation -->
-  <nav>
-    <button class="active">
-      <a href="index.html">
+  <nav class="bottom-nav">
+    <button class="active-btn">
+      <span><a href="index.html">
       <i data-lucide="home"></i>
       Home
-      </a>
+      </a></span>
     </button>
     
 
-    <button>
-      <a href="HTML/shop.html">
+    <button class="active-btn">
+      <span><a href="HTML/shop.html">
       <i data-lucide="search"></i>
       Shop
-      </a>
+      </a></span>
     </button>
     <button>
 
@@ -176,13 +184,16 @@
       </div>
       <span style="margin-top: 4px;">Feed</span>
     </button>
-    <button>
+    <button class="active-btn">
       <i data-lucide="grid"></i>
       <span>Categories</span>
     </button>
-    <button>
+
+    <button class="active-btn">
+      <span><a href="HTML/wishlist.html">
       <i data-lucide="heart"></i>
-      <span>Wishlist</span>
+      Wishlist
+      </a></span>
     </button>
   </nav>
 

@@ -7,7 +7,7 @@ const stories = [
       type: "form",
       username: "List Your Clothes",
       image: null,
-      formLink: "/HTML/ListingForm.html",
+      formLink: "HTML/ListingForm.html",
     },
     {
       id: 2,
@@ -77,7 +77,7 @@ const stories = [
           <div class="w-16 h-16 rounded-full border-2 border-[#8D1C23] p-0.5 mb-1">
             <img src="${story.profilePic}" class="w-full h-full rounded-full object-cover" />
           </div>
-          <span class="text-xs text-center whitespace-nowrap">${story.username}</span>
+          <span class="text-lg text-center whitespace-nowrap">${story.username}</span>
         `;
       btn.addEventListener("click", () => openViewer(index));
       storiesStrip.appendChild(btn);

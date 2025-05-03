@@ -1,17 +1,185 @@
 /* CSS for the Hero Section with Slides and Navigation Buttons */
 /* This CSS styles a hero section with slides, navigation buttons, and responsive text. */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', sans-serif; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+.nav-container {
+  --color1: #fff;
+  --color2: #181818;
+  background-color: var(--color2);
+  color: var(--color1);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Pacifico", cursive;
+}
+
+.search-box {
+  max-width: 300px;
+
+  margin: 0 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: rgb(240, 241, 244);
+  border: none;
+  font-size: 0.9rem;
+  outline: none;
+  color: #333;
+}
+
+.search-box .lucide-search {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.icons button {
+  background: none;
+  border: none;
+  color: var(--color1);
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  padding-left: 30px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: var(--color1);
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.15s ease-in-out;
+  display: inline-block;
+  text-align: center;
+}
+
+.menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color1);
+  transition: 0.15s ease-in-out;
+}
+
+.menu li a:hover::after {
+  width: 100%;
+}
+
+.open-menu,
+.close-menu {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  color: var(--color1);
+  position: relative;
+}
+.open-menu {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  margin-top: 35px;
+}
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 610px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: var(--color2);
+    z-index: 100;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .menu li {
+    margin-top: 15px;
+  }
+  .menu li a {
+    padding: 25px;
+  }
+
+  .open-menu,
+  .close-menu {
+    display: block;
+  }
+
+  #check:checked ~ .menu {
+    right: 0;
+  }
+}
+
+/* end of nav bar css */
+/* CSS for the Hero Section */
 
 .hero {
   position: relative;
   overflow: hidden;
-  height: 60vh;
+  height: 50vh;
   width: 90%;
   border-radius: 35px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   margin: 20px auto;
-  
 }
 
 .slides {
@@ -31,8 +199,8 @@ body { font-family: 'Segoe UI', sans-serif; }
   height: 100%;
   object-fit: cover;
   border-radius: 35px;
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .slide-text {
@@ -40,7 +208,7 @@ padding: 0;
   bottom: 20%;
   left: 10%;
   color: white;
-  text-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
 }
 
 .slide-text h2 {
@@ -56,8 +224,9 @@ padding: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   border: none;
+
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
@@ -65,80 +234,58 @@ padding: 0;
 }
 
 .nav-btn svg {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 }
 
-.nav-left { left: 10px; }
-.nav-right { right: 10px; }
+.nav-left {
+  left: 10px;
+}
+.nav-right {
+  right: 10px;
+}
 
-@media (max-width: 768px) {
+@media (max-width: 610px) {
+  .hero {
+    height: 500px;
+  }
   .slide-text h2 {
     font-size: 1.5rem;
   }
   .slide-text p {
     font-size: 1rem;
   }
+  .category-text {
+    margin-top: 20px;
+    animation-delay: 1s;
+  }
 }
 /* end of hero section css */
 
 /* CSS for the category section bride groom */
+#category-text {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  height: 40vh;
+  margin-top: 10px;
 
-
-
-.container {
-  max-width: 1000px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  height: 100%;
-}
-
-.bride,
-.groom {
-  position: absolute;
- 
-  transform: translateY(-50%);
-  width: 250px;
-  max-width: 40vw;
-  opacity: 0;
-}
-
-.bride {
-  left: -200px;
-  animation: brideIn 3s forwards;
-}
-
-.groom {
-  right: -200px;
-  animation: groomIn 3s infinite forwards;
-}
-
-@keyframes brideIn {
-  to {
-    left: 20%;
-    opacity: 1;
-  }
-}
-
-@keyframes groomIn {
-  to {
-    right: 25%;
-    opacity: 1;
-  }
+  left: 10px;
+  text-align: left;
 }
 
 .category-text {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInText 1.5s ease-out forwards;
-  animation-delay: 2.2s;
+  animation-delay: 1s;
   font-family: "Pacifico", cursive;
-  padding: 40px;
-  margin-top: 100px;
+
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  display: block;
+  position: relative;
 }
 
 @keyframes fadeInText {
@@ -148,64 +295,24 @@ padding: 0;
   }
 }
 
-.category-text h2 {
-  font-size: 28px;
-  color: #a83c3c;
-  margin-top: 40px;
-  font-family: "Pacifico", cursive;
-}
-
-.category-text p {
-  font-size: 18px;
-  color: #333;
-  margin-top: 10px;
-}
-
-@media (max-width: 600px) {
-  .bride,
-  .groom {
-    width: 100px;
-  }
-
-  .category-text h2 {
-    font-size: 26px;
-  }
-
-  .category-text p {
-    font-size: 14px;
-  }
-}
-
-
-
 /* CSS for the Bottom Navigation Bar */
 /* This CSS styles a bottom navigation bar with icons and labels. */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  font-family: sans-serif;
-  padding-bottom: 80px;
-}
-
-nav {
+.bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background: white;
-  border-top: 1px solid #e5e7eb;
-  height: 64px;
+  border-top: 2px solid rgb(222, 230, 246);
+  height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 50;
+  z-index: 999;
 }
 
-button {
+.active-btn {
   background: none;
   border: none;
   outline: none;
@@ -214,23 +321,22 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
+  font-size: 20px;
   color: #333;
 }
-button:hover svg {
-color: #06c342; /* Highlight color on hover */
-transform: scale(1.1); /* Slight zoom */
-transition: all 0.2s ease;
+.active-btn:hover svg {
+  color: #06c342; /* Highlight color on hover */
+  transform: scale(1.1); /* Slight zoom */
+  transition: all 0.2s ease;
 }
 
-button:hover span {
-color: #06c342;
-transition: color 0.2s ease;
+.active-btn:hover span {
+  color: #06c342;
+  transition: color 0.2s ease;
 }
-
 
 .center-icon {
-  background-color: #1c0405;
+  background-color: rgb(186, 43, 48);
   border-radius: 50%;
   padding: 12px;
   margin-top: -24px;
@@ -254,8 +360,6 @@ svg {
 
 /* end of bottom nav css */
 
-
-
 /* CSS for the Scrollable Container */
 /* This CSS styles a scrollable container with hidden scrollbar. */
 .hide-scrollbar::-webkit-scrollbar {
@@ -265,5 +369,3 @@ svg {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-</style>
-
