@@ -10,181 +10,200 @@
     />
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
 
-      body {
-        font-family: "Poppins", sans-serif;
-        --color1: #fff;
-        --color2: #181818;
-      }
+            body {
+              font-family: "Poppins", sans-serif;
+              --color1: #fff;
+              --color2: #181818;
+            }
 
-      .nav-container {
-        background-color: var(--color2);
-        color: var(--color1);
-        position: sticky;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+            .nav-container {
+              background-color: var(--color2);
+              color: var(--color1);
+              position: sticky;
+              top: 0;
+              width: 100%;
+              z-index: 1000;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
 
-      .nav-bar {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 0 auto;
-        padding: 12px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        list-style: none;
-        
-      }
+            .nav-bar {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 0 auto;
+              padding: 12px 20px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              list-style: none;
 
-      .title {
-        font-size: 1.8rem;
-        font-weight: 600;
-        font-family: "Pacifico", cursive;
-      }
+            }
 
-      .search-box {
-        max-width: 300px;
-      
-        margin: 0 1rem;
-        position: relative;
-        width: 100%;
-      }
+            .title {
+              font-size: 1.8rem;
+              font-weight: 600;
+              font-family: "Pacifico", cursive;
+            }
 
-      .search-box input {
-        width: 100%;
-        padding: 0.5rem 2rem 0.5rem 1rem;
-        border-radius: 9999px;
-        background-color: #f3f4f6;
-        border: none;
-        font-size: 0.9rem;
-        outline: none;
+            .search-box {
+              max-width: 300px;
 
-      }
+              margin: 0 1rem;
+              position: relative;
+              width: 100%;
+            }
 
-      .search-box .lucide-search {
-        position: absolute;
-        right: 0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #9ca3af;
-        height: 1.5rem;
-        width: 1.5rem;
-      }
+            .search-box input {
+              width: 100%;
+              padding: 0.5rem 2rem 0.5rem 1rem;
+              border-radius: 9999px;
+              background-color: #f3f4f6;
+              border: none;
+              font-size: 0.9rem;
+              outline: none;
 
-      .icons {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-      }
+            }
 
-      .icons button {
-        background: none;
-        border: none;
-        color: var(--color1);
-        cursor: pointer;
-      }
+            .search-box .lucide-search {
+              position: absolute;
+              right: 0.75rem;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #9ca3af;
+              height: 1.5rem;
+              width: 1.7rem;
+            }
 
-      .menu {
-        display: flex;
-      }
+            .icons {
+              display: flex;
+              align-items: center;
+              gap: 2rem;
+            }
 
-      .menu li {
-        padding-left: 30px;
-      }
+            .icons button {
+              background: none;
+              border: none;
+              color: var(--color1);
+              cursor: pointer;
+            }
 
-      .menu li a {
-        text-decoration: none;
-        color: var(--color1);
-        text-transform: uppercase;
-        position: relative;
-        transition: 0.15s ease-in-out;
-        display: inline-block;
-        text-align: center;
-       
-      }
+            .menu {
+              display: flex;
+              padding: 10px 0 ;
+              gap: 1.5rem;
+              
+            }
 
-      .menu li a::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background: var(--color1);
-        transition:  0.15s ease-in-out; 
-      }
+            .menu li {
+              padding-left: 20px;
+              margin:  0;
+              top: 5px;
+            }
 
-      .menu li a:hover::after {
-        width: 100%;
-      }
+            .menu li a {
+              text-decoration: none;
+              color:#DAA520;
+              text-transform: uppercase;
+              position: relative;
+              transition: 0.15s ease-in-out;
+              display: inline-block;
+              text-align: center;
 
-      .open-menu,
-      .close-menu {
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: none;
-        color: var(--color1);
-        position: relative;
-      }
-      .open-menu {
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      margin-top: 20px;
-    }
-    .close-menu {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
+            }
 
-      #check {
-        display: none;
-      }
+            .menu li a::after {
+              content: "";
+              position: absolute;
+              bottom: -2px;
+              left: 0;
+              width: 0;
+              height: 1px;
+              background: var(--color2);
+              transition:  0.15s ease-in-out;
+            }
 
-      @media (max-width: 610px) {
-        
-        .menu {
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 80%;
-          height: 100vh;
-          position: fixed;
-          top: 0;
-          right: -100%;
-          background-color: var(--color2);
-          z-index: 100;
-          transition: all 0.2s ease-in-out;
-          box-shadow: #181818;
-        }
+            .menu li a:hover::after {
+              width: 100%;
+            }
 
-        .menu li {
-          margin-top: 50px;
-         
-        }
-        .menu li a {
-        padding: 15px;
+            .open-menu,
+            .close-menu {
+              font-size: 1.5rem;
+              cursor: pointer;
+              display: none;
+              color: var(--color1);
+              position: relative;
+            }
+            .open-menu {
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            margin-top: 20px;
+          }
+          .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+          }
 
-      }
+            #check {
+              display: none;
+            }
 
-        .open-menu,
-        .close-menu {
-          display: block;
-        }
+            @media (max-width: 610px) {
 
-        #check:checked ~ .menu {
-          right: 0;
-        }
-      }
+              .menu {
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                right: -90%;
+                background-color: rgba(209, 185, 185, 0.1);
+                z-index: 100;
+                transition: all 0.2s ease-in-out;
+                box-shadow: #181818;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                padding: 10px 0 20px 0; 
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+                
+              }
+
+              .menu li {
+                top: 5px;
+                padding-left: 20px;
+                margin-right: 10px; 
+                
+                      }
+
+
+              
+              .menu li a {
+              padding: 15px 0;
+              display: inline-block;
+              text-align: center;
+              margin: 2px;
+
+            }
+
+              .open-menu,
+              .close-menu {
+                display: block;
+              }
+
+              #check:checked ~ .menu {
+                right: 0;
+              }
+            }
     </style>
   </head>
   <body>
@@ -200,17 +219,22 @@
 
           <div class="icons">
             <button><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+            <label for="check" class="open-menu"
+              ><i class="fas fa-bars"></i
+            ></label>
           </div>
 
           <input type="checkbox" id="check" />
+          
           <span class="menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">Sign In</a></li>
-            <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            <label for="check" class="close-menu"
+              ><i class="fas fa-times"></i
+            ></label>
           </span>
         </ul>
       </nav>
