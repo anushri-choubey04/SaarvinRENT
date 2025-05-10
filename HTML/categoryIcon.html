@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Icon Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="bg-white py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Dynamic Categories Container -->
+        <div
+          id="categoriesContainer"
+          class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 text-center"
+        ></div>
+      </div>
+    </div>
+
+    <script>
+      const categories = [
+        {
+          id: "graduation",
+          name: "GRADUATION / FAREWELL",
+          icon: "🎓",
+          count: "120+ Items",
+          color: "bg-blue-50 text-blue-600",
+        },
+        {
+          id: "office",
+          name: "OFFICE EVENT",
+          icon: "💼",
+          count: "180+ Items",
+          color: "bg-gray-50 text-gray-600",
+        },
+        {
+          id: "party",
+          name: "PARTY WEAR",
+          icon: "🍷",
+          count: "250+ Items",
+          color: "bg-purple-50 text-purple-600",
+        },
+        {
+          id: "ethnic",
+          name: "ETHNIC WEAR",
+          icon: "🔔",
+          count: "300+ Items",
+          color: "bg-red-50 text-red-600",
+        },
+        {
+          id: "prewedding",
+          name: "PREWEDDING PHOTOSHOOT",
+          icon: "📷",
+          count: "150+ Items",
+          color: "bg-pink-50 text-pink-600",
+        },
+        {
+          id: "attending",
+          name: "ATTENDING WEDDING",
+          icon: "🎁",
+          count: "200+ Items",
+          color: "bg-yellow-50 text-yellow-600",
+        },
+        {
+          id: "date",
+          name: "DATE NIGHT",
+          icon: "images/table.jpeg",
+          count: "400+ Items",
+          color: "bg-rose-50 text-rose-600",
+          isImage: true,
+        },
+      ];
+
+      const container = document.getElementById("categoriesContainer");
+
+      categories.forEach((category) => {
+        const button = document.createElement("button");
+        button.className =
+          "flex flex-col items-center group focus:outline-none";
+        button.onclick = () => {
+          window.location.href = `/categories/${category.id}`;
+        };
+
+        const iconHTML = category.isImage
+          ? `<img src="${category.icon}" alt="${category.name}" class="w-10 h-10 rounded-full object-cover" />`
+          : `<span class="text-4xl">${category.icon}</span>`;
+
+        button.innerHTML = `
+        <div class="w-24 h-24 ${category.color} rounded-full flex items-center justify-center mb-4 transition-transform duration-300 hover:scale-110 hover:shadow-lg relative">
+          
+          ${iconHTML}
+          <div class="absolute -top-1 -right-1 w-3 h-3 bg-yellow-300 rounded-full animate-ping"></div>
+          <div class="absolute -bottom-1 -left-1 w-2 h-2 bg-yellow-300 rounded-full"></div>
+        </div>
+        <div class="text-center">
+          <h3 class="text-sm font-semibold whitespace-nowrap">${category.name}</h3>
+          <p class="text-xs text-gray-500 mt-1">${category.count}</p>
+        </div>
+      `;
+
+        container.appendChild(button);
+      });
+    </script>
+  </body>
+</html>

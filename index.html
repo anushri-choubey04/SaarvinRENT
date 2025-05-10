@@ -1,229 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAARVIN</title>
-
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAARVIN</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <style>
-    /* Category Section Title Animation */
-    .typewriter {
-      font-family: 'Pacifico', cursive;
-      font-size: 3rem;
-      color: #141313;
-      margin-bottom: 0;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 1px solid #ede4e4;
-      width: 0;
-      animation: typing 2s steps(40, end) infinite, blink 1.7s infinite;
-      padding:0;
-      margin: 0 ;
-      text-align: left;
-    }
+  <body class="bg-gray-100">
+    <!-- Starting nav bar -->
+    <header>
+      <nav class="nav-container">
+        <ul class="nav-bar">
+          <li class="title">Saarvin</li>
 
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 270px; }
-    }
+          <div class="search-box">
+            <input type="text" placeholder="Search..." />
+            <i data-lucide="search"></i>
+          </div>
 
-    @keyframes blink {
-      0%,
-      50%,
-      100% { border-color: transparent; }
-    }
-  </style>
-</head>
+          <div class="icons">
+            <button><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
+            <label for="check" class="open-menu"
+              ><i class="fas fa-bars"></i
+            ></label>
+          </div>
 
-<body class="bg-gray-100">
-  <!-- Starting nav bar -->
-  <header>
-    <nav class="nav-container">
-      <ul class="nav-bar">
-        <li class="title">Saarvin</li>
+          <input type="checkbox" id="check" />
+          <span class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Sign In</a></li>
+            <label for="check" class="close-menu"
+              ><i class="fas fa-times"></i
+            ></label>
+          </span>
+        </ul>
+      </nav>
+    </header>
 
-        <div class="search-box">
-          <input type="text" placeholder="Search..." />
-          <i data-lucide="search"></i>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
+      });
+    </script>
+
+    <!-- Story Section -->
+    <div class="px-3 py-3">
+      <div
+        id="stories-strip"
+        class="flex gap-4 overflow-x-auto hide-scrollbar"
+      ></div>
+    </div>
+
+    <div
+      id="story-viewer"
+      class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center"
+    >
+      <div
+        class="relative w-full max-w-[500px] h-screen bg-black"
+        id="viewer-container"
+      >
+        <div
+          id="progress-bars"
+          class="absolute top-0 left-0 right-0 z-20 flex gap-1 p-2"
+        ></div>
+        <div
+          class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-4 pt-6"
+        >
+          <div class="flex items-center gap-2">
+            <img id="profile-pic" class="w-10 h-10 rounded-full object-cover" />
+            <div>
+              <h3 id="username" class="text-black font-semibold text-lg"></h3>
+              <p id="timestamp" class="text-black/80 text-lg"></p>
+            </div>
+          </div>
+          <button onclick="closeViewer()" class="text-white p-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
 
-        <div class="icons">
-          <button><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
-          <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        <div id="story-content" class="h-full w-full relative"></div>
+
+        <div
+          id="caption"
+          class="absolute bottom-20 left-0 right-0 p-4 text-white text-center text-lg font-medium"
+        ></div>
+
+        <div
+          id="swipe-up"
+          class="absolute bottom-20 left-0 right-0 flex flex-col items-center text-white hidden"
+        >
+          <svg
+            class="w-6 h-6 animate-bounce"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 15l7-7 7 7"
+            />
+          </svg>
+          <span class="text-sm">Swipe up to see more</span>
         </div>
-        
-        <input type="checkbox" id="check" />
-        <span class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Sign In</a></li>
-          <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
-        </span>
-      </ul>
-    
-    </nav>
-  </header>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      lucide.createIcons();
-    });
-  </script>
 
-  
-  <!-- Story Section -->
-  <div class="px-3 py-3">
-    <div id="stories-strip" class="flex gap-4 overflow-x-auto hide-scrollbar"></div>
-  </div>
+        <div
+          class="absolute bottom-0 left-0 right-0 p-4 flex items-center gap-4"
+        >
+          <input
+            type="text"
+            placeholder="Send message"
+            class="flex-1 bg-white/10 text-white rounded-full px-4 py-2 text-sm placeholder-white/60"
+          />
+          <div class="flex gap-2 text-white">❤️</div>
+        </div>
+      </div>
+    </div>
 
-  <div id="story-viewer" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center">
-    <div class="relative w-full max-w-[500px] h-screen bg-black" id="viewer-container">
-      <div id="progress-bars" class="absolute top-0 left-0 right-0 z-20 flex gap-1 p-2"></div>
-      <div class="absolute top-0 left-0 right-0 z-20 flex items-center justify-between p-4 pt-6">
-        <div class="flex items-center gap-2">
-          <img id="profile-pic" class="w-10 h-10 rounded-full object-cover" />
-          <div>
-            <h3 id="username" class="text-black font-semibold text-lg"></h3>
-            <p id="timestamp" class="text-black/80 text-lg"></p>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?w=1200"
+            alt="Slide 1"
+          />
+          <div class="slide-text">
+            <h2>Western Fits</h2>
+            <p>Upto 60% Off</p>
           </div>
         </div>
-        <button onclick="closeViewer()" class="text-white p-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt="Slide 2"
+          />
+          <div class="slide-text">
+            <h2>Ethnic Vibes</h2>
+            <p>From ₹999</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img
+            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            alt="Slide 3"
+          />
+          <div class="slide-text">
+            <h2>Festive Looks</h2>
+            <p>New Launches</p>
+          </div>
+        </div>
       </div>
+      <button class="nav-btn nav-left" onclick="prevSlide()">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button class="nav-btn nav-right" onclick="nextSlide()">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+    <!-- Hero Section End -->
 
-      <div id="story-content" class="h-full w-full relative"></div>
 
-      <div id="caption" class="absolute bottom-20 left-0 right-0 p-4 text-white text-center text-lg font-medium"></div>
-
-      <div id="swipe-up" class="absolute bottom-20 left-0 right-0 flex flex-col items-center text-white hidden">
-        <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-        </svg>
-        <span class="text-sm">Swipe up to see more</span>
-      </div>
-
-      <div class="absolute bottom-0 left-0 right-0 p-4 flex items-center gap-4">
-        <input type="text" placeholder="Send message" class="flex-1 bg-white/10 text-white rounded-full px-4 py-2 text-sm placeholder-white/60" />
-        <div class="flex gap-2 text-white">❤️ </div>
+    <!-- Category Section -->
+    <div id="category-text">
+      <h2 class="typewriter">Shop by Category</h2>
+    </div>
+    <!-- Category Section Icon-->
+    <div id="categories"  class="bg-gray-300 py-10 px-6 rounded-xl mx-auto">
+      <div class="max-w-7xl mx-auto">
+        <!-- Dynamic Categories Container -->
+        <div
+          id="categoriesContainer"
+          class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 text-center"
+        ></div>
       </div>
     </div>
-  </div>
+    <!--  End Category Section  -->
+  
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="slides" id="slides">
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?w=1200" alt="Slide 1" />
-        <div class="slide-text">
-          <h2>Western Fits</h2>
-          <p>Upto 60% Off</p>
-        </div>
+    <!-- Service Section -->
+    <section class="container-service">
+      <div class="text-center">
+        <h2 class="title-service">WELCOME TO THE SAARVIN.</h2>
+        <p class="subtitle">
+          Why buy for a one-time occasion if you can simply borrow?
+        </p>
       </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Slide 2" />
-        <div class="slide-text">
-          <h2>Ethnic Vibes</h2>
-          <p>From ₹999</p>
-        </div>
+
+      <div id="serviceGrid" class="grid grid-2 grid-4">
+        <!-- Cards will be inserted by JS -->
       </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Slide 3" />
-        <div class="slide-text">
-          <h2>Festive Looks</h2>
-          <p>New Launches</p>
-        </div>
+
+      <div class="benefits-bar">
+        <div class="benefit"><i data-lucide="sparkles"></i> Free Cleaning</div>
+        <div class="benefit"><i data-lucide="truck"></i> Free Shipping</div>
+        <div class="benefit"><i data-lucide="package"></i> Easy Returns</div>
+
+        <div class="benefit"><i data-lucide="sparkles"></i> Free of Hassle</div>
       </div>
+    </section>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!--End of service section-->
+
+    <!-- Quick View Section -->
+     <div class="quick-view">
+    <div class="quick-view-header">
+      <h2>QuickView</h2>
+      <button class="view-all">
+        View All
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
-    <button class="nav-btn nav-left" onclick="prevSlide()"><i data-lucide="chevron-left"></i></button>
-    <button class="nav-btn nav-right" onclick="nextSlide()"><i data-lucide="chevron-right"></i></button>
-  </div>
 
-  <!-- Category Section -->
-  <div id="category-text">
-    <h2 class="typewriter">Shop by Category</h2>
+    <div class="swiper-container swiper">
+      <div class="swiper-wrapper" id="product-list">
+        <!-- Product Slides injected via JS -->
+      </div>
+
+      <!-- Navigation -->
+      <div class="swiper-button-prev custom-nav"></div>
+      <div class="swiper-button-next custom-nav"></div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
-  <!-- Bottom Navigation -->
-  <nav class="bottom-nav">
-    <button class="active-btn">
-      <span><a href="index.html">
-      <i data-lucide="home"></i>
-      Home
-      </a></span>
-    </button>
+    <!-- End of Quick View Section -->
+
+
+
     
-
-    <button class="active-btn">
-      <span><a href="HTML/shop.html">
-      <i data-lucide="search"></i>
-      Shop
-      </a></span>
-    </button>
-    <button>
-
-      <div class="center-icon">
-        <i data-lucide="plus-circle" style="color: white;"></i>
+    <!-- Footer Section -->
+     <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__socials">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          
+        </div>
+        
       </div>
-      <span style="margin-top: 4px;">Feed</span>
-    </button>
-    <button class="active-btn">
-      <i data-lucide="grid"></i>
-      <span>Categories</span>
-    </button>
 
-    <button class="active-btn">
-      <span><a href="HTML/wishlist.html">
-      <i data-lucide="heart"></i>
-      Wishlist
-      </a></span>
-    </button>
-  </nav>
+      <div class="footer__accordion">
+        <div class="accordion-item">
+          <button class="accordion-toggle">Community</button>
+          <div class="accordion-content">
+            <ul>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Stories</a></li>
+            </ul>
+          </div>
+        </div>
 
-  <!-- Scripts -->
-  <script>
-    lucide.createIcons();
+        <div class="accordion-item">
+          <button class="accordion-toggle">Information</button>
+          <div class="accordion-content">
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">How It Works</a></li>
+            </ul>
+          </div>
+        </div>
 
-    // Hero Section Script
-    const slides = document.getElementById('slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    let index = 0;
+        <div class="accordion-item">
+          <button class="accordion-toggle">Contact Us</button>
+          <div class="accordion-content">
+            <ul>
+              <li><a href="#">support@stylerent.com</a></li>
+              <li><a href="#">+91 1234567890</a></li>
+            </ul>
+          </div>
+        </div>
 
-    function updateSlide() {
-      slides.style.transform = `translateX(-${index * 100}%)`;
-    }
+        <div class="accordion-item">
+          <button class="accordion-toggle">Terms</button>
+          <div class="accordion-content">
+            <ul>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Refund Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-    function nextSlide() {
-      index = (index + 1) % totalSlides;
-      updateSlide();
-    }
+      <div class="footer__newsletter">
+        <h3>Join Our Mailing List</h3>
+        <form>
+          <input type="email" placeholder="Email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </footer>
+    <!-- End of Footer Section -->
 
-    function prevSlide() {
-      index = (index - 1 + totalSlides) % totalSlides;
-      updateSlide();
-    }
 
-    setInterval(nextSlide, 3000); // auto-slide every 3s
-  </script>
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button class="active-btn">
+        <span
+          ><a href="index.html">
+            <i data-lucide="home"></i>
+            Home
+          </a></span
+        >
+      </button>
 
-  <script src="website.js"></script>
+      <button class="active-btn">
+        <span
+          ><a href="HTML/shop.html">
+            <i data-lucide="search"></i>
+            Shop
+          </a></span
+        >
+      </button>
+      <button>
+        <div class="center-icon">
+          <i data-lucide="plus-circle" style="color: white"></i>
+        </div>
+        <span style="margin-top: 4px">Feed</span>
+      </button>
+      <button class="active-btn">
+        <i data-lucide="grid"></i>
+        <span>Categories</span>
+      </button>
 
-</body>
+      <button class="active-btn">
+        <span
+          ><a href="HTML/wishlist.html">
+            <i data-lucide="heart"></i>
+            Wishlist
+          </a></span
+        >
+      </button>
+    </nav>
+
+    <!-- Scripts -->
+    <script>
+      lucide.createIcons();
+
+      // Hero Section Script
+      const slides = document.getElementById("slides");
+      const totalSlides = document.querySelectorAll(".slide").length;
+      let index = 0;
+
+      function updateSlide() {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      function nextSlide() {
+        index = (index + 1) % totalSlides;
+        updateSlide();
+      }
+
+      function prevSlide() {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateSlide();
+      }
+
+      setInterval(nextSlide, 3000); // auto-slide every 3s
+    </script>
+
+    <script src="website.js"></script>
+  </body>
 </html>

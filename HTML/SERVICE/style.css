@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color:rgb(245, 240, 240);
+}
+
+
+.service-section {
+  padding: 4rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.header p {
+  color: #4B5563;
+  font-size: 1.2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr); 
+  gap: 1.5rem;
+ 
+
+}
+
+@media (min-width: 768px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background-color: #E6D5C3;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  background-color: white;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.card-icon-inner {
+  width: 48px;
+  height: 48px;
+  background-color: #8D1C23;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .front,
+.card .back {
+  position: absolute;
+  inset: 0;
+  padding: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+.card .back {
+  background-color: #8D1C23;
+  color: white;
+  opacity: 0;
+}
+
+.card:hover .front {
+  opacity: 0;
+}
+
+.card:hover .back {
+  opacity: 1;
+}
+
+.card-number {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 9999px;
+  width: 32px;
+  height: 32px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.back ul {
+  text-align: left;
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.back li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.benefits-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.benefits-bar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .benefits-bar {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+.lucide {
+  width: 20px;
+  height: 20px;
+  color: #8D1C23;
+}
