@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Section</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <button id="openCartBtn" class="btn">Open Cart</button>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="cart-left">
+        <div class="cart-header">
+          <h2>Shopping Cart</h2>
+          <button id="closeCartBtn" class="close-btn">×</button>
+        </div>
+
+        <div id="cartItemsContainer" class="cart-items"></div>
+
+        <div id="emptyMessage" class="hidden empty">
+          <p>Your cart is empty!</p>
+          <button class="btn" onclick="closeCart()">Continue Shopping</button>
+        </div>
+      </div>
+
+      <div class="cart-right">
+        <h3>Price Details</h3>
+        <div class="summary">
+          <div><span>Subtotal:</span><span id="subtotal">₹0</span></div>
+          <div><span>Deposit:</span><span id="deposit">₹0</span></div>
+          <div><span>Convenience Fee:</span><span id="fee">₹99</span></div>
+          <div class="total"><span>Total:</span><span id="total">₹0</span></div>
+        </div>
+        <button class="btn full" onclick="placeOrder()">Place Order</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

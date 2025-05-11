@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support Section</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind Config (Optional: custom colors)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#8D1C23'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* For smooth dropdown visibility transition */
+    .group:hover .group-hover\:visible {
+      visibility: visible;
+    }
+    .group:hover .group-hover\:opacity-100 {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Support Section -->
+  <div class="bg-black text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 h-10 flex items-center justify-end">
+      <!-- Support Dropdown -->
+      <div class="group relative">
+        <button class="flex items-center gap-2 py-2">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 10h.01M12 14h.01M16 10h.01M9 16h6a4 4 0 004-4V7a4 4 0 00-4-4H9a4 4 0 00-4 4v5a4 4 0 004 4z" />
+          </svg>
+          <span>Support</span>
+          <svg class="h-4 w-4 transform transition-transform group-hover:rotate-180" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <div class="absolute right-0 top-full w-80 bg-white text-gray-900 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+          <div class="p-4 space-y-4">
+
+            <!-- Contact Us -->
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-gray-100 rounded-full">
+                <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.586A1 1 0 0110 3.414l1.293 1.293a1 1 0 01.293.707V7a1 1 0 001 1h2.586a1 1 0 01.707.293L19 11.586a1 1 0 01.293.707V15a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-medium">Contact Us</h3>
+                <p class="text-primary">+91 959-959-5513</p>
+                <p class="text-xs text-gray-500">WhatsApp Enabled</p>
+              </div>
+            </div>
+
+            <!-- Email Us -->
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-gray-100 rounded-full">
+                <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V6a2 2 0 00-2-2H3a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-medium">Email Us</h3>
+                <p class="text-primary">care@saarvin.com</p>
+                <p class="text-xs text-gray-500">24/7 Support</p>
+              </div>
+            </div>
+
+            <!-- Working Hours -->
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-gray-100 rounded-full">
+                <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 6v6l4 2m4-10a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-medium">Working Hours</h3>
+                <p class="text-primary">10 AM - 7 PM</p>
+                <p class="text-xs text-gray-500">Monday to Saturday</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

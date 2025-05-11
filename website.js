@@ -300,10 +300,13 @@ const stories = [
           description: "Give your wardrobe in rent",
           icon: "search",
           benefits: [
-            "Wide range of designer outfits",
-            "Latest fashion trends",
-            "Multiple size options",
-            "High-quality fabrics",
+            "Fill out the form",
+            "Upload your clothes",
+            "Set your price",
+            "Choose your rental period",
+            "Get verified",
+            "Earn money",
+            "Get your clothes returned",
           ],
         },
         {
@@ -320,7 +323,7 @@ const stories = [
         },
         {
           id: 3,
-          title: "BORROW",
+          title: "RENT ",
           description: "Rent your favorite pieces hassle-free",
           icon: "package",
           benefits: [
