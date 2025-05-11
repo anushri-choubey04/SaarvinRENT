@@ -52,8 +52,8 @@
             <li><a href="#">About us</a></li>
             <li><a href="HTML/ListingForm.html">Listing</a></li>
             <li class="support-dropdown">
-            <a href="#" class="support-button">Support (10AM-9PM) ▼</a>
-            <div class="dropdown-menu">
+            <a href="#"  id="supportToggle" class="support-button">Support (10AM-9PM) ▼</a>
+            <div class="dropdown-menu" id="supportMenu">
               <div class="support-item">
                 <div class="support-icon">📞</div>
                 <div class="support-details">
@@ -90,10 +90,39 @@
     </header>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        lucide.createIcons();
+  document.addEventListener("DOMContentLoaded", function () {
+    lucide.createIcons();
+
+    const toggleBtn = document.getElementById("supportToggle");
+    const dropdown = document.getElementById("supportMenu");
+
+    // Run only for mobile
+    function isMobile() {
+      return window.innerWidth <= 610;
+    }
+
+    if (toggleBtn && dropdown) {
+      toggleBtn.addEventListener("click", function (e) {
+        if (!isMobile()) return; // avoid toggle on desktop
+
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle("show");
       });
-    </script>
+
+      document.addEventListener("click", function (e) {
+        if (
+          isMobile() &&
+          !dropdown.contains(e.target) &&
+          !toggleBtn.contains(e.target)
+        ) {
+          dropdown.classList.remove("show");
+        }
+      });
+    }
+  });
+</script>
+
 
     <!-- Story Section -->
     <div class="px-3 py-3">

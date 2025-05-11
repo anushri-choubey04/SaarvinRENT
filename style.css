@@ -137,71 +137,75 @@ body {
   display: none;
 }
 
- /* Support Dropdown */
-    .support-dropdown {
-      position: relative;
-    }
+/* Support Dropdown */
+.support-dropdown {
+  position: relative;
+}
 
-    .support-button {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      color: white;
-      text-decoration: none;
-    }
+.support-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
 
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background: white;
-      color: #111;
-      width: 300px;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      padding: 16px;
-      display: none;
-      z-index: 100;
-    }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  color: #111;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  display: none;
+  z-index: 100;
+}
 
-    .support-dropdown:hover .dropdown-menu {
-      display: block;
-    }
+.support-dropdown:hover .dropdown-menu {
+  display: block;
+}
 
-    .support-item {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
+.support-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
 
-    .support-icon {
-      background-color: #f3f3f3;
-      border-radius: 50%;
-      padding: 8px;
-      height: 32px;
-      width: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.support-icon {
+  background-color: #f3f3f3;
+  border-radius: 50%;
+  padding: 8px;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .support-details {
-      font-size: 14px;
-    }
+.support-details {
+  font-size: 14px;
+}
 
-    .support-title {
-      font-weight: 600;
-    }
+.support-title {
+  font-weight: 600;
+}
 
-    .support-content {
-      color: #8D1C23;
-    }
+.support-content {
+  color: #8d1c23;
+}
 
-    .support-subtext {
-      font-size: 12px;
-      color: gray;
-    }
+.support-subtext {
+  font-size: 12px;
+  color: gray;
+}
+
+
+  
+
 
 @media (max-width: 610px) {
   .menu {
@@ -234,14 +238,53 @@ body {
     right: 0;
   }
 
+  .support-dropdown {
+    width: 100%;
+  }
+
   .dropdown-menu {
-        right: auto;
-        left: 0;
-      }
+    position: static;
+    display:none;
+    width: 100%;
+    background-color: white;
+    box-shadow: none;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 10px;
+  }
+
+  .support-item {
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 12px;
+    
+  }
+
+  .support-icon {
+    padding: 6px;
+    height: 28px;
+    width: 28px;
+  }
+
+  .support-title,
+  .support-content,
+  .support-subtext {
+    text-align: left;
+  }
+
+  .dropdown-menu.show {
+    display: block;
+  }
+
+  .support-dropdown:hover .dropdown-menu {
+    display: none;
+  }
+ 
 }
+
+   
+
 /* end of nav bar css */
-
-
 
 /* CSS for the Hero Section */
 .hero {
@@ -334,8 +377,6 @@ body {
 }
 /* end of hero section css */
 
-
-
 /* CSS for the category section icon and shop by category */
 
 .typewriter {
@@ -402,8 +443,6 @@ body {
 }
 
 /*  end of CSS for the shop by category section */
-
-
 
 /* CSS for service section */
 .container-service {
@@ -578,12 +617,10 @@ body {
 }
 /* end of service section css */
 
-
-
 /* CSS for the QuickView Section */
 .quick-view {
   padding: 15px 16px;
-  background-color:#9ca3af;
+  background-color: #9ca3af;
   position: relative;
 }
 
@@ -623,7 +660,7 @@ body {
 }
 
 .swiper-slide {
-  background-color:rgb(249, 235, 235);
+  background-color: rgb(249, 235, 235);
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -684,7 +721,7 @@ body {
   color: black;
   background-color: rgba(255, 255, 255, 0.8);
   height: 2rem; /* smaller height */
-  width: 2rem;  /* smaller width */
+  width: 2rem; /* smaller width */
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
@@ -695,15 +732,11 @@ body {
   z-index: 10;
 }
 
-
 .custom-nav:hover {
   background-color: #fff;
-  
-  
 }
 
 .swiper-pagination {
-   
   left: 50%;
   transform: translateX(-50%);
   font-size: 20px;
@@ -715,7 +748,7 @@ body {
   height: 10px;
   background: black;
   opacity: 0.6;
-  margin:  6px ;
+  margin: 6px;
   margin-top: 15px;
 }
 
@@ -730,12 +763,9 @@ body {
 }
 /* end of quick view css */
 
-
-
-
 /* CSS for the Footer */
 .footer {
-  background-color:#9ca3af;
+  background-color: #9ca3af;
   color: white;
   padding: 3rem 1rem;
   position: relative;
@@ -802,7 +832,7 @@ body {
 }
 
 .accordion-toggle::after {
-  content: '▼';
+  content: "▼";
   transition: transform 0.3s ease;
 }
 
@@ -823,7 +853,6 @@ body {
 
 .accordion-content li {
   margin: 0.5rem 0;
-  
 }
 
 .accordion-content a {
@@ -899,8 +928,6 @@ body {
 }
 /* end of footer css */
 
-
-
 /* CSS for the Bottom Navigation Bar */
 .bottom-nav {
   position: fixed;
@@ -966,7 +993,6 @@ svg {
 }
 
 /* end of bottom nav css */
-
 
 /* CSS for the Scrollable Container */
 /* This CSS styles a scrollable container with hidden scrollbar. */

@@ -5,6 +5,19 @@
   <title>Stories + Listing Form</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 50;
+      font-weight: bold;
+    }
+    .close-btn:hover {
+      color: #168e04;
+    }
     .hide-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -14,34 +27,37 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800 min-h-screen flex items-center justify-center px-4 sm:px-6">
 
-  
+  <div class="relative w-full max-w-3xl mx-">
+    <div class="close-btn rounded-full w-5 h-5 flex items-center justify-center text-white  bg-opacity-50" onclick="goBack()">✖</div>
 
-    <div class="p-6 max-w-2xl mx-auto">
-      <form class="space-y-6 bg-white rounded-lg shadow-lg p-6" id="listingFormEl">
+    <div class="p-6 sm:p-8  bg-white rounded-lg shadow-lg">
+      <form class="space-y-6" id="listingFormEl">
+
+
         <!-- Full Name -->
         <div>
           <label for="name" class="block text-sm font-semibold text-gray-700">Full Name</label>
-          <input type="text" id="name" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm"/>
+          <input type="text" id="name" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm" />
         </div>
 
         <!-- Email -->
         <div>
           <label for="email" class="block text-sm font-semibold text-gray-700">Email</label>
-          <input type="email" id="email" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm"/>
+          <input type="email" id="email" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm" />
         </div>
 
         <!-- Phone -->
         <div>
           <label for="phone" class="block text-sm font-semibold text-gray-700">Phone Number</label>
-          <input type="tel" id="phone" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm"/>
+          <input type="tel" id="phone" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm" />
         </div>
 
         <!-- Gender -->
         <div>
           <label class="block text-sm font-semibold text-gray-700">Gender</label>
-          <div class="mt-2 space-x-6 flex">
+          <div class="mt-2 flex flex-wrap gap-6">
             <label class="inline-flex items-center gap-2">
               <input type="radio" name="gender" value="male" class="text-[#8D1C23] focus:ring-[#8D1C23]">
               <span>Male</span>
@@ -56,7 +72,7 @@
         <!-- Clothe Type -->
         <div>
           <label for="clotheType" class="block text-sm font-semibold text-gray-700">Clothe Type</label>
-          <select id="clotheType" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm">
+          <select id="clotheType" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm">
             <option value="">Select type</option>
             <option value="lehenga">Lehenga</option>
             <option value="gown">Gown</option>
@@ -70,7 +86,7 @@
         <!-- Size -->
         <div>
           <label for="size" class="block text-sm font-semibold text-gray-700">Size</label>
-          <select id="size" required class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm">
+          <select id="size" required class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-[#8D1C23] focus:ring-[#8D1C23] focus:ring-1 transition sm:text-sm">
             <option value="">Select size</option>
             <option value="XS">XS</option>
             <option value="S">S</option>
@@ -83,7 +99,7 @@
         <!-- Description -->
         <div>
           <label for="description" class="block text-sm font-semibold text-gray-700">Description</label>
-          <textarea id="description" rows="4" required placeholder="Describe your clothing item..." class="mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-black focus:ring-black focus:ring-1 transition sm:text-sm"></textarea>
+          <textarea id="description" rows="4" required placeholder="Describe your clothing item..." class="mt-1 w-full rounded-md border border-gray-300 shadow-sm focus:border-black focus:ring-black focus:ring-1 transition sm:text-sm"></textarea>
         </div>
 
         <!-- Upload -->
@@ -93,12 +109,12 @@
             <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
             </svg>
-            <div class="text-sm text-gray-600 mt-2">
+            <div class="text-sm text-gray-600 mt-2 text-center">
               <label class="relative cursor-pointer bg-white rounded-md font-medium text-[#8D1C23] hover:text-[#701216]">
                 <span>Upload files</span>
                 <input type="file" multiple accept="image/*" class="sr-only">
               </label>
-              <p class="inline"> or drag and drop</p>
+              <span> or drag and drop</span>
             </div>
             <p class="text-xs text-gray-500 mt-1">PNG, JPG up to 10MB</p>
           </div>
@@ -148,6 +164,10 @@
     });
 
     overlay.addEventListener("click", closeModal);
+
+    function goBack() {
+        window.history.back();
+      }
   </script>
 
 </body>
