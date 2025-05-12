@@ -10,8 +10,8 @@ body {
 }
 
 .nav-container {
-  --color1: #fff;
-  --color2: #181818;
+  --color2: #fff;
+  --color1: #181818;
   background-color: var(--color2);
   color: var(--color1);
   position: sticky;
@@ -33,7 +33,7 @@ body {
 }
 
 .title {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 600;
   font-family: "Pacifico", cursive;
 }
@@ -50,11 +50,12 @@ body {
   width: 100%;
   padding: 0.5rem 2rem 0.5rem 1rem;
   border-radius: 9999px;
-  background-color: rgb(240, 241, 244);
+  background-color: #fff;
   border: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   outline: none;
   color: #333;
+  border: 1px solid rgb(1, 5, 18);
 }
 
 .search-box .lucide-search {
@@ -290,7 +291,7 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  height: 50vh;
+  height: 60vh;
   width: 90%;
   border-radius: 35px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -978,6 +979,8 @@ body {
 
 .center-icon svg {
   color: white;
+  align-self: center;
+  justify-content: center;
 }
 
 .active svg {

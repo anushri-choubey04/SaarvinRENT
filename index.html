@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAARVIN</title>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -27,7 +30,7 @@
     />
   </head>
 
-  <body class="bg-gray-100">
+  
     <!-- Starting nav bar -->
     <header>
       <nav class="nav-container">
@@ -51,36 +54,38 @@
             <li><a href="#">Home</a></li>
             <li><a href="#">About us</a></li>
             <li><a href="HTML/ListingForm.html">Listing</a></li>
-            
+
             <li class="support-dropdown">
-            <a href="#"  id="supportToggle" class="support-button">Support (10AM-9PM) ▼</a>
-            <div class="dropdown-menu" id="supportMenu">
-              <div class="support-item">
-                <div class="support-icon">📞</div>
-                <div class="support-details">
-                  <div class="support-title">Contact Us</div>
-                  <div class="support-content">+91 959-959-5513</div>
-                  <div class="support-subtext">WhatsApp Enabled</div>
+              <a href="#" id="supportToggle" class="support-button"
+                >Support (10AM-9PM) ▼</a
+              >
+              <div class="dropdown-menu" id="supportMenu">
+                <div class="support-item">
+                  <div class="support-icon">📞</div>
+                  <div class="support-details">
+                    <div class="support-title">Contact Us</div>
+                    <div class="support-content">+91 959-959-5513</div>
+                    <div class="support-subtext">WhatsApp Enabled</div>
+                  </div>
+                </div>
+                <div class="support-item">
+                  <div class="support-icon">✉️</div>
+                  <div class="support-details">
+                    <div class="support-title">Email Us</div>
+                    <div class="support-content">care@saarvin.com</div>
+                    <div class="support-subtext">24/7 Support</div>
+                  </div>
+                </div>
+                <div class="support-item">
+                  <div class="support-icon">⏰</div>
+                  <div class="support-details">
+                    <div class="support-title">Working Hours</div>
+                    <div class="support-content">10 AM - 7 PM</div>
+                    <div class="support-subtext">Monday to Saturday</div>
+                  </div>
                 </div>
               </div>
-              <div class="support-item">
-                <div class="support-icon">✉️</div>
-                <div class="support-details">
-                  <div class="support-title">Email Us</div>
-                  <div class="support-content">care@saarvin.com</div>
-                  <div class="support-subtext">24/7 Support</div>
-                </div>
-              </div>
-              <div class="support-item">
-                <div class="support-icon">⏰</div>
-                <div class="support-details">
-                  <div class="support-title">Working Hours</div>
-                  <div class="support-content">10 AM - 7 PM</div>
-                  <div class="support-subtext">Monday to Saturday</div>
-                </div>
-              </div>
-            </div>
-          </li>
+            </li>
             <li><a href="HTML/login/login.html">Sign in/LogIn</a></li>
             <label for="check" class="close-menu"
               ><i class="fas fa-times"></i
@@ -91,39 +96,38 @@
     </header>
 
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    lucide.createIcons();
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
 
-    const toggleBtn = document.getElementById("supportToggle");
-    const dropdown = document.getElementById("supportMenu");
+        const toggleBtn = document.getElementById("supportToggle");
+        const dropdown = document.getElementById("supportMenu");
 
-    // Run only for mobile
-    function isMobile() {
-      return window.innerWidth <= 610;
-    }
+        // Run only for mobile
+        function isMobile() {
+          return window.innerWidth <= 610;
+        }
 
-    if (toggleBtn && dropdown) {
-      toggleBtn.addEventListener("click", function (e) {
-        if (!isMobile()) return; // avoid toggle on desktop
+        if (toggleBtn && dropdown) {
+          toggleBtn.addEventListener("click", function (e) {
+            if (!isMobile()) return; // avoid toggle on desktop
 
-        e.preventDefault();
-        e.stopPropagation();
-        dropdown.classList.toggle("show");
-      });
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle("show");
+          });
 
-      document.addEventListener("click", function (e) {
-        if (
-          isMobile() &&
-          !dropdown.contains(e.target) &&
-          !toggleBtn.contains(e.target)
-        ) {
-          dropdown.classList.remove("show");
+          document.addEventListener("click", function (e) {
+            if (
+              isMobile() &&
+              !dropdown.contains(e.target) &&
+              !toggleBtn.contains(e.target)
+            ) {
+              dropdown.classList.remove("show");
+            }
+          });
         }
       });
-    }
-  });
-</script>
-
+    </script>
 
     <!-- Story Section -->
     <div class="px-3 py-3">
@@ -212,7 +216,6 @@
       </div>
     </div>
 
-
     <!-- Hero Section -->
     <div class="hero">
       <div class="slides" id="slides">
@@ -256,13 +259,12 @@
     </div>
     <!-- Hero Section End -->
 
-
     <!-- Category Section -->
     <div id="category-text">
       <h2 class="typewriter">Shop by Category</h2>
     </div>
     <!-- Category Section Icon-->
-    <div id="categories"  class="bg-gray-300 py-10 px-6 rounded-xl mx-auto">
+    <div id="categories" class="bg-gray-300 py-10 px-6 rounded-xl mx-auto">
       <div class="max-w-7xl mx-auto">
         <!-- Dynamic Categories Container -->
         <div
@@ -272,7 +274,6 @@
       </div>
     </div>
     <!--  End Category Section  -->
-  
 
     <!-- Service Section -->
     <section class="container-service">
@@ -300,46 +301,54 @@
     <!--End of service section-->
 
     <!-- Quick View Section -->
-     <div class="quick-view">
-    <div class="quick-view-header">
-      <h2>QuickView</h2>
-      <button class="view-all">
-        View All
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-
-    <div class="swiper-container swiper">
-      <div class="swiper-wrapper" id="product-list">
-        <!-- Product Slides injected via JS -->
+    <div class="quick-view">
+      <div class="quick-view-header">
+        <h2>QuickView</h2>
+        <button class="view-all">
+          View All
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              d="M9 5l7 7-7 7"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
       </div>
 
-      <!-- Navigation -->
-      <div class="swiper-button-prev custom-nav"></div>
-      <div class="swiper-button-next custom-nav"></div>
+      <div class="swiper-container swiper">
+        <div class="swiper-wrapper" id="product-list">
+          <!-- Product Slides injected via JS -->
+        </div>
 
-      <!-- Pagination -->
-      <div class="swiper-pagination"></div>
+        <!-- Navigation -->
+        <div class="swiper-button-prev custom-nav"></div>
+        <div class="swiper-button-next custom-nav"></div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
     </div>
-  </div>
     <!-- End of Quick View Section -->
 
-
-
-    
     <!-- Footer Section -->
-     <footer class="footer">
+    <footer class="footer">
       <div class="footer__top">
         <div class="footer__socials">
           <a href="#"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          
+
           <a href="#"><i class="fab fa-youtube"></i></a>
           <a href="#"><i class="fab fa-x-twitter"></i></a>
           <a href="#"><i class="fab fa-facebook-f"></i></a>
-          
         </div>
-        
       </div>
 
       <div class="footer__accordion">
@@ -385,7 +394,7 @@
       </div>
 
       <div class="footer__newsletter">
-        <h3>Join us to get first free rental service </h3>
+        <h3>Join us to get first free rental service</h3>
         <form>
           <input type="email" placeholder="Email" required />
           <button type="submit">Subscribe</button>
@@ -393,7 +402,6 @@
       </div>
     </footer>
     <!-- End of Footer Section -->
-
 
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
