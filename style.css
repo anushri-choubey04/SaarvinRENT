@@ -764,16 +764,19 @@ body {
 }
 /* end of quick view css */
 
-/* CSS for the Footer */
+/* CSS for the Footer*/ 
 .footer {
   background-color: #9ca3af;
   color: white;
-  padding: 3rem 1rem;
+  
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10vh;
+  margin-bottom: 4rem;
+  
+  padding: 2rem;
+  
 }
 
 .footer__top {
@@ -796,7 +799,7 @@ body {
 
 .footer__socials i:hover {
   transform: scale(1.1);
-  color: #rgb(63, 60, 60);
+  color: rgb(63, 60, 60);
 }
 
 .footer__container {
@@ -807,10 +810,10 @@ body {
   gap: 2rem;
 }
 
-/* Accordion Styles */
+
 .footer__accordion {
   width: 100%;
-  color: #rgb(63, 60, 60);
+  color: rgb(63, 60, 60);
 }
 
 .accordion-item {
@@ -857,11 +860,11 @@ body {
 }
 
 .accordion-content a {
-  color: #rgb(28, 30, 28);
+  color: rgb(28, 30, 28);
   text-decoration: none;
 }
 
-/* Newsletter */
+
 .footer__newsletter {
   width: 100%;
   text-align: center;
@@ -893,14 +896,14 @@ body {
   cursor: pointer;
 }
 
-/* Responsive layout for desktop */
+
 @media (min-width: 768px) {
   .footer__container {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     gap: 3rem;
-    padding: 0 5rem;
+    
   }
 
   .footer__accordion,
@@ -927,7 +930,7 @@ body {
     flex-shrink: 0;
   }
 }
-/* end of footer css */
+/*end of footer css */
 
 /* CSS for the Bottom Navigation Bar */
 .bottom-nav {

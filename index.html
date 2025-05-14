@@ -338,6 +338,28 @@
     </div>
     <!-- End of Quick View Section -->
 
+    <!-- footer Section -->
+      <div class="footer" id="footer"></div>
+      <script>
+  // Load footer.html using fetch
+  fetch("footer.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.text();
+    })
+    .then((html) => {
+      document.getElementById("footer").innerHTML = html;
+    })
+    .catch((error) => {
+      console.error("Error loading footer:", error);
+    });
+</script>
+
+
+
+
     <!-- Footer Section -->
     <footer class="footer">
       <div class="footer__top">
