@@ -264,7 +264,7 @@ const stories = [
           "flex flex-col items-center group focus:outline-none ";
         
         button.onclick = () => {
-          window.location.href = `/categories/${category.id}`;
+          window.location.href = `/categories/${category.id}.html`;
         };
 
         const iconHTML = category.isImage

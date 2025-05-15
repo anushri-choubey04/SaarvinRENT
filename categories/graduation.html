@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graduation Collection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-top: 1px solid #ccc;
+      background-color: #fff;
+    }
+    .filters select {
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .grid {
+      display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for mobile */
+  gap: 1rem;
+
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+    }
+    .card:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+    .card .like-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      padding: 5px 8px;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    .card-body h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+    }
+    .price {
+      margin-top: 0.5rem;
+    }
+    .price .current {
+      color: #c53030;
+      font-weight: 600;
+    }
+    .price .original {
+      text-decoration: line-through;
+      color: #777;
+      font-size: 0.85rem;
+    }
+    .deposit {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 4px;
+    }
+    .sizes {
+      margin-top: 8px;
+    }
+    .size {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      margin-right: 4px;
+    }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 800px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #150303;
+      cursor: pointer;
+      z-index: 10;
+      font-weight: bold;
+    }
+    .close-btn:hover {
+      color: #168e04;
+    }
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .modal-body {
+        flex-direction: row;
+      }
+      .modal-body img {
+        max-width: 50%;
+        margin-right: 20px;
+      }
+      .modal-body div {
+        max-width: 40%;
+      }
+      .container {
+        padding: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 2fr));
+      }
+      .grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  } 
+    }
+    .modal img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 8px;
+    }
+    .modal h2 {
+      margin-bottom: 10px;
+    }
+    .modal .price {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .modal button {
+      padding: 0.5rem 1rem;
+      background-color: #c53030;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="filters">
+    <h2>Collections</h2>
+    <select>
+      <option value="popular">Sort by: Popular</option>
+      <option value="price-low">Price: Low to High</option>
+      <option value="price-high">Price: High to Low</option>
+      <option value="newest">Newest First</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <div class="grid" id="productGrid">
+      <!-- Products injected via JS -->
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">&times;</button>
+      <div class="modal-body" id="modalContent">
+        <!-- Product detail injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      {
+        id: '1',
+        name: 'Powder Blue Anarkali With Dupatta',
+        price: 400,
+        deposit: 3000,
+        mrp: 25000,
+        image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=600&fit=crop',
+        sizes: ['S','M', 'L']
+      },
+      {
+        id: '2',
+        name: 'Golden Anarkali With Pearl Work',
+        price: 700,
+        deposit: 2000,
+        mrp: 35000,
+        image: 'https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?w=400&h=600&fit=crop',
+        sizes: ['M', 'L', 'XL']
+      },
+      {
+        id: '3',
+        name: 'Magenta Pink Bridal Anarkali',
+        price: 750,
+        deposit: 3000,
+        mrp: 10800,
+        image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400&h=600&fit=crop',
+        sizes: ['S', 'M']
+      },
+      {
+        id: '4',
+        name: 'Maroon Embroidered Anarkali',
+        price: 900,
+        deposit: 2000,
+        mrp: 55000,
+        image: 'https://images.unsplash.com/photo-1585487000457-34b4c5839b8b?w=400&h=600&fit=crop',
+        sizes: ['M', 'L']
+      }
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    const productModal = document.getElementById('productModal');
+    const modalContent = document.getElementById('modalContent');
+    const closeModal = document.getElementById('closeModal');
+
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <button class="like-btn">❤️</button>
+        <div class="card-body">
+          <h3>${product.name}</h3>
+          <div class="price">
+            <span class="current">₹${product.price}</span>
+            <span class="original">MRP ₹${product.mrp}</span>
+          </div>
+          <div class="deposit">+₹${product.deposit} refundable deposit</div>
+          <div class="sizes">
+            ${product.sizes.map(size => `<span class="size">${size}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      card.onclick = () => {
+        modalContent.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <div>
+            <h2>${product.name}</h2>
+            <div class="price">
+              ₹${product.price} <span class="original">MRP ₹${product.mrp}</span>
+            </div>
+            <p>+₹${product.deposit} refundable deposit</p>
+            <p>Sizes: ${product.sizes.join(', ')}</p>
+            <button>Rent Now</button>
+          </div>
+        `;
+        productModal.style.display = 'flex';
+      };
+      productGrid.appendChild(card);
+    });
+
+    closeModal.onclick = () => productModal.style.display = 'none';
+    window.onclick = e => {
+      if (e.target === productModal) productModal.style.display = 'none';
+    };
+  </script>
+
+</body>
+</html>

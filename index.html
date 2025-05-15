@@ -43,7 +43,7 @@
           </div>
 
           <div class="icons">
-            <button><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
+            <button > <i data-lucide="shopping-cart"  class="h-6 w-6" ></i></button>
             <label for="check" class="open-menu"
               ><i class="fas fa-bars"></i
             ></label>
@@ -338,24 +338,8 @@
     </div>
     <!-- End of Quick View Section -->
 
-    <!-- footer Section -->
-      <div class="footer" id="footer"></div>
-      <script>
-  // Load footer.html using fetch
-  fetch("footer.html")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.text();
-    })
-    .then((html) => {
-      document.getElementById("footer").innerHTML = html;
-    })
-    .catch((error) => {
-      console.error("Error loading footer:", error);
-    });
-</script>
+    
+    
 
 
 
@@ -451,13 +435,15 @@
         <span style="margin-top: 4px">Feed</span>
       </button>
       <button class="active-btn">
+        <span><a href="CATEGORYbottom/bottomICON.html">
         <i data-lucide="grid"></i>
-        <span>Categories</span>
+        Categories
+              </a>
+        </span>
       </button>
 
       <button class="active-btn">
-        <span
-          ><a href="HTML/wishlist.html">
+        <span><a href="HTML/wishlist.html">
             <i data-lucide="heart"></i>
             Wishlist
           </a></span
