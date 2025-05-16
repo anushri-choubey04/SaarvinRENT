@@ -389,7 +389,7 @@ body {
   overflow: hidden;
   border-right: 1px solid #ede4e4;
   width: 0;
-  animation: typing 2s steps(40, end) infinite, blink 1.7s infinite;
+  animation: typing 2.5s steps(100, end) infinite, blink 0.1s infinite;
   padding: 0;
   margin: 0;
   text-align: left;
@@ -400,7 +400,7 @@ body {
     width: 0;
   }
   to {
-    width: 270px;
+    width: 400px;
   }
 }
 
@@ -424,9 +424,9 @@ body {
 
 .category-text {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInText 1.5s ease-out forwards;
-  animation-delay: 1s;
+  transform: translateY(100px);
+  animation: fadeInText 2s ease-out forwards;
+  animation-delay: 2s;
   font-family: "Pacifico", cursive;
 
   max-width: 100%;
@@ -460,11 +460,12 @@ body {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  font-family: Georgia, serif;
 }
 
 .subtitle {
   font-size: 1.25rem;
-  color: #4b5563;
+  color:rgb(96, 94, 88);
 }
 
 .grid {
@@ -488,7 +489,7 @@ body {
 
 .card {
   position: relative;
-  background: #e6d5c3;
+  background:rgb(136, 135, 135);
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
@@ -569,7 +570,7 @@ body {
   width: 4px;
 }
 .hover-content ul::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgb(255, 255, 255, 0.4);
   border-radius: 2px;
 }
 
@@ -621,7 +622,7 @@ body {
 /* CSS for the QuickView Section */
 .quick-view {
   padding: 15px 16px;
-  background-color: #9ca3af;
+  background-color:rgb(211, 212, 213);
   position: relative;
 }
 
@@ -629,19 +630,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .quick-view-header h2 {
-  color: white;
+  color: black;
   font-size: 2.5rem;
   font-weight: bold;
+  margin: 1.5rem;
+  font-family: Georgia, serif;
 }
 
 .view-all {
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -688,7 +691,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(7, 3, 3, 0.2);
+  background: rgb(7, 3, 3, 0.2);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -766,7 +769,7 @@ body {
 
 /* CSS for the Footer*/ 
 .footer {
-  background-color: #9ca3af;
+  background-color:rgb(211, 212, 213);
   color: white;
   
   position: relative;
@@ -793,7 +796,7 @@ body {
 
 .footer__socials i {
   font-size: 24px;
-  color: white;
+  color: black;
   transition: transform 0.2s;
 }
 
@@ -826,7 +829,7 @@ body {
   background: none;
   border: none;
   padding: 1rem;
-  color: white;
+  color: black;
   font-size: 1rem;
   font-weight: bold;
   text-align: left;
@@ -868,6 +871,7 @@ body {
 .footer__newsletter {
   width: 100%;
   text-align: center;
+  color: rgb(63, 60, 60);
 }
 
 .footer__newsletter h3 {
@@ -885,15 +889,17 @@ body {
   padding: 0.75rem;
   border: none;
   border-radius: 4px;
+  
 }
 
 .footer__newsletter button {
   padding: 0.75rem;
-  background-color: rgb(63, 60, 60);
+  background-color: rgb(34, 32, 32);
   border: none;
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  color: white;
 }
 
 
@@ -944,7 +950,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 999;
+  
 }
 
 .active-btn {
@@ -958,6 +964,10 @@ body {
   gap: 4px;
   font-size: 16px;
   color: #333;
+  justify-content: center;
+  text-align: center;
+  
+
 }
 .active-btn:hover svg {
   color: #06c342; /* Highlight color on hover */
@@ -986,8 +996,10 @@ body {
   justify-content: center;
 }
 
-.active svg {
+.active-btn svg {
   color: #0d0102;
+  align-self: center;
+  justify-content: center;
 }
 
 svg {
@@ -997,6 +1009,13 @@ svg {
   justify-content: center;
   display: flex;
 }
+.active-btn i{
+  color: #0d0102;
+  font-size: 24px;
+  align-self: center;
+  justify-content: center;
+}
+ 
 
 /* end of bottom nav css */
 

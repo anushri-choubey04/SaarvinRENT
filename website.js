@@ -228,7 +228,7 @@ const stories = [
         {
           id: "ethnic",
           name: "ETHNIC WEAR",
-          icon: "🔔",
+          icon: "👗",
           count: "300+ Items",
           color: "bg-red-50 text-red-600",
         },
@@ -296,9 +296,9 @@ const stories = [
       const services = [
         {
           id: 1,
-          title: "LIST",
+          title: "Give on RENT",
           description: "Give your wardrobe in rent",
-          icon: "search",
+          icon: "upload",
           benefits: [
             "Fill out the form",
             "Upload your clothes",
@@ -311,9 +311,9 @@ const stories = [
         },
         {
           id: 2,
-          title: "FILTER",
+          title: "BROWSE",
           description: "Find the perfect outfit for your occasion",
-          icon: "filter",
+          icon: "search",
           benefits: [
             "Sort by occasion",
             "Filter by size & price",

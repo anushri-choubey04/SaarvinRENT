@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Category Page</title>
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <style>
     * {
@@ -28,25 +27,39 @@
     .sidebar {
       width: 25%;
       max-width: 220px;
-      border-right: 1px solid #ddd;
+      border-right: 1px solid #0d0101;
       padding: 20px;
       background: #f9f9f9;
     }
 
     .sidebar ul {
-      list-style: none;
+      list-style: symbols(none);
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+      font-weight: 500;
     }
 
     .sidebar li {
       padding: 12px 8px;
       cursor: pointer;
       font-size: 14px;
-      transition: background 0.2s;
+      transition: 0.2s;
+      font-family: Georgia, "Times New Roman", Times, serif;
     }
 
     .sidebar li:hover {
-      background-color: #eaeaea;
+      background-color: #c0b3b3;
       font-weight: bold;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      padding: 0 20px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      color: #168e04;
     }
 
     /* Main content */
@@ -63,7 +76,7 @@
 
     .item-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(140px, 2fr));
       gap: 16px;
     }
 
@@ -79,7 +92,7 @@
     .item img {
       width: 100%;
       height: auto;
-      border-radius: 4px;
+      border-radius: 30px;
     }
 
     .item p {
@@ -87,12 +100,7 @@
       font-size: 14px;
     }
 
-    .h2 {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-      padding: 0 20px;
-      color: #d44444;
-    }
+    /* Close button */
     .close-btn {
       position: absolute;
       top: 10px;
@@ -125,6 +133,7 @@
 
       #category-title {
         font-size: 18px;
+        font-family: Georgia, "Times New Roman", Times, serif;
       }
 
       .item-grid {
@@ -144,7 +153,6 @@
           <li data-category="MENS">MENS</li>
           <li data-category="WOMEN">WOMEN</li>
           <li data-category="KIDS">KIDS</li>
-          <li data-category="PARTY WEAR">PARTY WEAR</li>
         </ul>
       </aside>
 
@@ -180,28 +188,39 @@
               "https://images.unsplash.com/photo-1602810310596-fb6c92fcf4f7?w=400",
           },
         ],
-        TOPS: [
+        MENS: [
           {
-            title: "Tank Top",
-            image:
-              "https://images.unsplash.com/photo-1581447109203-6665f21356fa?w=400",
+            title: "Tuxedo",
+            image: "images/sherwani.jpeg",
           },
           {
-            title: "Graphic Tee",
+            title: "Sherwani",
+            image: "images/sherwani2.jpeg",
+          },
+          {
+            title: "Coat",
+            image: "images/coat.jpeg",
+          },
+          {
+            title: "Kurta",
+            image: "images/tuexdo.jpeg",
+          },
+        ],
+        WOMEN: [
+          {
+            title: "Lehenga",
+            image:
+              "https://images.unsplash.com/photo-1574323347407-11c966b768cd?w=400",
+          },
+          {
+            title: "Saree",
             image:
               "https://images.unsplash.com/photo-1622450408475-e7b2713b6ef7?w=400",
           },
         ],
-        BOTTOMS: [
+        KIDS: [
           {
-            title: "Denim Shorts",
-            image:
-              "https://images.unsplash.com/photo-1574323347407-11c966b768cd?w=400",
-          },
-        ],
-        DRESSES: [
-          {
-            title: "Maxi Dress",
+            title: "frock",
             image:
               "https://images.unsplash.com/photo-1592878849127-3e23b8d88b82?w=400",
           },
