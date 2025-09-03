@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YAARVIN</title>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .nav-container {
+        --color2: #fff;
+        --color1: #181818;
+        background-color: var(--color2);
+        color: var(--color1);
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-bar {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+      }
+
+      .title {
+        font-size: 1.9rem;
+        font-weight: 600;
+        font-family: "Pacifico", cursive;
+      }
+
+      .search-box {
+        max-width: 300px;
+
+        margin: 0 1rem;
+        position: relative;
+        width: 100%;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 0.5rem 2rem 0.5rem 1rem;
+        border-radius: 9999px;
+        background-color: #fff;
+        border: none;
+        font-size: 1rem;
+        outline: none;
+        color: #333;
+        border: 1px solid rgb(1, 5, 18);
+      }
+
+      .search-box .lucide-search {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+
+      .icons {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .icons button {
+        background: none;
+        border: none;
+        color: var(--color1);
+        cursor: pointer;
+      }
+
+      .menu {
+        display: flex;
+      }
+
+      .menu li {
+        padding-left: 30px;
+      }
+
+      .menu li a {
+        text-decoration: none;
+        color: var(--color1);
+        text-transform: uppercase;
+        position: relative;
+        transition: 0.15s ease-in-out;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .menu li a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color1);
+        transition: 0.15s ease-in-out;
+      }
+
+      .menu li a:hover::after {
+        width: 100%;
+      }
+
+      .open-menu,
+      .close-menu {
+        font-size: 1.5rem;
+        cursor: pointer;
+        display: none;
+        color: var(--color1);
+        position: relative;
+      }
+      .open-menu {
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        margin-top: 35px;
+      }
+      .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+      }
+
+      #check {
+        display: none;
+      }
+
+      /* Support Dropdown */
+      .support-dropdown {
+        position: relative;
+      }
+
+      .support-button {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        color: #111;
+        width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        padding: 16px;
+        display: none;
+        z-index: 100;
+      }
+
+      .support-dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .support-item {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .support-icon {
+        background-color: #f3f3f3;
+        border-radius: 50%;
+        padding: 8px;
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .support-details {
+        font-size: 14px;
+      }
+
+      .support-title {
+        font-weight: 600;
+      }
+
+      .support-content {
+        color: #8d1c23;
+      }
+
+      .support-subtext {
+        font-size: 12px;
+        color: gray;
+      }
+
+      @media (max-width: 610px) {
+        .menu {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 70%;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          right: -100%;
+          background-color: var(--color2);
+          z-index: 100;
+          transition: all 0.2s ease-in-out;
+        }
+
+        .menu li {
+          margin-top: 15px;
+        }
+        .menu li a {
+          padding: 25px;
+        }
+
+        .open-menu,
+        .close-menu {
+          display: block;
+        }
+
+        #check:checked ~ .menu {
+          right: 0;
+        }
+
+        .support-dropdown {
+          width: 100%;
+        }
+
+        .dropdown-menu {
+          position: static;
+          display: none;
+          width: 100%;
+          background-color: white;
+          box-shadow: none;
+          border-radius: 6px;
+          padding: 12px;
+          margin-top: 10px;
+        }
+
+        .support-item {
+          flex-direction: row;
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+
+        .support-icon {
+          padding: 6px;
+          height: 28px;
+          width: 28px;
+        }
+
+        .support-title,
+        .support-content,
+        .support-subtext {
+          text-align: left;
+        }
+
+        .dropdown-menu.show {
+          display: block;
+        }
+
+        .support-dropdown:hover .dropdown-menu {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Starting nav bar -->
+    <header>
+      <nav class="nav-container">
+        <ul class="nav-bar">
+          <li class="title">Saarvin</li>
+
+          <div class="search-box">
+            <input type="text" placeholder="Search..." />
+            <i data-lucide="search"></i>
+          </div>
+
+          <div class="icons">
+            <button><i data-lucide="shopping-cart" class="h-6 w-6"></i></button>
+
+            <button><i data-lucide="map-pinned" class="h-6 w-6"></i></button>
+            <label for="check" class="open-menu"
+              ><i class="fas fa-bars"></i
+            ></label>
+          </div>
+
+          <input type="checkbox" id="check" />
+          <span class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="HTML/ListingForm.html">Listing</a></li>
+
+            <li class="support-dropdown">
+              <a href="#" id="supportToggle" class="support-button"
+                >Support (10AM-9PM) ▼</a
+              >
+              <div class="dropdown-menu" id="supportMenu">
+                <div class="support-item">
+                  <div class="support-icon">📞</div>
+                  <div class="support-details">
+                    <div class="support-title">Contact Us</div>
+                    <div class="support-content">+91 959-959-5513</div>
+                    <div class="support-subtext">WhatsApp Enabled</div>
+                  </div>
+                </div>
+                <div class="support-item">
+                  <div class="support-icon">✉️</div>
+                  <div class="support-details">
+                    <div class="support-title">Email Us</div>
+                    <div class="support-content">care@saarvin.com</div>
+                    <div class="support-subtext">24/7 Support</div>
+                  </div>
+                </div>
+                <div class="support-item">
+                  <div class="support-icon">⏰</div>
+                  <div class="support-details">
+                    <div class="support-title">Working Hours</div>
+                    <div class="support-content">10 AM - 7 PM</div>
+                    <div class="support-subtext">Monday to Saturday</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="HTML/login/login.html">Sign in/LogIn</a></li>
+            <label for="check" class="close-menu"
+              ><i class="fas fa-times"></i
+            ></label>
+          </span>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        lucide.createIcons();
+
+        const toggleBtn = document.getElementById("supportToggle");
+        const dropdown = document.getElementById("supportMenu");
+
+        // Run only for mobile
+        function isMobile() {
+          return window.innerWidth <= 610;
+        }
+
+        if (toggleBtn && dropdown) {
+          toggleBtn.addEventListener("click", function (e) {
+            if (!isMobile()) return; // avoid toggle on desktop
+
+            e.preventDefault();
+            e.stopPropagation();
+            dropdown.classList.toggle("show");
+          });
+
+          document.addEventListener("click", function (e) {
+            if (
+              isMobile() &&
+              !dropdown.contains(e.target) &&
+              !toggleBtn.contains(e.target)
+            ) {
+              dropdown.classList.remove("show");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

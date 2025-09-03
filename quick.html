@@ -1,32 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickView Carousel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  
+</head>
+<style>
+
 body {
   margin: 0;
-  font-family: sans-serif;
-  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
 }
-
 .quick-view {
   padding: 15px 16px;
-  background-color:rgb(102, 193, 231);
+  background-color:rgb(211, 212, 213);
   position: relative;
+  border-radius: 50px;
+  margin: 20px auto;
+  
 }
 
 .quick-view-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .quick-view-header h2 {
-  color: white;
-  font-size: 3rem;
+  color: black;
+  font-size: 2rem;
   font-weight: bold;
+  margin: 1.5rem;
+  font-family: Georgia, serif;
 }
 
 .view-all {
   background: none;
   border: none;
-  color: white;
+  color: black;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -46,7 +61,7 @@ body {
 }
 
 .swiper-slide {
-  background-color:rgb(249, 235, 235);
+  background-color: rgb(249, 235, 235);
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -58,9 +73,10 @@ body {
 
 .product-image {
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/4;
   width: 100%;
   overflow: hidden;
+  border-radius: 30px 20px 0 0;
 }
 
 .product-image img {
@@ -73,7 +89,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(7, 3, 3, 0.2);
+  background: rgb(7, 3, 3, 0.2);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -107,7 +123,7 @@ body {
   color: black;
   background-color: rgba(255, 255, 255, 0.8);
   height: 2rem; /* smaller height */
-  width: 2rem;  /* smaller width */
+  width: 2rem; /* smaller width */
   border-radius: 50%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
@@ -118,15 +134,11 @@ body {
   z-index: 10;
 }
 
-
 .custom-nav:hover {
   background-color: #fff;
-  
-  
 }
 
 .swiper-pagination {
-   
   left: 50%;
   transform: translateX(-50%);
   font-size: 20px;
@@ -138,7 +150,7 @@ body {
   height: 10px;
   background: black;
   opacity: 0.6;
-  margin:  6px ;
+  margin: 6px;
   margin-top: 15px;
 }
 
@@ -151,6 +163,33 @@ body {
   font-size: 20px !important; /* Smaller arrow icon */
   font-weight: bold;
 }
+</style>
+<body>
 
+  <div class="quick-view">
+    <div class="quick-view-header">
+      <h2>QuickView</h2>
+      <button class="view-all">
+        View All
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
 
+    <div class="swiper-container swiper">
+      <div class="swiper-wrapper" id="product-list">
+        <!-- Product Slides injected via JS -->
+      </div>
 
+      <!-- Navigation -->
+      <div class="swiper-button-prev custom-nav"></div>
+      <div class="swiper-button-next custom-nav"></div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

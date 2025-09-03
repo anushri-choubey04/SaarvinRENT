@@ -449,7 +449,7 @@ body {
 .container-service {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .text-center {
@@ -457,21 +457,21 @@ body {
 }
 
 .title-service {
-  font-size: 3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
   font-family: Georgia, serif;
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color:rgb(96, 94, 88);
 }
 
 .grid {
   display: grid;
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   grid-template-columns: repeat(2, 2fr);
 }
 
@@ -491,9 +491,9 @@ body {
   position: relative;
   background:rgb(136, 135, 135);
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.8rem;
   text-align: center;
-  height: 300px;
+  height: 280px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -624,6 +624,9 @@ body {
   padding: 15px 16px;
   background-color:rgb(211, 212, 213);
   position: relative;
+  border-radius: 50px;
+  margin: 20px auto;
+  
 }
 
 .quick-view-header {
@@ -635,7 +638,7 @@ body {
 
 .quick-view-header h2 {
   color: black;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 1.5rem;
   font-family: Georgia, serif;
@@ -676,9 +679,10 @@ body {
 
 .product-image {
   position: relative;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/4;
   width: 100%;
   overflow: hidden;
+  border-radius: 30px 20px 0 0;
 }
 
 .product-image img {
