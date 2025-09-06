@@ -291,7 +291,7 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  height: 60vh;
+  height: 65vh;
   width: 90%;
   border-radius: 35px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -302,6 +302,9 @@ body {
   display: flex;
   transition: transform 0.8s ease-in-out;
   height: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  
 }
 
 .slide {
@@ -323,8 +326,8 @@ body {
   position: absolute;
   bottom: 20%;
   left: 10%;
-  color: white;
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
 }
 
 .slide-text h2 {
@@ -363,7 +366,7 @@ body {
 
 @media (max-width: 610px) {
   .hero {
-    height: 500px;
+    height: 450px;
   }
   .slide-text h2 {
     font-size: 1.5rem;
@@ -1025,15 +1028,11 @@ body {
   color: #0d0102;
   align-self: center;
   justify-content: center;
-}
-
-svg {
   width: 24px;
   height: 24px;
-  align-self: center;
-  justify-content: center;
-  display: flex;
 }
+
+
 .active-btn i{
   color: #0d0102;
   font-size: 24px;
