@@ -237,22 +237,30 @@
         .menu {
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+          top: 0%;
+
+          padding: 0% 20px;
           width: 70%;
           height: 100vh;
           position: fixed;
-          top: 0;
           right: -100%;
           background-color: var(--color2);
           z-index: 100;
           transition: all 0.2s ease-in-out;
         }
+        nav.links{
+          margin-top: 30%;
+          padding: 10%;
+          gap: 1px;
+          justify-items: center;
+          justify-content: center;
+        }
 
         .menu li {
-          margin-top: 15px;
+          margin-top: 5px;
         }
         .menu li a {
-          padding: 25px;
+          padding: 5px;
         }
 
         .open-menu,
@@ -329,47 +337,49 @@
           </div>
 
           <input type="checkbox" id="check" />
-          <span class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="HTML/ListingForm.html">Listing</a></li>
+          <div class="menu">
+            <div class="nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="HTML/ListingForm.html">Listing</a></li>
 
-            <li class="support-dropdown">
-              <a href="#" id="supportToggle" class="support-button"
-                >Support (10AM-9PM) ▼</a
-              >
-              <div class="dropdown-menu" id="supportMenu">
-                <div class="support-item">
-                  <div class="support-icon">📞</div>
-                  <div class="support-details">
-                    <div class="support-title">Contact Us</div>
-                    <div class="support-content">+91 959-959-5513</div>
-                    <div class="support-subtext">WhatsApp Enabled</div>
+              <li class="support-dropdown">
+                <a href="#" id="supportToggle" class="support-button"
+                  >Support (10AM-9PM) ▼</a
+                >
+                <div class="dropdown-menu" id="supportMenu">
+                  <div class="support-item">
+                    <div class="support-icon">📞</div>
+                    <div class="support-details">
+                      <div class="support-title">Contact Us</div>
+                      <div class="support-content">+91 959-959-5513</div>
+                      <div class="support-subtext">WhatsApp Enabled</div>
+                    </div>
+                  </div>
+                  <div class="support-item">
+                    <div class="support-icon">✉️</div>
+                    <div class="support-details">
+                      <div class="support-title">Email Us</div>
+                      <div class="support-content">care@saarvin.com</div>
+                      <div class="support-subtext">24/7 Support</div>
+                    </div>
+                  </div>
+                  <div class="support-item">
+                    <div class="support-icon">⏰</div>
+                    <div class="support-details">
+                      <div class="support-title">Working Hours</div>
+                      <div class="support-content">10 AM - 7 PM</div>
+                      <div class="support-subtext">Monday to Saturday</div>
+                    </div>
                   </div>
                 </div>
-                <div class="support-item">
-                  <div class="support-icon">✉️</div>
-                  <div class="support-details">
-                    <div class="support-title">Email Us</div>
-                    <div class="support-content">care@saarvin.com</div>
-                    <div class="support-subtext">24/7 Support</div>
-                  </div>
-                </div>
-                <div class="support-item">
-                  <div class="support-icon">⏰</div>
-                  <div class="support-details">
-                    <div class="support-title">Working Hours</div>
-                    <div class="support-content">10 AM - 7 PM</div>
-                    <div class="support-subtext">Monday to Saturday</div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li><a href="HTML/login/login.html">Sign in/LogIn</a></li>
-            <label for="check" class="close-menu"
-              ><i class="fas fa-times"></i
-            ></label>
-          </span>
+              </li>
+              <li><a href="HTML/login/login.html">Sign in/LogIn</a></li>
+              <label for="check" class="close-menu"
+                ><i class="fas fa-times"></i
+              ></label>
+            </div>
+          </div>
         </ul>
       </nav>
     </header>

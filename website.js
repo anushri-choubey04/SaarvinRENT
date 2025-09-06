@@ -275,7 +275,7 @@ const stories = [
       <div class="w-24 h-24 ${category.color} rounded-full flex items-center justify-center mb-5 transition-transform duration-300 hover:scale-110 hover:shadow-lg relative">
         
         ${iconHTML}
-        <div class="absolute -top-1 -right-1 w-4 h-4 bg-black rounded-full animate-ping"></div>
+        
         
       </div>
       <div class="text-center max-w-[100px]">

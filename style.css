@@ -381,8 +381,8 @@ body {
 /* CSS for the category section icon and shop by category */
 
 .typewriter {
-  font-family: "Pacifico", cursive;
-  font-size: 3rem;
+  font-family: "Mier Book";
+  font-size: 3.2rem;
   color: #141313;
   margin-bottom: 0;
   white-space: nowrap;
@@ -390,9 +390,9 @@ body {
   border-right: 1px solid #ede4e4;
   width: 0;
   animation: typing 2.5s steps(100, end) infinite, blink 0.1s infinite;
-  padding: 0;
-  margin: 0;
-  text-align: left;
+  padding: 10px;
+  margin: 10px auto; /* Center horizontally */
+  text-align: center;
 }
 
 @keyframes typing {
@@ -411,29 +411,15 @@ body {
     border-color: transparent;
   }
 }
+
 #category-text {
   display: flex;
-  justify-content: center;
-  align-items: left;
-  height: 10vh;
-  margin-top: 10px;
-
-  left: 10px;
-  text-align: left;
-}
-
-.category-text {
-  opacity: 0;
-  transform: translateY(100px);
-  animation: fadeInText 2s ease-out forwards;
-  animation-delay: 2s;
-  font-family: "Pacifico", cursive;
-
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  position: relative;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  height: 8vh;
+  margin-top: 20px;
+  text-align: center;
+  
 }
 
 @keyframes fadeInText {
@@ -442,6 +428,28 @@ body {
     transform: translateY(0);
   }
 }
+
+/* Mobile responsive */
+@media (max-width: 610px) {
+  .typewriter {
+    font-size: 2.5rem;
+    width: 100%;
+    animation: typing 2.5s steps(30, end) infinite, blink 0.1s infinite;
+    margin: 20px auto;
+    text-align: center;
+  }
+}
+
+/* ✅ Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+
 
 /*  end of CSS for the shop by category section */
 
@@ -457,10 +465,11 @@ body {
 }
 
 .title-service {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 3.2rem;
+  margin:10px;
   margin-bottom: 1rem;
-  font-family: Georgia, serif;
+  font-family: "Mier Book";
+  padding: 10px;
 }
 
 .subtitle {
@@ -474,11 +483,21 @@ body {
   margin-top: 2rem;
   grid-template-columns: repeat(2, 2fr);
 }
+@media (max-width: 610px) {
+  .title-service  {
+    font-size: 2.3rem;
+    font-family: "Mier Book";
+    margin:1px auto;
+    padding: 1px;
+  }
+}
+ 
 
 @media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: repeat(2, 2fr);
   }
+  
 }
 
 @media (min-width: 1024px) {
@@ -602,6 +621,8 @@ body {
   .benefits-bar {
     grid-template-columns: repeat(5, 1fr);
   }
+
+  
 }
 
 .benefit {

@@ -26,10 +26,10 @@
       }
 
       .title-service {
-        font-size: 1.5rem;
-        font-weight: bold;
+        font-size: 3rem;
+        
         margin-bottom: 0.5rem;
-        font-family: Georgia, serif;
+        font-family: "Mier Book";
       }
 
       .subtitle {
@@ -44,6 +44,14 @@
         grid-template-columns: repeat(2, 2fr);
       }
 
+      @media (max-width: 610px) {
+  .title-service  {
+    font-size: 2rem;
+    font-family: "Mier Book";
+    margin:1px auto;
+    padding: 1px;
+  }
+}
       @media (min-width: 768px) {
         .grid-2 {
           grid-template-columns: repeat(2, 2fr);
@@ -170,6 +178,12 @@
       @media (min-width: 768px) {
         .benefits-bar {
           grid-template-columns: repeat(5, 1fr);
+        }
+
+        .title-service {
+          font-size: 1rem;
+          font-family: "Mier Book";
+          margin: 1px auto;
         }
       }
 
