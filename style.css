@@ -304,7 +304,6 @@ body {
   height: 100%;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  
 }
 
 .slide {
@@ -326,7 +325,7 @@ body {
   position: absolute;
   bottom: 20%;
   left: 10%;
-  color: black;
+  color: white;
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
 }
 
@@ -967,83 +966,64 @@ body {
 /*end of footer css */
 
 /* CSS for the Bottom Navigation Bar */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  border-top: 2px solid rgb(222, 230, 246);
-  height: 80px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  
-}
+      .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 2px solid rgb(222, 230, 246);
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 9999;
+  }
 
-.active-btn {
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-size: 16px;
-  color: #333;
-  justify-content: center;
-  text-align: center;
-  
+  .nav-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: #333;
+  }
 
-}
-.active-btn:hover svg {
-  color: #06c342; /* Highlight color on hover */
-  transform: scale(1.1); /* Slight zoom */
-  transition: all 0.2s ease;
-}
+  .nav-link:hover svg,
+  .nav-link:hover span {
+    color: #06c342;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+  }
 
-.active-btn:hover span {
-  color: #06c342;
-  transition: color 0.2s ease;
-}
+  .center-icon {
+    background-color: rgb(186, 43, 48);
+    border-radius: 50%;
+    padding: 12px;
+    margin-top: -24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
 
-.center-icon {
-  background-color: rgb(186, 43, 48);
-  border-radius: 50%;
-  padding: 12px;
-  margin-top: -24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 
-.center-icon svg {
-  color: white;
-  align-self: center;
-  justify-content: center;
-}
-
-.active-btn svg {
-  color: #0d0102;
-  align-self: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-}
-
-
-.active-btn i{
-  color: #0d0102;
-  font-size: 24px;
-  align-self: center;
-  justify-content: center;
-}
- 
-
+  @media (max-width: 768px) {
+    /* remove hover effects on touch devices */
+    .nav-link:hover svg,
+    .nav-link:hover span {
+      transform: none;
+      color: inherit;
+    }
+  }
 /* end of bottom nav css */
 
-/* CSS for the Scrollable Container */
+/* CSS for the  story Scrollable Container */
 /* This CSS styles a scrollable container with hidden scrollbar. */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
