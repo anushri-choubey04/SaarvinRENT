@@ -396,6 +396,7 @@ body {
   padding: 10px;
   margin: 10px auto; /* Center horizontally */
   text-align: center;
+  font-weight: bold;
 }
 
 @keyframes typing {
@@ -440,6 +441,8 @@ body {
     animation: typing 2s steps(30, end) forwards, blink .8s step-end infinite;
     margin: 20px auto;
     text-align: center;
+    
+    font-weight: bold;
   }
 }
 
@@ -470,7 +473,7 @@ body {
 .title-service {
   font-size: 3.2rem;
   margin:10px;
-  
+  font-weight: bold;
   font-family: "Mier Book";
   padding: 5px;
 }
@@ -654,11 +657,11 @@ body {
 
 /* CSS for the QuickView Section */
 .quick-view {
-  padding: 15px 35px;
-  background-color:rgb(211, 212, 213);
+  padding: 5px 35px;
+  
   position: relative;
   
-  margin: 24px auto;
+  margin: 20px auto;
   
 }
 
@@ -666,43 +669,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
-}
-
-.quick-view-header h2 {
   color: black;
   font-size: 3rem;
   font-weight: bold;
- margin: 1rem;
-  font-family: Georgia, serif;
-  justify-content: center;
-  align-items: center;
+ margin: 10px;
+  font-family: "Mier Book";
+  padding: 8px;
+  
 }
 
-.view-all {
-  background: none;
-  border: none;
-  color: black;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
 
-.view-all .icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 4px;
-}
+
+
 
 .swiper-container {
   position: relative;
   padding-top: 5px;
   padding-bottom: 5px;
+  
 }
 
 .swiper-slide {
-  background-color: rgb(249, 235, 235);
+  background-color: #cdcbcbff;
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -717,7 +705,9 @@ body {
   aspect-ratio: 4/4;
   width: 100%;
   overflow: hidden;
-  border-radius: 30px 20px 0 0;
+  border-radius: 30px 20px;
+  
+  
 }
 
 .product-image img {
@@ -730,7 +720,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(7, 3, 3, 0.2);
+  background: rgb(7, 3, 3, 0.6);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -751,7 +741,7 @@ body {
 
 .product-info p {
   margin: 4px 0;
-  color: #555;
+  color: black;
   font-size: 0.9rem;
 }
 
@@ -806,11 +796,18 @@ body {
 }
 
 @media (max-width: 610px) {
-  .quick-view-header h2 {
-    font-size: 2.2rem;
-    margin: 0.5rem;
+  .quick-view-header  {
+    font-size: 2.3rem;
+    margin: 1rem;
     text-align: center;
+    margin-top: 10px;
   }
+
+  .quick-view{
+    margin: 1px auto;
+  }
+
+ 
   
   .custom-nav {
     height: 1.5rem; /* even smaller height */

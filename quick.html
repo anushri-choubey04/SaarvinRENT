@@ -15,53 +15,40 @@ body {
   background: #f9f9f9;
 }
 .quick-view {
-  padding: 15px 16px;
-  background-color:rgb(211, 212, 213);
+  padding: 5px 35px;
+  
   position: relative;
-  border-radius: 50px;
+  
   margin: 20px auto;
   
 }
 
 .quick-view-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 3px;
-}
-
-.quick-view-header h2 {
   color: black;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin: 1.5rem;
-  font-family: Georgia, serif;
+ margin: 10px;
+  font-family: "Mier Book";
+  padding: 8px;
+  
 }
 
-.view-all {
-  background: none;
-  border: none;
-  color: black;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
 
-.view-all .icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 4px;
-}
+
+
 
 .swiper-container {
   position: relative;
   padding-top: 5px;
   padding-bottom: 5px;
+  
 }
 
 .swiper-slide {
-  background-color: rgb(249, 235, 235);
+  background-color: #cdcbcbff;
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -76,7 +63,9 @@ body {
   aspect-ratio: 4/4;
   width: 100%;
   overflow: hidden;
-  border-radius: 30px 20px 0 0;
+  border-radius: 30px 20px;
+  
+  
 }
 
 .product-image img {
@@ -89,7 +78,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(7, 3, 3, 0.2);
+  background: rgb(7, 3, 3, 0.6);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -110,7 +99,7 @@ body {
 
 .product-info p {
   margin: 4px 0;
-  color: #555;
+  color: black;
   font-size: 0.9rem;
 }
 
@@ -165,10 +154,23 @@ body {
 }
 
 @media (max-width: 610px) {
-  .quick-view-header h2 {
-    font-size: 2.2rem;
-    margin: 0.5rem;
+  .quick-view-header  {
+    font-size: 2.3rem;
+    margin: 1rem;
     text-align: center;
+    margin-top: 10px;
+  }
+
+  .quick-view{
+    margin: 1px auto;
+  }
+
+ 
+  
+  .custom-nav {
+    height: 1.5rem; /* even smaller height */
+    width: 1.5rem; /* even smaller width */
+    
   }
 }
 </style>
@@ -177,10 +179,7 @@ body {
   <div class="quick-view">
     <div class="quick-view-header">
       <h2>QuickView</h2>
-      <button class="view-all">
-        View All
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      
     </div>
 
     <div class="swiper-container swiper">
@@ -198,6 +197,98 @@ body {
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script >const quickViewButton = document.getElementById("quickViewButton");
+  const products = [
+  {
+    id: 1,
+    brand: 'MAYKR',
+    category: 'Smart Casual Wear',
+    price: 599,
+    image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=600&fit=crop'
+  },
+  {
+    id: 2,
+    brand: 'ISHRANSH',
+    category: "Women's Fancy Footwear",
+    price: 499,
+    image: 'https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?w=400&h=600&fit=crop'
+  },
+  {
+    id: 3,
+    brand: 'FIT & FLARE',
+    category: 'Designer Dresses',
+    price: 799,
+    image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400&h=600&fit=crop'
+  },
+  {
+    id: 4,
+    brand: 'ETHNIC PLUS',
+    category: 'Traditional Wear',
+    price: 899,
+    image: 'https://images.unsplash.com/photo-1594387303881-0c0bd29c0e10?w=400&h=600&fit=crop'
+  },
+  {
+    id: 5,
+    brand: 'URBAN STYLE',
+    category: 'Casual Collection',
+    price: 699,
+    image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=400&h=600&fit=crop'
+  },
+  {
+    id: 6,
+    brand: 'LUXE WEAR',
+    category: 'Premium Fashion',
+    price: 999,
+    image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=600&fit=crop'
+  }
+];
+
+// Inject products
+const productList = document.getElementById('product-list');
+
+products.forEach(product => {
+  const slide = document.createElement('div');
+  slide.className = 'swiper-slide';
+  slide.innerHTML = `
+    <div class="product-image">
+      <img src="${product.image}" alt="${product.brand}" />
+    </div>
+    <div class="product-info">
+      <h3>${product.brand}</h3>
+      <p>${product.category}</p>
+      <p class="price">Under ₹${product.price}</p>
+    </div>
+  `;
+  productList.appendChild(slide);
+});
+
+// Initialize Swiper
+new Swiper('.swiper', {
+  slidesPerView: 1.2,
+  spaceBetween: 16,
+  loop: true,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  breakpoints: {
+    480: { slidesPerView: 1.5 },
+    640: { slidesPerView: 2.2 },
+    768: { slidesPerView: 2.5 },
+    1024: { slidesPerView: 3.2 },
+    1280: { slidesPerView: 4.2 }
+  }
+});
+</script>
 </body>
 </html>
