@@ -475,29 +475,32 @@ body {
   padding: 5px;
 }
 
-.subtitle {
-  font-size: 1rem;
-  color:rgb(96, 94, 88);
-}
+
 
 .grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: 2rem;
   grid-template-columns: repeat(2, 2fr);
 }
 @media (max-width: 610px) {
 
   .container-service {
-    padding: 1rem 0.5rem;
+    padding: 4px 8px;
     margin:6px;
+    margin-top: 20px;
   }
 
   .title-service  {
-    font-size: 2.3rem;
+    font-size: 2.4rem;
     font-family: "Mier Book";
-    margin:4px auto;
+    margin:6px auto;
     padding: 4px;
+  }
+
+  .text-center {
+    text-align: center;
+    margin: 1px auto;
   }
 }
  
@@ -519,9 +522,9 @@ body {
   position: relative;
   background:rgb(136, 135, 135);
   border-radius: 1rem;
-  padding: 1.8rem;
+  padding: 1.1rem;
   text-align: center;
-  height: 280px;
+  height: 270px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -558,7 +561,7 @@ body {
   inset: 0;
   background: #8d1c23;
   color: white;
-  padding: 2rem;
+  padding: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
@@ -651,27 +654,29 @@ body {
 
 /* CSS for the QuickView Section */
 .quick-view {
-  padding: 15px 16px;
+  padding: 15px 35px;
   background-color:rgb(211, 212, 213);
   position: relative;
-  border-radius: 50px;
-  margin: 20px auto;
+  
+  margin: 24px auto;
   
 }
 
 .quick-view-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 3px;
+  
 }
 
 .quick-view-header h2 {
   color: black;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin: 1.5rem;
+ margin: 1rem;
   font-family: Georgia, serif;
+  justify-content: center;
+  align-items: center;
 }
 
 .view-all {
@@ -798,6 +803,20 @@ body {
 .swiper-button-prev::after {
   font-size: 20px !important; /* Smaller arrow icon */
   font-weight: bold;
+}
+
+@media (max-width: 610px) {
+  .quick-view-header h2 {
+    font-size: 2.2rem;
+    margin: 0.5rem;
+    text-align: center;
+  }
+  
+  .custom-nav {
+    height: 1.5rem; /* even smaller height */
+    width: 1.5rem; /* even smaller width */
+    
+  }
 }
 /* end of quick view css */
 
