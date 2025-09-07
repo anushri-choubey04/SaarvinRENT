@@ -30,6 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
   list-style: none;
+  font-weight:bold;
 }
 
 .title {
@@ -365,7 +366,7 @@ body {
 
 @media (max-width: 610px) {
   .hero {
-    height: 450px;
+    height: 400px;
   }
   .slide-text h2 {
     font-size: 1.5rem;
@@ -390,8 +391,8 @@ body {
   white-space: nowrap;
   overflow: hidden;
   border-right: 1px solid #ede4e4;
-  width: 0;
-  animation: typing 2.5s steps(100, end) infinite, blink 0.1s infinite;
+  width: min(400px, 100%);
+  animation: typing 2.5s steps(40, end) forwards, blink .8s step-end infinite;
   padding: 10px;
   margin: 10px auto; /* Center horizontally */
   text-align: center;
@@ -402,7 +403,7 @@ body {
     width: 0;
   }
   to {
-    width: 400px;
+    width: min(400px, 100%);
   }
 }
 
@@ -436,7 +437,7 @@ body {
   .typewriter {
     font-size: 2.5rem;
     width: 100%;
-    animation: typing 2.5s steps(30, end) infinite, blink 0.1s infinite;
+    animation: typing 2s steps(30, end) forwards, blink .8s step-end infinite;
     margin: 20px auto;
     text-align: center;
   }
@@ -458,7 +459,7 @@ body {
 /* CSS for service section */
 .container-service {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 4px auto;
   padding: 1rem 1rem;
 }
 
@@ -469,9 +470,9 @@ body {
 .title-service {
   font-size: 3.2rem;
   margin:10px;
-  margin-bottom: 1rem;
+  
   font-family: "Mier Book";
-  padding: 10px;
+  padding: 5px;
 }
 
 .subtitle {
@@ -486,11 +487,17 @@ body {
   grid-template-columns: repeat(2, 2fr);
 }
 @media (max-width: 610px) {
+
+  .container-service {
+    padding: 1rem 0.5rem;
+    margin:6px;
+  }
+
   .title-service  {
     font-size: 2.3rem;
     font-family: "Mier Book";
-    margin:1px auto;
-    padding: 1px;
+    margin:4px auto;
+    padding: 4px;
   }
 }
  
@@ -967,60 +974,64 @@ body {
 
 /* CSS for the Bottom Navigation Bar */
       .bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    border-top: 2px solid rgb(222, 230, 246);
-    height: 80px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 9999;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 2px solid rgb(222, 230, 246);
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+}
 
-  .nav-link {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    font-size: 14px;
-    color: #333;
-  }
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  padding: 8px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
 
-  .nav-link:hover svg,
-  .nav-link:hover span {
-    color: #06c342;
-    transform: scale(1.1);
-    transition: all 0.2s ease;
-  }
+.nav-link:hover,
+.nav-link:focus {
+  color: #06c342;
+}
 
-  .center-icon {
-    background-color: rgb(186, 43, 48);
-    border-radius: 50%;
-    padding: 12px;
-    margin-top: -24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
+.nav-link:hover i,
+.nav-link:focus i {
+  transform: scale(1.1);
+}
 
-  svg {
-    width: 24px;
-    height: 24px;
-  }
+.center-btn {
+  background-color: rgb(186, 43, 48);
+  color: #fff;
+  border-radius: 50%;
+  padding: 12px;
+  margin-top: -24px;
+}
 
-  @media (max-width: 768px) {
-    /* remove hover effects on touch devices */
-    .nav-link:hover svg,
-    .nav-link:hover span {
-      transform: none;
-      color: inherit;
-    }
+.nav-link i {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .nav-link:hover i,
+  .nav-link:hover,
+  .nav-link:focus i,
+  .nav-link:focus {
+    transform: none;
+    color: inherit;
   }
+}
+
 /* end of bottom nav css */
 
 /* CSS for the  story Scrollable Container */
