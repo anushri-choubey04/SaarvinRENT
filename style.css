@@ -30,7 +30,7 @@ body {
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .title {
@@ -205,10 +205,6 @@ body {
   color: gray;
 }
 
-
-  
-
-
 @media (max-width: 610px) {
   .menu {
     flex-direction: column;
@@ -246,7 +242,7 @@ body {
 
   .dropdown-menu {
     position: static;
-    display:none;
+    display: none;
     width: 100%;
     background-color: white;
     box-shadow: none;
@@ -259,7 +255,6 @@ body {
     flex-direction: row;
     gap: 10px;
     margin-bottom: 12px;
-    
   }
 
   .support-icon {
@@ -281,10 +276,7 @@ body {
   .support-dropdown:hover .dropdown-menu {
     display: none;
   }
- 
 }
-
-   
 
 /* end of nav bar css */
 
@@ -316,8 +308,8 @@ body {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit:cover ;
- 
+  object-fit: cover;
+
   margin: 0;
   padding: 0;
 }
@@ -370,13 +362,12 @@ body {
     width: 90%;
     border-radius: 35px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-        
   }
   .slide {
-        min-width: 100%;
-        height: 100%;
-        position: relative;
-      }
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+  }
   .slide-text h2 {
     font-size: 1.5rem;
   }
@@ -401,7 +392,7 @@ body {
   overflow: hidden;
   border-right: 1px solid #ede4e4;
   width: min(400px, 100%);
-  animation: typing 2.5s steps(40, end) forwards, blink .8s step-end infinite;
+  animation: typing 2.5s steps(40, end) forwards, blink 0.8s step-end infinite;
   padding: 10px;
   margin: 10px auto; /* Center horizontally */
   text-align: center;
@@ -428,11 +419,10 @@ body {
 #category-text {
   display: flex;
   justify-content: center; /* Center horizontally */
-  align-items: center;     /* Center vertically */
+  align-items: center; /* Center vertically */
   height: 8vh;
   margin-top: 20px;
   text-align: center;
-  
 }
 
 @keyframes fadeInText {
@@ -447,10 +437,10 @@ body {
   .typewriter {
     font-size: 2.5rem;
     width: 100%;
-    animation: typing 2s steps(30, end) forwards, blink .8s step-end infinite;
+    animation: typing 2s steps(30, end) forwards, blink 0.8s step-end infinite;
     margin: 20px auto;
     text-align: center;
-    
+
     font-weight: bold;
   }
 }
@@ -461,217 +451,138 @@ body {
 }
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE/Edge */
-  scrollbar-width: none;    /* Firefox */
+  scrollbar-width: none; /* Firefox */
 }
-
-
 
 /*  end of CSS for the shop by category section */
 
-/* CSS for service section */
-.container-service {
-  max-width: 1200px;
-  margin: 4px auto;
-  padding: 1rem 1rem;
-}
-
-.text-center {
+/* CSS for working section */
+.title-working {
   text-align: center;
-}
-
-.title-service {
-  font-size: 3.2rem;
-  margin:10px;
+  margin: 4px auto;
+  font-size: 3rem;
   font-weight: bold;
   font-family: "Mier Book";
-  padding: 5px;
+}
+.working-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+
+  margin: auto;
 }
 
+.how-it-works {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
 
-
-.grid {
-  display: grid;
-  gap: 1rem;
-  margin-top: 2rem;
-  grid-template-columns: repeat(2, 2fr);
-}
-@media (max-width: 610px) {
-
-  .container-service {
-    padding: 4px 8px;
-    margin:6px;
-    margin-top: 20px;
-  }
-
-  .title-service  {
-    font-size: 2.4rem;
-    font-family: "Mier Book";
-    margin:6px auto;
-    padding: 4px;
-  }
-
-  .text-center {
-    text-align: center;
-    margin: 1px auto;
-  }
-}
- 
-
-@media (min-width: 768px) {
-  .grid-2 {
-    grid-template-columns: repeat(2, 2fr);
-  }
-  
+  margin: auto;
 }
 
-@media (min-width: 1024px) {
-  .grid-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.card {
-  position: relative;
-  background:rgb(136, 135, 135);
-  border-radius: 1rem;
-  padding: 1.1rem;
-  text-align: center;
-  height: 270px;
+.working-saarvin {
+  flex: 1 1 300px;
+  max-width: 350px;
+  background: rgb(153, 153, 154);
+  border-radius: 8px;
   overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.icon-wrapper {
-  width: 4rem;
-  height: 4rem;
-  background: white;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-}
-
-.inner-icon {
-  background: #8d1c23;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.inner-icon svg {
-  color: white;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.hover-content {
-  position: absolute;
-  inset: 0;
-  background: #8d1c23;
-  color: white;
-  padding: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hover-content h3 {
-  flex-shrink: 0;
+.working-saarvin:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .hover-content {
-  opacity: 1;
+/* Image zoom effect */
+.working-saarvin img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  cursor: pointer;
 }
 
-.card:hover .default-content {
-  opacity: 0;
+.working-saarvin img:hover,
+.working-saarvin img:active {
+  transform: scale(1.08);
 }
 
-.hover-content ul {
-  text-align: left;
-  margin-top: 1rem;
-  padding-left: 0;
-  list-style: none;
-  flex: 1;
-  overflow-y: auto;
-}
-
-.hover-content li {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-
-  word-break: break-word;
-}
-.hover-content ul::-webkit-scrollbar {
-  width: 4px;
-}
-.hover-content ul::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 255, 255, 0.4);
-  border-radius: 2px;
-}
-
-.bottom-badge {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-}
-
-.benefits-bar {
-  margin-top: 4rem;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, 2fr);
+.card-saarvin {
+  padding: 10px;
+  color: #fff;
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .benefits-bar {
-    grid-template-columns: repeat(5, 1fr);
+.card-saarvin h3 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.card-saarvin p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.card-saarvin a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease;
+  font-size: 1.4rem;
+}
+
+.card-saarvin a:hover {
+  text-decoration: underline;
+  color: #e6e6e6;
+}
+
+@media (max-width: 600px) {
+  .title-working {
+    font-size: 2.4rem;
+    margin-bottom: 1px;
+    margin-top: 15px;
   }
 
-  
-}
+  .working-saarvin {
+    max-width: 100%;
+  }
 
-.benefit {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-}
+  .working-saarvin img {
+    height: 250px;
+    object-fit: cover;
+  }
 
-.benefit svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #8d1c23;
+  .card-saarvin h3 {
+    font-size: 1.6rem;
+  }
+
+  .card-saarvin p {
+    font-size: 0.8rem;
+  }
 }
-/* end of service section css */
+/* end of working section css */
 
 /* CSS for the QuickView Section */
 .quick-view {
-  padding: 5px 35px;
-  
+  padding: 5px 10px;
+
   position: relative;
-  
-  margin: 20px auto;
-  
+
+  margin: 0;
 }
 
 .quick-view-header {
@@ -679,23 +590,18 @@ body {
   justify-content: center;
   align-items: center;
   color: black;
-  font-size: 3rem;
+  font-size: 3.3rem;
   font-weight: bold;
- margin: 10px;
+  margin: 10px;
   font-family: "Mier Book";
   padding: 8px;
-  
+  margin-bottom: 25px;
 }
 
-
-
-
-
-.swiper-container {
+.swiper {
   position: relative;
   padding-top: 5px;
   padding-bottom: 5px;
-  
 }
 
 .swiper-slide {
@@ -715,8 +621,6 @@ body {
   width: 100%;
   overflow: hidden;
   border-radius: 30px 20px;
-  
-  
 }
 
 .product-image img {
@@ -805,40 +709,36 @@ body {
 }
 
 @media (max-width: 610px) {
-  .quick-view-header  {
-    font-size: 2.3rem;
-    margin: 1rem;
+  .quick-view-header {
+    font-size: 2.5rem;
+    margin: 5px auto;
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 15px;
   }
 
-  .quick-view{
+  .quick-view {
     margin: 1px auto;
   }
 
- 
-  
   .custom-nav {
     height: 1.5rem; /* even smaller height */
     width: 1.5rem; /* even smaller width */
-    
   }
 }
 /* end of quick view css */
 
-/* CSS for the Footer*/ 
+/* CSS for the Footer*/
 .footer {
-  background-color:rgb(211, 212, 213);
+  background-color: rgb(211, 212, 213);
   color: white;
-  
+
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 4rem;
-  
+
   padding: 2rem;
-  
 }
 
 .footer__top {
@@ -871,7 +771,6 @@ body {
   flex-direction: column;
   gap: 2rem;
 }
-
 
 .footer__accordion {
   width: 100%;
@@ -926,7 +825,6 @@ body {
   text-decoration: none;
 }
 
-
 .footer__newsletter {
   width: 100%;
   text-align: center;
@@ -948,7 +846,6 @@ body {
   padding: 0.75rem;
   border: none;
   border-radius: 4px;
-  
 }
 
 .footer__newsletter button {
@@ -961,14 +858,12 @@ body {
   color: white;
 }
 
-
 @media (min-width: 768px) {
   .footer__container {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     gap: 3rem;
-    
   }
 
   .footer__accordion,
@@ -998,7 +893,7 @@ body {
 /*end of footer css */
 
 /* CSS for the Bottom Navigation Bar */
-      .bottom-nav {
+.bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
