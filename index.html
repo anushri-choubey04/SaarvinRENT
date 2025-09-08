@@ -130,6 +130,7 @@
     </script>
 
     <!-- Story Section -->
+     <section class="md:hidden">
     <div class="px-3 py-3">
       <div
         id="stories-strip"
@@ -215,23 +216,25 @@
         </div>
       </div>
     </div>
+  </section>
+    <!-- End of Story Section -->
 
     <!-- Hero Section -->
     <div class="hero">
       <div class="slides" id="slides">
         <div class="slide">
           <img
-            src="https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?w=1200"
+            src="Hero/lehnga1.png"
             alt="Slide 1"
           />
           <div class="slide-text">
-            <h2>Western Fits</h2>
+            <h2>Ethnic Fits</h2>
             <p>Upto 60% Off</p>
           </div>
         </div>
         <div class="slide">
           <img
-            src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+            src="Hero/lehnga2.png"
             alt="Slide 2"
           />
           <div class="slide-text">
@@ -245,9 +248,43 @@
             alt="Slide 3"
           />
           <div class="slide-text">
-            <h2>Festive Looks</h2>
+            <h2>Western look</h2>
             <p>New Launches</p>
           </div>
+
+        </div>
+        <div class="slide">
+          <img
+            src="Hero/gown2.png"
+            alt="Slide 4"
+          />
+          <div class="slide-text">
+            <h2>Western vibes</h2>
+            <p>Exclusive</p>
+          </div>
+        </div>
+        
+        <div class="slide">
+          <img
+            src="ProductSection/IMAGES/sherwani.jpeg"
+            alt="Slide 5"
+          />
+          <div class="slide-text">
+            <h2>Mens look</h2>
+            <p>Rent Now</p>
+          </div>
+          
+        </div>
+        <div class="slide">
+          <img
+            src="ProductSection/IMAGES/sherwani2.jpeg"
+            alt="Slide 6"
+          />
+          <div class="slide-text">
+            <h2>Mens Wear</h2>
+            <p>Grab it</p>
+          </div>
+          
         </div>
       </div>
       <button class="nav-btn nav-left" onclick="prevSlide()">
@@ -452,30 +489,42 @@
   </a>
 </nav>
 
-    <!-- Scripts -->
+    <!-- Scripts hero section ki -->
     <script>
       lucide.createIcons();
 
-      // Hero Section Script
-      const slides = document.getElementById("slides");
-      const totalSlides = document.querySelectorAll(".slide").length;
-      let index = 0;
+const slides = document.getElementById("slides");
+const totalSlides = document.querySelectorAll(".slide").length;
+let index = 0;
 
-      function updateSlide() {
-        slides.style.transform = `translateX(-${index * 100}%)`;
-      }
+function getStep() {
+  return window.innerWidth <= 610 ? 100 : 50; 
+}
 
-      function nextSlide() {
-        index = (index + 1) % totalSlides;
-        updateSlide();
-      }
+function updateSlide() {
+  slides.style.transform = `translateX(-${index * getStep()}%)`;
+}
 
-      function prevSlide() {
-        index = (index - 1 + totalSlides) % totalSlides;
-        updateSlide();
-      }
+function nextSlide() {
+  const maxIndex = window.innerWidth <= 610 ? totalSlides - 1 : totalSlides - 2; 
+  index = index >= maxIndex ? 0 : index + 1;
+  updateSlide();
+}
 
-      setInterval(nextSlide, 3000); // auto-slide every 3s
+function prevSlide() {
+  const maxIndex = window.innerWidth <= 610 ? totalSlides - 1 : totalSlides - 2;
+  index = index <= 0 ? maxIndex : index - 1;
+  updateSlide();
+}
+
+setInterval(nextSlide, 3000); // auto-slide every 4s
+
+// resize hone par step reset ho jaye
+window.addEventListener("resize", () => {
+  index = 0;
+  updateSlide();
+});
+
     </script>
 
     <script src="website.js"></script>

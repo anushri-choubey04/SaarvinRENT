@@ -28,9 +28,19 @@
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+    </style>
   </head>
 
-  <body>
+  <body class="md:hidden">
     <!-- Story Section -->
     <div class="px-3 py-3">
       <div
