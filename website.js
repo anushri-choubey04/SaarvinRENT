@@ -392,6 +392,49 @@ new Swiper('.swiper', {
   }
 });
 // End Quick View js code
+
+//Video Section js code
+const videos = Array.from(document.querySelectorAll(".auto-video"));
+      function tryPlay(v) {
+        const p = v.play();
+        if (p && typeof p.catch === "function") p.catch(() => {});
+      }
+      function onEnter(v) {
+        if (!v.src && v.dataset.src) v.src = v.dataset.src;
+        tryPlay(v);
+      }
+      function onLeave(v) {
+        if (!v.paused) v.pause();
+      }
+
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const v = entry.target;
+              if (entry.isIntersecting) onEnter(v);
+              else onLeave(v);
+            });
+          },
+          { threshold: 0.25 }
+        );
+        videos.forEach((v) => io.observe(v));
+      } else {
+        videos.forEach((v) => {
+          if (v.dataset.src) v.src = v.dataset.src;
+          tryPlay(v);
+        });
+      }
+
+      // Tap to toggle mute/unmute
+      document.addEventListener("click", (e) => {
+        const v = e.target.closest("video.auto-video");
+        if (!v) return;
+        v.muted = !v.muted;
+        tryPlay(v);
+      });
+
+      // End of Video Section js code
       
 
   // Footer section js code
