@@ -76,17 +76,18 @@
 
     .item-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 2fr));
+      grid-template-columns: repeat(2,2fr);
       gap: 16px;
+      
     }
 
     .item-grid .item {
       text-align: center;
-      border: 1px solid #eee;
+      height: auto;
       padding: 10px;
       border-radius: 8px;
       background-color: #fff;
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+      
     }
 
     .item img {
@@ -137,7 +138,7 @@
       }
 
       .item-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 2fr);
       }
     }
   </style>
@@ -147,7 +148,7 @@
       <!-- Sidebar -->
       <aside class="sidebar">
         <ul id="categoryList">
-          <h2>Category</h2>
+          <h2 >Category</h2>
           <li data-category="NEW IN">NEW IN</li>
           <li data-category="SALE">SALE</li>
           <li data-category="MENS">MENS</li>

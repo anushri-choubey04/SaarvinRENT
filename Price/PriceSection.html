@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rent by price</title>
+    <style>
+      :root {
+        --bg: rgb(211, 212, 213);
+        --card: #fff;
+        --accent: #111;
+        --accent-hover: #4a3aff;
+        --muted: #555;
+        --border: #e5e0da;
+        --radius: 14px;
+        --max-width: 800px;
+        --gap: 5px;
+        font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+        --button-bg: #4a3aff;
+        --button-bg-hover: #9a77ff;
+        --button-text: #fff;
+        --button-text-hover: #fff;
+        --button-border: #4a3aff;
+        --button-border-hover: #9a77ff;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--accent);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+      }
+      .pricing-range {
+        max-width: var(--max-width);
+        margin: 40px auto;
+        padding: 20px;
+      }
+      .price-section {
+        background: var(--card);
+        border-radius: var(--radius);
+
+        padding: 18px 18px;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .price-section:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+      .price-section-title {
+        font-size: clamp(28px, 6vw, 46px);
+        margin: 10px 0 28px 0;
+        text-align: center;
+        letter-spacing: 0.5px;
+        background: linear-gradient(90deg, #4a3aff, #9a77ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <section class="pricing-range">
+      <div class="price-section">
+        <h1 class="price-section-title">Rent by Price</h1>
+        <img src="RentalWorking/Dress.png" alt="Dress">
+        
+        
+      </div>
+    </section>
+  </body>
+</html>
