@@ -809,6 +809,85 @@ body {
       }
 /* end of video section css */
 
+/*Css for price section*/
+.rent-section-price {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .rent-section-price h2 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      font-weight: bold;
+      
+    }
+
+    .rent-grid-container {
+      display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        padding: 2px;
+        width: 100%;
+        align-items: stretch;
+        height: 500px;
+        margin: 20px;
+        justify-content: center;
+        
+    }
+
+    .rent-card-price {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .rent-card-price img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .rent-card-price:hover img {
+      transform: scale(1.1);
+    }
+
+    .rent-label {
+      position: absolute;
+      bottom: 75px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      font-weight: bold;
+      font-size: 4rem;
+      border-radius: 5px;
+    }
+
+    /* Responsive text scaling */
+    @media (max-width: 600px) {
+      .rent-section-price h2 {
+        font-size: 2.2rem;
+        font-weight: bold;
+      }
+      .rent-label {
+        font-size: 1.9rem;
+        padding: 8px 16px;
+      }
+      .rent-grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    }
+
+    /* end of price section css */
+
 /* CSS for the Footer*/
 .footer {
   background-color: rgb(211, 212, 213);
