@@ -78,7 +78,6 @@
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap");
 
       .intro {
-        display: flex;
         align-items: center;
         gap: 2.5rem;
         @media (max-width: 767.98px) {
@@ -90,13 +89,13 @@
 
       .title {
         font-size: 40px;
-        font-weight: 500;
-        line-height: 127.5%;
+        text-align: center;
+        justify-content: center;
         position: relative;
         text-transform: capitalize;
         display: inline-flex;
         font-family: Space Grotesk;
-        padding: 0 7px 0 7px;
+        padding: 1px;
         @media (max-width: 767.98px) {
           font-size: 36px;
           text-align: center;
@@ -118,15 +117,19 @@
 
       .text {
         font-size: 18px;
-        line-height: 127%; /* 23/18 */
-        @media (max-width: 479.98px) {
-          font-size: 16px;
+      }
+
+      @media (max-width: 479.98px) {
+        .process__text {
+          font-size: 1.2rem;
+          margin: 10px;
+          padding: 10px;
         }
       }
 
       .process {
-        margin: 30px 10px;
-        padding: 15px 10px;
+        margin: 15px 5px;
+        padding: 10px 5px;
         font-family: Space Grotesk;
       }
 
@@ -137,7 +140,7 @@
       }
 
       .process__intro {
-        margin-bottom: 80px;
+        margin-bottom: 50px;
         justify-content: center;
         text-align: center;
       }
@@ -156,7 +159,9 @@
       }
 
       .process__text {
-        max-width: 18.25rem;
+        font-size: 2rem;
+        margin: 10px;
+        padding: 10px;
       }
 
       .accordions__list {
@@ -185,13 +190,13 @@
       .accordions__control {
         display: flex;
         align-items: center;
-        padding: 20px 30px;
+        padding: 10px 20px;
         width: 100%;
         position: relative;
       }
       @media (max-width: 767.98px) {
         .accordions__control {
-          padding: 15px;
+          padding: 10px;
         }
       }
       @media (max-width: 479.98px) {
@@ -364,6 +369,39 @@
                 <p>
                   Your items are always protected under our Saarvin Protection
                   Policy.
+                </p>
+              </div>
+            </li>
+            <li class="accordions__item">
+              <button class="accordions__control" aria-expanded="false">
+                <span class="accordions__number">04</span>
+                <span class="accordions__title"
+                  >How can I extend the rental tenure?</span
+                >
+                <span class="accordions__icon"></span>
+              </button>
+              <div class="accordions__content text" aria-hidden="true">
+                <p>
+                  We understand plans can change! If you need to keep the
+                  product longer, simply reach out to the us directly to request
+                  an extension. Rental tenure can be formally updated based on
+                  mutual agreement between both parties.
+                </p>
+              </div>
+            </li>
+            <li class="accordions__item">
+              <button class="accordions__control" aria-expanded="false">
+                <span class="accordions__number">05</span>
+                <span class="accordions__title"
+                  >When do I get paid for the product I rented out?</span
+                >
+                <span class="accordions__icon"></span>
+              </button>
+              <div class="accordions__content text" aria-hidden="true">
+                <p>
+                  Best Practice: It's recommended to agree on payment in advance
+                  and, if needed, document terms in writing to ensure a smooth
+                  rental experience.
                 </p>
               </div>
             </li>
