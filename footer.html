@@ -7,167 +7,170 @@
   </head>
   <style>
     .footer {
-      background-color: rgb(211, 212, 213);
-      color: white;
+  background-color: rgb(211, 212, 213);
+  color: white;
 
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 4rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
 
-      padding: 2rem;
-    }
+  padding: 2rem;
+}
 
-    .footer__top {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+.footer__top {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-    .footer__socials {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
 
-    .footer__socials i {
-      font-size: 24px;
-      color: black;
-      transition: transform 0.2s;
-    }
+.footer__socials i {
+  font-size: 24px;
+  color: black;
+  transition: transform 0.2s;
+}
 
-    .footer__socials i:hover {
-      transform: scale(1.1);
-      color: rgb(63, 60, 60);
-    }
+.footer__socials i:hover {
+  transform: scale(1.1);
+  color: rgb(63, 60, 60);
+}
 
-    .footer__container {
-      width: 100%;
-      max-width: 1000px;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
+.footer__container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-    .footer__accordion {
-      width: 100%;
-      color: rgb(63, 60, 60);
-    }
+.footer__accordion {
+  width: 100%;
+  color: rgb(63, 60, 60);
+}
 
-    .accordion-item {
-      border-top: 1px solid rgb(40, 43, 42);
-      padding-bottom: 1.5rem;
-    }
+.accordion-item {
+  border-top: 1px solid rgb(40, 43, 42);
+  padding-bottom: 1.5rem;
+}
 
-    .accordion-toggle {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 1rem;
-      color: black;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-    }
+.accordion-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
 
-    .accordion-toggle::after {
-      content: "▼";
-      transition: transform 0.3s ease;
-    }
+.accordion-toggle::after {
+  content: "▼";
+  transition: transform 0.3s ease;
+}
 
-    .accordion-toggle.active::after {
-      transform: rotate(-180deg);
-    }
+.accordion-toggle.active::after {
+  transform: rotate(-180deg);
+}
 
-    .accordion-content {
-      display: none;
-      padding: 0 1rem 1rem;
-    }
+.accordion-content {
+  display: none;
+  padding: 0 1rem 1rem;
+}
 
-    .accordion-content ul {
-      list-style: circle;
-      padding-left: 1rem;
-      margin: 0;
-    }
+.accordion-content ul {
+  list-style: circle;
+  padding-left: 1rem;
+  margin: 0;
+}
 
-    .accordion-content li {
-      margin: 0.5rem 0;
-    }
+.accordion-content li {
+  margin: 0.5rem 0;
+}
 
-    .accordion-content a {
-      color: rgb(28, 30, 28);
-      text-decoration: none;
-    }
+.accordion-content a {
+  color: rgb(28, 30, 28);
+  text-decoration: none;
+}
 
-    .footer__newsletter {
-      width: 100%;
-      text-align: center;
-      color: rgb(63, 60, 60);
-    }
+.footer__newsletter {
+  width: 100%;
+  text-align: center;
+  color: rgb(63, 60, 60);
+}
 
-    .footer__newsletter h3 {
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
+.footer__newsletter h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
 
-    .footer__newsletter form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+.footer__newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-    .footer__newsletter input {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 4px;
-    }
+.footer__newsletter input {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+}
 
-    .footer__newsletter button {
-      padding: 0.75rem;
-      background-color: rgb(34, 32, 32);
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-      color: white;
-    }
+.footer__newsletter button {
+  padding: 0.75rem;
+  background-color: rgb(34, 32, 32);
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
 
-    @media (min-width: 768px) {
-      .footer__container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 3rem;
-      }
+@media (min-width: 768px) {
+  .footer__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+  }
 
-      .footer__accordion,
-      .footer__newsletter {
-        width: 48%;
-        height: 100%;
-      }
+  .footer__accordion,
+  .footer__newsletter {
+    width: 48%;
+    height: 100%;
+  }
 
-      .footer__newsletter {
-        text-align: left;
-      }
+  .footer__newsletter {
+    text-align: left;
+  }
 
-      .footer__newsletter form {
-        flex-direction: row;
-        align-items: center;
-      }
+  .footer__newsletter form {
+    flex-direction: row;
+    align-items: center;
+  }
 
-      .footer__newsletter input {
-        flex: 1;
-        margin-right: 0.5rem;
-      }
+  .footer__newsletter input {
+    flex: 1;
+    margin-right: 0.5rem;
+  }
 
-      .footer__newsletter button {
-        flex-shrink: 0;
-      }
-    }
+  .footer__newsletter button {
+    flex-shrink: 0;
+  }
+}
+/*end of footer css */
+
+
   </style>
   <body>
     <footer class="footer">

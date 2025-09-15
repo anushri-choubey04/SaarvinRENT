@@ -11,108 +11,91 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+     .bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-top: 2px solid rgb(222, 230, 246);
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 999;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  padding: 8px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #06c342;
+}
+
+.nav-link:hover i,
+.nav-link:focus i {
+  transform: scale(1.1);
+}
+
+.center-btn {
+  background-color: rgb(186, 43, 48);
+  color: #fff;
+  border-radius: 50%;
+  padding: 12px;
+  margin-top: -24px;
+}
+
+.nav-link i {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .nav-link:hover i,
+  .nav-link:hover,
+  .nav-link:focus i,
+  .nav-link:focus {
+    transform: none;
+    color: inherit;
+  }
+}
+ 
       
-      .bottom-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: white;
-        border-top: 2px solid rgb(222, 230, 246);
-        height: 80px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-      }
-
-      .active-btn {
-        background: none;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        font-size: 16px;
-        color: #333;
-        justify-content: center;
-        text-align: center;
-      }
-      .active-btn:hover svg {
-        color: #06c342; /* Highlight color on hover */
-        transform: scale(1.1); /* Slight zoom */
-        transition: all 0.2s ease;
-      }
-
-      .active-btn:hover span {
-        color: #06c342;
-        transition: color 0.2s ease;
-      }
-
-      .center-icon {
-        background-color: rgb(186, 43, 48);
-        border-radius: 50%;
-        padding: 12px;
-        margin-top: -24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .center-icon svg {
-        color: white;
-        align-self: center;
-        justify-content: center;
-      }
-
-      .active-btn svg {
-        color: #0d0102;
-        align-self: center;
-        justify-content: center;
-      }
-
-      svg {
-        width: 24px;
-        height: 24px;
-        align-self: center;
-        justify-content: center;
-        display: flex;
-      }
-      .active-btn i {
-        color: #0d0102;
-        font-size: 24px;
-        align-self: center;
-        justify-content: center;
-      }
-    
     </style>
   </head>
   <body>
     <nav class="bottom-nav">
-      <button class="active-btn">
-        <span><a href="index.html"><i data-lucide="home"></i> Home</a></span>
-      </button>
-
-      <button class="active-btn">
-        <span><a href="shop.html"><i data-lucide="search"></i> Rent</a></span>
-      </button>
-
-      <button>
-        <div class="center-icon">
-          <i data-lucide="plus-circle" style="color: white"></i>
-        </div>
-        <span style="margin-top: 4px">Feed</span>
-      </button>
-
-      <button class="active-btn">
-        <span><a href="ProductSection/bottomICON.html"><i data-lucide="grid"></i> Categories</a></span>
-      </button>
-
-      <button class="active-btn">
-        <span><a href="wishlist.html"><i data-lucide="heart"></i> Wishlist</a></span>
-      </button>
-    </nav>
+  <a href="index.html" class="nav-link">
+    <i data-lucide="home"></i>
+    <span>Home</span>
+  </a>
+  <a href="HTML/shop.html" class="nav-link">
+    <i data-lucide="search"></i>
+    <span>Rent</span>
+  </a>
+  <a href="#" class="nav-link center-btn">
+    <i data-lucide="plus-circle"></i>
+    <span>Feed</span>
+  </a>
+  <a href="ProductSection/bottomICON.html" class="nav-link">
+    <i data-lucide="grid"></i>
+    <span>Categories</span>
+  </a>
+  <a href="wishlist.html" class="nav-link">
+    <i data-lucide="heart"></i>
+    <span>Wishlist</span>
+  </a>
+</nav>
 
     <!-- initialize lucide -->
     <script>
