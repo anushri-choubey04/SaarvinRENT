@@ -33,102 +33,83 @@
   
     <!-- Starting nav bar -->
     <header>
-      <nav class="nav-container">
-        <ul class="nav-bar">
-          <li class="title">Saarvin</li>
+      <div class="nav-container">
+    <nav class="navbar">
+    <div class="logo">YAARVIN</div>
 
-          <div class="search-box">
-            <input type="text" placeholder="Search..." />
-            <i data-lucide="search"></i>
-          </div>
+    <!-- Searchbar -->
+    <div class="search-container">
+      <input type="text" id="searchBox" placeholder="Search clothes, categories..." />
+      <i class="fas fa-search"></i>
+      <div class="suggestions" id="suggestions"></div>
+    </div>
 
-          <div class="icons">
-            <button ><i data-lucide="shopping-cart"  class="h-6 w-6" ></i></button>
-            
-            <button><i data-lucide="map-pinned" class="h-6 w-6"></i></button>
-            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
-          </div>
 
-          <input type="checkbox" id="check" />
-          <div class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="RentalWorking/Lend.html">Earn Money</a></li>
-            <li><a href="#working-section">How it Works</a></li>
+        <!-- Icons -->
+    <div class="icons-nav">
+      <i class="fas fa-shopping-cart"></i>
+      <i class="fas fa-map-marker-alt"></i>
+      <i class="fas fa-heart"></i>
+    </div>
+    <!-- Menu -->
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#working-section">How it Works</a>
+      <a href="RentalWorking/Lend.html">Earn Money</a>
+      <a href="#support">Support</a>
+      <a href="HTML/login/login.html">Login</a>
+    </div>
 
-            <li class="support-dropdown">
-              <a href="#" id="supportToggle" class="support-button"
-                >Support (10AM-9PM) ▼</a
-              >
-              <div class="dropdown-menu" id="supportMenu">
-                <div class="support-item">
-                  <div class="support-icon">📞</div>
-                  <div class="support-details">
-                    <div class="support-title">Contact Us</div>
-                    <div class="support-content">+91 959-959-5513</div>
-                    <div class="support-subtext">WhatsApp Enabled</div>
-                  </div>
-                </div>
-                <div class="support-item">
-                  <div class="support-icon">✉️</div>
-                  <div class="support-details">
-                    <div class="support-title">Email Us</div>
-                    <div class="support-content">care@saarvin.com</div>
-                    <div class="support-subtext">24/7 Support</div>
-                  </div>
-                </div>
-                <div class="support-item">
-                  <div class="support-icon">⏰</div>
-                  <div class="support-details">
-                    <div class="support-title">Working Hours</div>
-                    <div class="support-content">10 AM - 7 PM</div>
-                    <div class="support-subtext">Monday to Saturday</div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li><a href="HTML/login/login.html">Sign in/LogIn</a></li>
-            <label for="check" class="close-menu"
-              ><i class="fas fa-times"></i
-            ></label>
-              </div>
-        </ul>
-      </nav>
+
+
+    <!-- Mobile -->
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+  </nav>
+
+  <!-- MOBILE OVERLAY MENU -->
+  <div class="menu-overlay" id="mobileMenu">
+    <div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div>
+
+    <!-- User Info -->
+    <div class="mobile-header">
+      <img src="#" alt="User">
+      <div class="user-info">
+        <span>Hi, Anushri</span>
+        <small>Welcome back 👋</small>
+      </div>
+    </div>
+
+    <!-- Mobile Search -->
+    <div class="mobile-search">
+      <input type="text" placeholder="Search..." />
+      <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Menu Links -->
+    <div class="menu-links">
+      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <a href="RentalWorking/Lend.html"><i class="fas fa-coins"></i> Earn Money</a>
+      <a href="#working-section"><i class="fas fa-cogs"></i> How it Works</a>
+      <a href="HTML/login/login.html"><i class="fas fa-user"></i> Sign in / Login</a>
+    </div>
+
+    <!-- Support Collapsible -->
+    <div class="support-section">
+      <button id="supportToggleBtn">
+        Support (10AM - 9PM) 
+        <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="support-dropdown-items" id="supportItems">
+        <div class="support-item">📞 +91 959-959-5513 (WhatsApp)</div>
+        <div class="support-item">✉️ care@saarvin.com</div>
+        <div class="support-item">⏰ 10AM - 7PM (Mon-Sat)</div>
+      </div>
+    </div>
+  </div>
+  </div>
     </header>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        lucide.createIcons();
-
-        const toggleBtn = document.getElementById("supportToggle");
-        const dropdown = document.getElementById("supportMenu");
-
-        // Run only for mobile
-        function isMobile() {
-          return window.innerWidth <= 610;
-        }
-
-        if (toggleBtn && dropdown) {
-          toggleBtn.addEventListener("click", function (e) {
-            if (!isMobile()) return; // avoid toggle on desktop
-
-            e.preventDefault();
-            e.stopPropagation();
-            dropdown.classList.toggle("show");
-          });
-
-          document.addEventListener("click", function (e) {
-            if (
-              isMobile() &&
-              !dropdown.contains(e.target) &&
-              !toggleBtn.contains(e.target)
-            ) {
-              dropdown.classList.remove("show");
-            }
-          });
-        }
-      });
-    </script>
-
+    
     <!-- Story Section -->
      <section class="md:hidden">
     <div class="px-3 py-3">

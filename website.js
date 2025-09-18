@@ -1,3 +1,57 @@
+//NavBar
+    // Searchbar suggestions
+    const searchBox = document.getElementById("searchBox");
+    const suggestions = document.getElementById("suggestions");
+
+    const data = ["Saree", "Lehenga", "Kurta", "Western Dress", "Party Wear", "Sherwani", "Jewellery", "Handbags"];
+
+    searchBox?.addEventListener("input", () => {
+      let value = searchBox.value.toLowerCase();
+      suggestions.innerHTML = "";
+      if (value) {
+        let filtered = data.filter(item => item.toLowerCase().includes(value));
+        if (filtered.length) {
+          suggestions.style.display = "block";
+          filtered.forEach(item => {
+            let div = document.createElement("div");
+            div.textContent = item;
+            div.onclick = () => {
+              searchBox.value = item;
+              suggestions.style.display = "none";
+            };
+            suggestions.appendChild(div);
+          });
+        } else {
+          suggestions.style.display = "none";
+        }
+      } else {
+        suggestions.style.display = "none";
+      }
+    });
+
+    // Mobile menu toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const closeMenu = document.getElementById("closeMenu");
+
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.add("active");
+    });
+    closeMenu.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+
+    // Support dropdown
+    document.getElementById("supportToggleBtn").addEventListener("click", () => {
+      document.getElementById("supportItems").classList.toggle("active");
+    });
+
+// END OF NAVBAR
+
+
+
+
+
 // Stories js code
 //  Viewer with Swipe Up and Progress Bar
 // This code creates a simple stories viewer with swipe up functionality and a progress bar.
