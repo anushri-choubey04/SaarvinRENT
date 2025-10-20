@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Discover the latest trends in fashion for 
+        women and men at SA FashionStyle. Shop our wide selection of clothes, bags,
+        jewelry, and more. Elevate your style with our curated collections.">
+        <meta name="keywords" content="clothes, women, men, fashion, bags, jewelry, SA FashionStyle, latest trends, stylish clothing, accessories">
+        <meta name="author" content="SA_FashionStyle">
+        <link rel="icon" href="images/logowhite.jpg" type="image/x-icon">
+        <!-- css -->
+        
+        <link rel="stylesheet" href="main.css">
+        <!-- Google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <!-- icon -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <title>SA__FashionStyle</title>
+        <style>
+            main{
+    padding:8%;
+}
+.product-header{
+    background-color: #f2f2f2;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+}
+.product-header .menu-icon{
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    visibility:hidden;
+}
+.product-header-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product-header-right span{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+.product-header-right #sort{   
+    border-radius: 0;
+    min-width: auto;
+    min-height: auto;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+    padding: 12px;
+    color: #000;
+}
+#productCount{
+    margin-left: 6px;
+}
+main .container{
+    position: relative;
+}
+.aside {
+    width: 250px;
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 60px 30px;
+    z-index: 1;
+}
+.aside h2 {
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 8px;
+}
+.shop_categories a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.shop_categories a.active,
+.shop_categories a:hover {
+    color: #333333;
+}
+
+/*---------------- products ---------------------*/
+.products{
+        margin-left: 0;
+        padding: 16px;
+        flex-grow: 1;
+        transition: margin-left 0.5s;
+        width: 100%;
+        padding-left: 270px;
+}
+.products .content{
+    display: grid;
+    gap: 20px;
+    padding: 16px;
+}
+
+.product-card {
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.card-img{
+    position: relative;
+    overflow: hidden;
+}
+.card-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+    transition: all 1s linear;
+}
+.card-img:hover img {
+    transform: scale(1.1);
+}
+.card-img .addToCart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: all .4s;
+}
+.card-img .addToCart:hover{
+    background-color: #000000dc;
+    color: #fff;
+}
+.card-info {
+    padding: 16px 0;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: #222;
+    margin: 0 0 8px;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight:400 ;
+    color: #696969;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .product-header .menu-icon{
+        visibility: visible;
+    }
+    .sortBy{
+        display: none;
+    }
+    .aside {
+        width: 100%;
+        left: -200%;
+    }
+    .aside.open {
+        left: 0;
+    }
+    .products {
+        padding-left: 16px;
+    }
+}
+        </style>
+    </head>
+<body>
+    <header class="container" id="header">
+        <div class="header_top">
+              <div class="header_social">
+                <a href="https://www.instagram.com/sa__fashionstyle/?igsh=eWpjbWFqc3FlbGhl" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://www.facebook.com/people/SA_Fashionstyle/100088622209447/?mibextid=LQQJ4d" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://wa.me/201007738790" target="_blank">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+              </div>
+              <img src="images/logo_block.jpg" alt="page logo" id="logo">
+              <div class="header_actions">
+                <div id="display_login">
+                  <span id="user_name">Amira</span>
+                  <a href="#" id="logout" title="Logout" onclick="logout();">
+                   <ion-icon name="log-out-outline"></ion-icon>
+                  </a>
+                </div>
+                <a href="login.html" title="Login" id="login_btn">
+                 <ion-icon name="person-circle-outline"></ion-icon>
+                </a>
+                <a href="#" class="icon-cart">
+                  <ion-icon name="cart-outline"></ion-icon>
+                  <span id="cart-counter">0</span>
+                </a>
+           </div>
+        </div>
+        <nav>
+            <menu>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </menu>
+        </nav>
+    </header>
+    <main>
+        <div class="product-header">
+               <div class="menu-icon" onclick="toggleSidebar()">
+                  <ion-icon name="grid-outline"></ion-icon>
+                </div>
+                <div class="product-header-right">
+                    <div class="sortBy">
+                        <span>Sort By :</span>
+                        <select id="sort">
+                            <option value="Alphabetically">Alphabetically, Z-A</option>
+                            <option value="Featured">Featured</option>
+                            <option value="Bestselling">Best selling</option>
+                        </select>
+                    </div>
+                    <span id="productCount"></span>
+                </div>
+        </div>
+        <div class="container">
+            <div class="aside">
+                <h2>Categories</h2>
+                <div class="shop_categories">
+                    <a href="#" class="categories_link" productCategory="Accessories" >Accessories</a>
+                    <a href="#" class="categories_link" productCategory="Bags">Bags</a>
+                    <a href="#" class="categories_link" productCategory="Jewelry">Jewelry</a>
+                    <a href="#" class="categories_link" productCategory="Woman">Woman</a>
+                    <a href="#" class="categories_link" productCategory="Man">Man</a>
+                    <a href="#" class="categories_link" productCategory="Bedroom">Bedroom</a>
+                </div>
+            </div>
+            
+            <div class="products">
+               <div class="content">
+                <!-- add products in js -->
+               </div>
+            </div>
+        </div>
+    </main>
+    <div class="cart-section">
+        <div class="cart-header">
+            <h2>SHOPPING CART</h2>
+            <div class="closeCart">
+                <ion-icon name="close-outline" id="closeCart"></ion-icon>
+            </div>
+        </div>
+        <div class="cart_products">
+            <!-- add cart products in js -->
+        </div>
+        <div class="cart_total">
+            <h3>Total:</h3>
+            <span id="total_price"></span>
+        </div>
+        <div class="btn_control">
+            <button class="viewCart" onclick="viewCart();">View Cart</button>
+            <button class="checkout" onclick="checkOut();">Check Out</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-top">
+           <div class="footer-logo">
+               <img src="images/logo_block.jpg" alt="logo" width="140">
+               <p>The customer is at the heart of our unique business model, which includes design.</p>
+           </div>
+           <div class="footer-list">
+               <div class="list">
+                   <h4>SHOPPING</h4>
+                   <ul>
+                       <li><a href="#">Clothing Store</a></li>
+                       <li><a href="#">Trending Shoes</a></li>
+                       <li><a href="#">Accessories</a></li>
+                       <li><a href="#">Sale</a></li>
+                   </ul>
+               </div>
+               <div class="list">
+                   <h4>Customer Services</h4>
+                   <ul>
+                       <li><a href="#">Contact Us</a></li>
+                       <li><a href="#">Payment Methods</a></li>
+                       <li><a href="#">Delivary</a></li>
+                       <li><a href="#">Return & Exchanges</a></li>
+                   </ul>
+               </div>
+   
+           </div>
+        </div>
+       <div class="footer-bottom">
+           <p class="footer-company-name">
+               © 2024 All right reserved.Made with <ion-icon name="heart"></ion-icon>
+                by <a href="https://www.upwork.com/freelancers/~01a11a163a8ee98a35" target="_blank" id="author">Amira Alaa</a>
+           </p>
+       </div>
+    </footer>
+    <button id="scrollBtn"><ion-icon name="arrow-up-outline" id="btn-up"></ion-icon></button>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/cart.js"></script>
+    <script src="JavaScript/getData.js"></script>
+</body>
+</html>

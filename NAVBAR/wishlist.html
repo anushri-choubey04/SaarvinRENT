@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist</title>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-arrow {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.heart {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 1rem 0;
+  font-weight: 500;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  color: #666;
+}
+
+.tab.active {
+  font-weight: 600;
+  color: #000;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 50%;
+  background-color: black;
+}
+
+/* Empty Section */
+.empty-section {
+  text-align: center;
+  margin-top: 4rem;
+  flex-grow: 1;
+}
+
+.bag-icon img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+.empty-section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.empty-section p {
+  color: #757575;
+  font-size: 0.95rem;
+}
+
+/* Bottom Button */
+.bottom-btn {
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+}
+
+.bottom-btn button {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bottom-btn button:hover {
+  background-color: #89908c;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <span class="back-arrow">←</span>
+      <h2>Wishlist</h2>
+    </div>
+    
+  </header>
+
+
+  <!-- Content -->
+  <main id="content" class="empty-section">
+    <div class="empty-bag">
+      <div class="bag-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Wishlist" />
+      </div>
+      <h3>Your Wishlist is Empty.</h3>
+      <p>Tap on your favorite items to add them here.</p>
+    </div>
+  </main>
+
+  <!-- Bottom Button -->
+  <div class="bottom-btn">
+    <button id="homeBtn">Home</button>
+  </div>
+
+  <script>
+    
+const content = document.getElementById("content");
+
+document.getElementById("homeBtn").addEventListener("click", () => {
+  alert("Redirecting to Home Page...");
+});
+
+  </script>
+</body>
+</html>

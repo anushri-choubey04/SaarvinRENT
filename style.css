@@ -875,6 +875,146 @@ body {
 
     /* end of price section css */
 
+/* CSS for the FAQ*/
+.faq-section {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .faq-header h2 {
+    font-size: 48px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+  }
+
+  .faq-header h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60%;
+    height: 6px;
+    background: #f7004f;
+    transform: translateX(-50%);
+    border-radius: 3px;
+  }
+
+  .faq-header p {
+    font-size: 18px;
+    color: #555;
+    margin-top: 15px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .accordion-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .accordion-item-faq {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .accordion-header-faq {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .accordion-header-faq:hover {
+    background: #f9f9f9;
+  }
+
+  .accordion-number-faq {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f7004f;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+
+  .accordion-title-faq {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .accordion-icon-faq {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  .accordion-icon-faq::before,
+  .accordion-icon-faq::after {
+    content: '';
+    position: absolute;
+    background: #f7004f;
+    width: 20px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .accordion-icon-faq::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .accordion-content-faq {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 30px;
+    font-size: 18px;
+    color: #555;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+
+  .accordion-item-faq.open .accordion-content-faq {
+    padding: 20px 30px;
+    max-height: 500px;
+  }
+
+  .accordion-item-faq.open .accordion-icon-faq {
+    transform: rotate(225deg);
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 991px) {
+    .faq-header h2 { font-size: 40px; }
+    .accordion-number-faq { font-size: 24px; }
+    .accordion-title-faq { font-size: 18px; }
+    .accordion-content-faq { font-size: 16px; }
+  }
+  @media (max-width: 479px) {
+    .faq-header h2 { font-size: 32px; }
+    .faq-header p { font-size: 15px; }
+    .accordion-number-faq { font-size: 20px; }
+    .accordion-title-faq { font-size: 16px; }
+    .accordion-content-faq { font-size: 14px; }
+    .accordion-header-faq { padding: 10px 11px; }
+    
+  }
+/* end of faq css */
+
+
 /* CSS for the Footer*/
 .footer {
   background-color: rgb(211, 212, 213);
