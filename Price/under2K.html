@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop All - Responsive</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* --- Global Styles --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+      }
+      body {
+        background: #f5f5f5;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* --- Header --- */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+      }
+      .header h1 {
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .header-icons {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .header-icons a {
+        color: black;
+        font-size: 20px;
+        transition: color 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        .header-icons {
+          gap: 15px;
+        }
+
+        .header-icons a {
+          font-size: 16px;
+        }
+      }
+
+      .back-link {
+        font-size: 20px;
+        color: #000;
+      }
+
+      /* --- Action Bar --- */
+      .action-bar {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        z-index: 19;
+      }
+      .action-item {
+        font-size: 12px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      .action-item i {
+        font-size: 10px;
+        margin-left: 5px;
+        color: #999;
+      }
+
+      /* --- Category Pills --- */
+      .category-pills-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        position: fixed; /* Change from sticky to fixed */
+        top: 90px;
+        left: 0;
+        right: 0;
+        z-index: 18;
+        white-space: nowrap; /* Prevent wrapping */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      }
+      .category-pill {
+        padding: 6px 15px;
+        margin-right: 8px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        font-size: 14px;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .category-pill.active {
+        background: #000;
+        color: #fff;
+        border-color: #000;
+      }
+
+      /* --- Product Grid --- */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 10px;
+        margin: 5px;
+         /* Increased margin to account for all fixed elements */
+      }
+
+      @media (max-width: 768px) {
+        .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        margin-top: 140px; /* Increased margin to account for all fixed elements */
+      }
+      }
+      .product-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .product-image-container {
+        position: relative;
+        padding-top: 150%;
+        overflow: hidden;
+      }
+      .product-image-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .badge {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        background: #f7004f;
+        color: #fff;
+        padding: 4px 6px;
+        font-size: 10px;
+        font-weight: bold;
+        border-radius: 3px;
+      }
+      .wishlist-btn {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        color: #333;
+        cursor: pointer;
+      }
+      .product-details {
+        padding: 8px 5px 15px 5px;
+      }
+      .rating .stars {
+        background: #4caf50;
+        color: #fff;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      .name {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .price {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .rent-btn {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      /* --- Modals --- */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: auto;
+      } /* Modal content attaches to bottom on mobile */
+      .modal-content {
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        max-height: 90vh;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        display: flex;
+        flex-direction: column;
+      }
+      .modal.active {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Align content to bottom for mobile */
+      }
+      .modal-header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        z-index: 5;
+        justify-content: space-between;
+      } /* Mobile Header Element Ordering/Styling */
+      .modal-header h2 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .modal-header .close-btn {
+        font-size: 16px;
+        cursor: pointer;
+        color: #999;
+      }
+      .modal-header .reset-all,
+      .modal-header .select-all {
+        font-size: 14px;
+        font-weight: 500;
+        color: #228b22;
+        text-decoration: none; /* Pushing this to the left of the close button */
+        margin-right: 15px;
+      }
+      .size-modal .modal-header .select-all {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+      .filter-modal .modal-header .reset-all {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+      .modal-body {
+        padding: 15px;
+        overflow-y: auto;
+        flex-grow: 1;
+      }
+      .modal-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        border-top: 1px solid #eee;
+        position: sticky;
+
+        background-color: #fff;
+      }
+      .footer-btn {
+        flex: 1;
+        padding: 12px;
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .footer-btn.clear-all {
+        background-color: #fff;
+        color: #333;
+      }
+      .footer-btn.apply-btn {
+        background-color: #fff;
+        color: #000;
+      }
+      .footer-btn.apply-dark {
+        background-color: #000;
+        color: #fff;
+        border-color: #000;
+      } /* --- Specific Size Modal Styles --- */
+      .size-body h3 {
+        font-size: 14px;
+        color: #777;
+        margin: 15px 0 10px;
+      }
+      .size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .size-btn {
+        padding: 8px 15px;
+        border: 1px solid #ccc;
+        border-radius: 50px;
+        background-color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .size-btn.selected {
+        background-color: #000;
+        color: #fff;
+        border-color: #000;
+      } /* --- Filter Modal Styles (Two-column layout) --- */
+      .filter-body {
+        display: flex;
+        padding: 0;
+      }
+      .filter-sidebar {
+        width: 35%;
+        background-color: #fff;
+        border-right: 1px solid #eee;
+        overflow-y: auto;
+      }
+      .filter-item {
+        padding: 12px 15px;
+        font-size: 15px;
+        cursor: pointer;
+        border-left: 3px solid transparent;
+      }
+      .filter-item.active {
+        background-color: #f8f8f8;
+        color: #228b22;
+        border-left-color: #228b22;
+        font-weight: 600;
+      }
+      .filter-detail {
+        width: 65%;
+        padding: 15px;
+        overflow-y: auto;
+      }
+      .price-title {
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 10px;
+      }
+      .price-value {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .range-slider-placeholder {
+        position: relative;
+        height: 10px;
+        margin-top: 15px;
+      }
+      .slider-track {
+        height: 3px;
+        background: #ccc;
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .slider-track::before {
+        content: "";
+        height: 100%;
+        background: #228b22;
+        left: 20%;
+        right: 10%;
+        width: 70%;
+        position: absolute;
+      }
+      .slider-thumb {
+        width: 18px;
+        height: 18px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: grab;
+        z-index: 2;
+      }
+      .slider-thumb.left {
+        left: 20%;
+        border-color: #228b22;
+      }
+      .slider-thumb.right {
+        right: 10%;
+        border-color: #228b22;
+      }
+
+      /* ===================================== */
+      /* --- DESKTOP RESPONSIVENESS --- */
+      @media (min-width: 768px) {
+        .header {
+          padding: 15px 30px;
+          position: relative;
+        }
+        .header h1 {
+          font-size: 28px;
+        }
+        .action-bar {
+          position: relative;
+          top: auto;
+          left: auto;
+          transform: none;
+          justify-content: space-around;
+          gap: 20px;
+          padding: 15px 30px;
+        }
+        .action-item {
+          font-size: 16px;
+        }
+        .category-pills-container {
+          position: relative;
+          top: 0;
+          flex-wrap: wrap;
+          overflow-x: visible;
+          padding: 15px 30px;
+          border-bottom: none;
+        }
+        .category-pill {
+          padding: 8px 18px;
+          font-size: 14px;
+          margin-right: 10px;
+        }
+        
+        .modal-content {
+          width: 600px; /* Default desktop width for modals */
+          bottom: auto;
+          top: 50%;
+          left: 50%;
+          transform: translate(
+            -50%,
+            -50%
+          ); /* Center horizontally and vertically */
+          border-radius: 15px;
+          max-height: 90vh;
+        }
+        .modal.active {
+          align-items: center; /* Align content to center */
+        } /* Filter Modal specific width/height */
+        .modal.filter-modal .modal-content {
+          width: 700px;
+          height: 80vh;
+        } /* DESKTOP MODAL HEADER ADJUSTMENTS (Clean Layout) */
+        .modal-header .close-btn {
+          font-size: 24px;
+          color: #333;
+          order: 3;
+        }
+        .modal-header .reset-all,
+        .modal-header .select-all {
+          /* Center the 'Reset All' text between the title and close button */
+          margin-left: auto;
+          margin-right: 20px;
+          order: 2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <a href="#" class="back-link"><i class="fas fa-arrow-left"></i></a>
+      <h1>UNDER 2K</h1>
+      <div class="header-icons">
+        <a href="#"><i class="fas fa-search"></i></a>
+        <a href="../NAVBAR/bag.html"><i class="fas fa-shopping-bag"></i></a>
+      </div>
+    </header>
+
+    <!-- Action Bar -->
+    <nav class="action-bar">
+      <div class="action-item" data-modal="sort-modal">
+        SORT <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="action-item" data-modal="size-modal">
+        SIZES <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="action-item" data-modal="filter-modal">
+        FILTERS <i class="fas fa-chevron-right"></i>
+      </div>
+    </nav>
+
+    <!-- Category Pills -->
+    <section class="category-pills-container">
+      <div class="category-pill active">Dresses</div>
+      <div class="category-pill">Tops</div>
+      <div class="category-pill">Bottoms</div>
+      <div class="category-pill">Sherwani</div>
+      <div class="category-pill">Tuexdo</div>
+    </section>
+
+    <!-- Product Grid -->
+    <main class="product-grid">
+      <div class="product-card">
+        <div class="product-image-container">
+          <img
+            src="images/lehnga1.png"
+            alt="Burgundy Round Neck Regular T-shirt"
+          />
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="product-details">
+          <div class="rating">
+            <span class="stars">★ 4.8</span><span class="reviews">| 58</span>
+          </div>
+          <p class="name">Burgundy Round Neck Regular T-shirt</p>
+          <p class="price">₹479</p>
+          <button class="rent-btn">Rent Now</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="images/lehnga2.png" alt="Black Cold Shoulder Crop Top" />
+          <span class="badge">TRENDING</span>
+          <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+        </div>
+        <div class="product-details">
+          <div class="rating"><span class="stars">★ 5.0</span></div>
+          <p class="name">Black Cold Shoulder Crop Top</p>
+          <p class="price">₹1199</p>
+          <button class="rent-btn">Rent Now</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="size-modal" class="modal size-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Select Size</h2>
+          <a href="#" class="select-all">Select All</a>
+          <span class="close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="modal-body size-body">
+          <h3>TOPS</h3>
+          <div class="size-options" data-type="tops">
+            <button class="size-btn">XXS</button
+            ><button class="size-btn">XS</button
+            ><button class="size-btn">S</button>
+            <button class="size-btn">M</button
+            ><button class="size-btn">L</button
+            ><button class="size-btn">XL</button
+            ><button class="size-btn">XXL</button>
+          </div>
+          <h3>BOTTOMS</h3>
+          <div class="size-options" data-type="bottoms">
+            <button class="size-btn">24</button
+            ><button class="size-btn">26</button
+            ><button class="size-btn">28</button>
+            <button class="size-btn">30</button
+            ><button class="size-btn">32</button
+            ><button class="size-btn">34</button
+            ><button class="size-btn">36</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="footer-btn clear-all">Clear all</button>
+          <button class="footer-btn apply-btn apply-dark">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="filter-modal" class="modal filter-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Filter</h2>
+          <a href="#" class="reset-all">Reset All</a>
+          <span class="close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="modal-body filter-body">
+          <div class="filter-sidebar">
+            <div class="filter-item active">Price Range</div>
+            <div class="filter-item">Sizes</div>
+            <div class="filter-item">Colors</div>
+            <div class="filter-item">Category</div>
+            <div class="filter-item">Occasion</div>
+            <div class="filter-item">Closure Type</div>
+            <div class="filter-item">Neckline</div>
+            <div class="filter-item">Clothing Material</div>
+            <div class="filter-item">Print Type</div>
+            <div class="filter-item">Style Type</div>
+            <div class="filter-item">Discount</div>
+            <div class="filter-item">Delivery Time</div>
+          </div>
+          <div class="filter-detail">
+            <h3 class="price-title">PRICE RANGE</h3>
+            <p class="price-value">₹0 - ₹4,000</p>
+            <div class="range-slider-placeholder">
+              <div class="slider-track"></div>
+              <div class="slider-thumb left"></div>
+              <div class="slider-thumb right"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="footer-btn clear-all">Clear filter</button>
+          <button class="footer-btn apply-btn apply-dark">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="sort-modal" class="modal sort-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Sort By</h2>
+          <span class="close-btn"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="modal-body">
+          <div class="sort-option">Recommended</div>
+          <div class="sort-option">Newest First</div>
+          <div class="sort-option">Price: High to Low</div>
+          <div class="sort-option">Price: Low to High</div>
+        </div>
+        <div class="modal-footer">
+          <button class="footer-btn apply-btn apply-dark">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const actionItems = document.querySelectorAll(".action-item");
+        const modals = document.querySelectorAll(".modal");
+        const closeButtons = document.querySelectorAll(".close-btn");
+        const sizeButtons = document.querySelectorAll(".size-btn");
+        const selectAllBtn = document.querySelector(".select-all");
+        const clearAllBtns = document.querySelectorAll(".clear-all");
+
+        const openModal = (modalId) => {
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        };
+        const closeModal = () => {
+          modals.forEach((modal) => modal.classList.remove("active"));
+          document.body.style.overflow = "";
+        };
+
+        actionItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const modalId = item.getAttribute("data-modal");
+            closeModal();
+            openModal(modalId);
+          });
+        });
+
+        closeButtons.forEach((btn) => {
+          btn.addEventListener("click", closeModal);
+        });
+
+        modals.forEach((modal) => {
+          modal.addEventListener("click", (e) => {
+            if (e.target.classList.contains("modal")) closeModal();
+          });
+        });
+
+        sizeButtons.forEach((btn) =>
+          btn.addEventListener("click", () => btn.classList.toggle("selected"))
+        );
+
+        if (selectAllBtn)
+          selectAllBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            sizeButtons.forEach((btn) => btn.classList.add("selected"));
+          });
+
+        clearAllBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            sizeButtons.forEach((sizeBtn) =>
+              sizeBtn.classList.remove("selected")
+            );
+          });
+        });
+
+        const filterItems = document.querySelectorAll(".filter-item");
+        filterItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            filterItems.forEach((i) => i.classList.remove("active"));
+            item.classList.add("active");
+          });
+        });
+
+        const applyButtons = document.querySelectorAll(".apply-btn");
+        applyButtons.forEach((btn) =>
+          btn.addEventListener("click", () => closeModal())
+        );
+      });
+    </script>
+  </body>
+</html>
