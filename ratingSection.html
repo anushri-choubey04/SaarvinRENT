@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ratings - Rental Clothing</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* Rating Section CSS */
+      :root {
+        --primary: #0b0464;
+        --secondary: #d9c7ff;
+        --accent: #ff7f50;
+        --text-dark: #1a1a1a;
+        --text-light: #555;
+        --bg-light: #faf8ff;
+      }
+
+      .ratings-section {
+        border-top: 1px solid #a7a5a5;
+        border-bottom: 1px solid #a7a5a5;
+
+        color: var(--text-dark);
+        display: flex;
+        font-family: "Poppins", sans-serif;
+        width: 100%;
+        padding: 20px;
+        transition: 0.3s ease;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      /* === LEFT COLUMN === */
+      .rating-left {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .rating-head {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .rating-overall {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .stars {
+        display: flex;
+        gap: 3px;
+      }
+
+      .stars i {
+        color: #ccc;
+        font-size: 1.3rem;
+        transition: color 0.3s;
+      }
+
+      .stars i.active {
+        color: #ffb400;
+      }
+
+      .rating-number {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .rating-bars {
+        margin-top: 20px;
+      }
+
+      .bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: var(--text-light);
+      }
+
+      .bar span {
+        width: 40px;
+      }
+
+      .bar-line {
+        flex: 1;
+        height: 8px;
+        background: #eee;
+        border-radius: 10px;
+
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 10px;
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      /* === RIGHT COLUMN (Customer Opinion) === */
+      .customer-opinion {
+        flex: 1.2;
+      }
+
+      .customer-opinion h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .subsection {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .subsection h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+      }
+
+      .option span:first-child {
+        width: 110px;
+        color: var(--text-light);
+      }
+
+      .option-bar {
+        flex: 1;
+        height: 8px;
+        background: #eee;
+        border-radius: 10px;
+        margin: 0 10px;
+        overflow: hidden;
+      }
+
+      .fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 10px;
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 768px) {
+        .ratings-section {
+          background: #fff;
+          border-bottom: 1px solid #cdc6c6;
+          border-top: 1px solid #cdc6c6;
+          width: 100%;
+          padding: 15px;
+          line-height: 2;
+          transition: 0.3s ease;
+          display: block;
+        }
+        .rating-head {
+          font-size: 1.6rem;
+          margin: 0;
+        }
+        .bar{
+          margin: 0;
+        }
+        .customer-opinion {
+          margin: 5px;
+        }
+        .customer-opinion h2 {
+          font-size: 1.6rem;
+          margin: 0;
+        }
+      }
+</style>
+</head>
+<body>
+
+  <!-- Rating Section -->
+      <div class="ratings-section">
+        <!-- LEFT SECTION -->
+        <div class="rating-left">
+          <h2 class="rating-head">Ratings</h2>
+
+          <div class="rating-overall">
+            <div class="stars" id="starContainer">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="rating-number" id="avgRating">0.0 / 5 (0 Ratings)</p>
+          </div>
+
+          <div class="rating-bars" id="ratingBars"></div>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="customer-opinion">
+          <h2>Customer Opinion</h2>
+          <div class="subsection">
+            <div>
+              <h3>Size and Fit</h3>
+              <div id="fitBars"></div>
+            </div>
+
+            <div>
+              <h3>Product Quality</h3>
+              <div id="qualityBars"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+<script>
+  // Ratings Data (Dynamic)
+  const ratingData = [
+    { stars: 5, percent: 22 },
+    { stars: 4, percent: 22 },
+    { stars: 3, percent: 0 },
+    { stars: 2, percent: 11 },
+    { stars: 1, percent: 45 }
+  ];
+
+  const fitData = [
+    { label: "Perfect", percent: 50 },
+    { label: "Tight", percent: 25 },
+    { label: "Too Tight", percent: 25 }
+  ];
+
+  const qualityData = [
+    { label: "Excellent", percent: 16 },
+    { label: "Average", percent: 66 },
+    { label: "Very Bad", percent: 16 }
+  ];
+
+  // Calculate average rating
+  const avg =
+    ratingData.reduce((sum, r) => sum + r.stars * r.percent, 0) /
+    ratingData.reduce((sum, r) => sum + r.percent, 0);
+
+  document.getElementById("avgRating").textContent = `${avg.toFixed(1)} / 5 (${ratingData.length} Ratings)`;
+
+  // Fill stars dynamically
+  const stars = document.querySelectorAll("#starContainer i");
+  const filledStars = Math.round(avg);
+  stars.forEach((s, i) => {
+    if (i < filledStars) s.classList.add("active");
+  });
+
+  // Generate rating bars
+  const ratingBars = document.getElementById("ratingBars");
+  ratingData.forEach(r => {
+    const div = document.createElement("div");
+    div.className = "bar";
+    div.innerHTML = `
+      <span>${r.stars}★</span>
+      <div class="bar-line"><div class="bar-fill" style="width:0;"></div></div>
+      <span>${r.percent}%</span>
+    `;
+    ratingBars.appendChild(div);
+  });
+
+  // Animate bars
+  setTimeout(() => {
+    document.querySelectorAll(".bar-fill").forEach((bar, i) => {
+      bar.style.width = ratingData[i].percent + "%";
+    });
+  }, 300);
+
+  // Opinion bars
+  function renderOpinions(containerId, data) {
+    const container = document.getElementById(containerId);
+    data.forEach(d => {
+      const div = document.createElement("div");
+      div.className = "option";
+      div.innerHTML = `
+        <span>${d.label}</span>
+        <div class="option-bar"><div class="fill" style="width:0;"></div></div>
+        <span>${d.percent}%</span>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  renderOpinions("fitBars", fitData);
+  renderOpinions("qualityBars", qualityData);
+
+  // Animate opinion bars
+  setTimeout(() => {
+    document.querySelectorAll(".fill").forEach((f, i) => {
+      const all = [...fitData, ...qualityData];
+      f.style.width = all[i].percent + "%";
+    });
+  }, 500);
+</script>
+</body>
+</html>

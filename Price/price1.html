@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rent by Price</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #f8f9fa;
+        color: #2d3436;
+      }
+
+      .rent-section-price {
+        text-align: center;
+        padding: 60px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .rent-section-price h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+      }
+
+      .rent-section-price h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #107895;
+        border-radius: 2px;
+      }
+
+      .rent-grid-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .rent-card-link {
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .rent-card-price {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        aspect-ratio: 3/4;
+        background: #fff;
+      }
+
+      .rent-card-price img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .rent-card-price::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 50%,
+          rgba(0, 0, 0, 0.5)
+        );
+        z-index: 1;
+      }
+
+      .rent-card-link:hover .rent-card-price img {
+        transform: scale(1.1);
+      }
+
+      .rent-label {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 25px;
+        font-weight: 600;
+        font-size: 1.8rem;
+        border-radius: 8px;
+        z-index: 2;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .rent-card-link:hover .rent-label {
+        transform: translateX(-50%) translateY(-5px);
+      }
+
+      /* Responsive design */
+      @media (max-width: 1200px) {
+        .rent-grid-container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 900px) {
+        .rent-grid-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .rent-section-price h2 {
+          font-size: 2rem;
+        }
+
+        .rent-grid-container {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 15px;
+        }
+
+        .rent-label {
+          font-size: 1.5rem;
+          padding: 10px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="rent-section-price">
+      <h2>RENT BY PRICE</h2>
+      <div class="rent-grid-container">
+        <a href="under2k.html" class="rent-card-link">
+          <div class="rent-card-price">
+            <img src="Kurta.png" alt="Under 2K" />
+            <div class="rent-label">UNDER 2K</div>
+          </div>
+        </a>
+
+        <a href="under4k.html" class="rent-card-link">
+          <div class="rent-card-price">
+            <img src="Lehnga12.png" alt="Under 4K" />
+            <div class="rent-label">UNDER 4K</div>
+          </div>
+        </a>
+
+        <a href="under6k.html" class="rent-card-link">
+          <div class="rent-card-price">
+            <img src="Indian.png" alt="Under 6K" />
+            <div class="rent-label">UNDER 6K</div>
+          </div>
+        </a>
+
+        <a href="under8k.html" class="rent-card-link">
+          <div class="rent-card-price">
+            <img src="Suit.png" alt="Under 8K" />
+            <div class="rent-label">UNDER 8K</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </body>
+</html>

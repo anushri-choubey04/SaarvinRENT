@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wishlist</title>
+  <title>Shopping Bag</title>
   <style>
     * {
   margin: 0;
@@ -85,7 +85,7 @@ body {
   background-color: black;
 }
 
-/* Empty Section */
+/* Empty section */
 .empty-section {
   text-align: center;
   margin-top: 4rem;
@@ -136,29 +136,68 @@ body {
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <div class="header-left">
       <span class="back-arrow">←</span>
-      <h2>Wishlist</h2>
+      <h2>Shopping bag</h2>
     </div>
     
   </header>
 
+  <nav class="tabs">
+    <button class="tab active" data-tab="bag">Added to bag</button>
+    
+    <button class="tab" data-tab="wishlist">Add from Wishlist</button>
+  </nav>
 
-  <!-- Content -->
   <main id="content" class="empty-section">
+    <!-- Default: Bag content -->
     <div class="empty-bag">
       <div class="bag-icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Wishlist" />
+        <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Bag" />
       </div>
-      <h3>Your Wishlist is Empty.</h3>
-      <p>Tap on your favorite items to add them here.</p>
+      <h3>Your Bag is Empty!</h3>
+      <p>Start Shopping now</p>
     </div>
   </main>
 
   
 
-  
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+const content = document.getElementById("content");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+
+    const selected = tab.getAttribute("data-tab");
+    if (selected === "bag") {
+      content.innerHTML = `
+        <div class="empty-bag">
+          <div class="bag-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Bag" />
+          </div>
+          <h3>Your Bag is Empty!</h3>
+          <p>Start Shopping now</p>
+        </div>
+      `;
+    } else if (selected === "wishlist") {
+      content.innerHTML = `
+        <div class="empty-bag">
+          <div class="bag-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Wishlist" />
+          </div>
+          <h3>Your Wishlist is Empty.</h3>
+          <p>Tap on your favorite items.</p>
+        </div>
+      `;
+    }
+  });
+});
+
+
+  </script>
 </body>
 </html>

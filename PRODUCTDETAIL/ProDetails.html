@@ -1,276 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clara Maxi Dress</title>
-  <style>
-    /* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Arial", sans-serif;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clara Maxi Dress</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
 
-body {
-  background: #fff;
-  color: #222;
-  line-height: 1.6;
-}
+      body {
+        background: #fff;
+        color: #222;
+        line-height: 2.3;
+      }
 
-/* Header */
-header {
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
-}
-nav a, nav span {
-  font-size: 0.9rem;
-  color: #666;
-  text-decoration: none;
-}
-nav a:hover {
-  text-decoration: underline;
-}
+      /* Header */
+      header {
+        padding: 2rem;
+        border-bottom: 1px solid #eee;
+      }
 
-/* Main Layout */
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
-}
+      /* Main Layout */
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 5px;
+        padding: 2rem;
+        gap: 2rem;
+      }
 
-/* Gallery */
-.gallery {
-  flex: 1 1 40%;
-  display: flex;
-  gap: 1rem;
-}
-.thumbnails {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.thumbnails img {
-  width: 70px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 8px;
-}
-.thumbnails img:hover {
-  border: 2px solid #000;
-}
-.main-image img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-}
+      /* Gallery */
+      .gallery {
+        flex: 1 1 40%;
+        display: flex;
+        gap: 1rem;
+      }
+      .thumbnails {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .thumbnails img {
+        width: 70px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        border-radius: 8px;
+      }
+      .thumbnails img:hover {
+        border: 2px solid #000;
+      }
+      .main-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 12px;
+      }
 
-/* Product Details */
-.details {
-  flex: 1 1 50%;
-}
-.details h2 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-.preorder {
-  font-weight: bold;
-  color: #b12704;
-  margin-bottom: 1rem;
-}
-.description {
-  margin-bottom: 1rem;
-  color: #444;
-}
-.price {
-  font-weight: bold;
-  margin: 1rem 0;
-  font-size: 1.2rem;
-}
+      /* Product Details */
+      .details {
+        flex: 20 50%;
+        gap: 0.6rem;
+      }
+      .details h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
 
-/* Sizes */
-.size-selector {
-  margin: 1rem 0;
-}
-.size-btn {
-  border: 1px solid #aaa;
-  padding: 0.5rem 1rem;
-  margin-right: 0.5rem;
-  background: #f9f9f9;
-  cursor: pointer;
-  border-radius: 6px;
-}
-.size-btn.active, .size-btn:hover {
-  background: #000;
-  color: #fff;
-}
-.size-chart {
-  margin-left: 1rem;
-  font-size: 0.85rem;
-  color: #555;
-}
+      .description {
+        margin-bottom: 1rem;
+        color: #444;
+      }
+      .price {
+        font-weight: bold;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+      }
 
-/* Rental Section */
-.rental p {
-  margin-bottom: 0.5rem;
-}
-.rental-options {
-  margin-bottom: 1rem;
-}
-.rental-btn {
-  border: 1px solid #aaa;
-  background: #f9f9f9;
-  padding: 0.7rem 1.2rem;
-  margin-right: 0.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.rental-btn span {
-  display: block;
-  font-size: 0.85rem;
-  color: #333;
-}
-.rental-btn.active, .rental-btn:hover {
-  background: #000;
-  color: #fff;
-}
-.date-inputs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.date-inputs label {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.9rem;
-}
-.date-inputs input {
-  padding: 0.4rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
+      /* Sizes */
+      .size-selector {
+        margin: 1rem 0;
+      }
+      .size-btn {
+        border: 1px solid #aaa;
+        padding: 0.5rem 1rem;
+        margin-right: 0.5rem;
+        background: #f9f9f9;
+        cursor: pointer;
+        border-radius: 6px;
+      }
+      .size-btn.active,
+      .size-btn:hover {
+        background: #000;
+        color: #fff;
+      }
+      .size-chart {
+        margin-left: 1rem;
+        font-size: 0.85rem;
+        color: #555;
+      }
 
-/* Button */
-.add-cart {
-  padding: 1rem;
-  width: 100%;
-  background: #000;
-  color: #fff;
-  border: none;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.add-cart:hover {
-  background: #333;
-}
+      /* Rental Section */
+      .rental p {
+        margin-bottom: 0.5rem;
+      }
+      .rental-options {
+        margin-bottom: 1rem;
+      }
+      .rental-btn {
+        border: 1px solid #aaa;
+        background: #f9f9f9;
+        padding: 0.7rem 1.2rem;
+        margin-right: 0.5rem;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .rental-btn span {
+        display: block;
+        font-size: 0.85rem;
+      }
+      .rental-btn.active,
+      .rental-btn:hover {
+        background: #000;
+        color: #fff;
+      }
+      .date-inputs {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .date-inputs label {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.9rem;
+      }
+      .date-inputs input {
+        padding: 0.4rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 1rem;
+      /* Button */
+      .add-cart {
+        padding: 1rem;
+        width: 100%;
+        background: #000;
+        color: #fff;
+        border: none;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .add-cart:hover {
+        background: #333;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          padding: 1rem;
+        }
+        .gallery {
+          flex-direction: column;
+        }
+        .thumbnails {
+          flex-direction: row;
+          justify-content: center;
+        }
+        .main-image img {
+          max-width: 100%;
+        }
+      }
+      /* Rating Section CSS */
+      :root {
+        --primary: #0b0464;
+        --secondary: #d9c7ff;
+        --accent: #ff7f50;
+        --text-dark: #1a1a1a;
+        --text-light: #555;
+        --bg-light: #faf8ff;
+      }
+
+      .ratings-section {
+        border-top: 1px solid #a7a5a5;
+        border-bottom: 1px solid #a7a5a5;
+
+        color: var(--text-dark);
+        display: flex;
+        font-family: "Poppins", sans-serif;
+        width: 100%;
+        padding: 20px;
+        transition: 0.3s ease;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      /* === LEFT COLUMN === */
+      .rating-left {
+        flex: 1;
+        min-width: 250px;
+      }
+
+      .rating-head {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .rating-overall {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .stars {
+        display: flex;
+        gap: 3px;
+      }
+
+      .stars i {
+        color: #ccc;
+        font-size: 1.3rem;
+        transition: color 0.3s;
+      }
+
+      .stars i.active {
+        color: #ffb400;
+      }
+
+      .rating-number {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+
+      .rating-bars {
+        margin-top: 20px;
+      }
+
+      .bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+        color: var(--text-light);
+      }
+
+      .bar span {
+        width: 40px;
+      }
+
+      .bar-line {
+        flex: 1;
+        height: 8px;
+        background: #eee;
+        border-radius: 10px;
+
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 10px;
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      /* === RIGHT COLUMN (Customer Opinion) === */
+      .customer-opinion {
+        flex: 1.2;
+      }
+
+      .customer-opinion h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .subsection {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .subsection h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 5px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+      }
+
+      .option span:first-child {
+        width: 110px;
+        color: var(--text-light);
+      }
+
+      .option-bar {
+        flex: 1;
+        height: 8px;
+        background: #eee;
+        border-radius: 10px;
+        margin: 0 10px;
+        overflow: hidden;
+      }
+
+      .fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 10px;
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 768px) {
+        .ratings-section {
+          background: #fff;
+          border-bottom: 1px solid #cdc6c6;
+          border-top: 1px solid #cdc6c6;
+          width: 100%;
+          padding: 15px;
+          line-height: 2;
+          transition: 0.3s ease;
+          display: block;
+        }
+        .rating-head {
+          font-size: 1.6rem;
+          margin: 0;
+        }
+        .bar{
+          margin: 0;
+        }
+        .customer-opinion {
+          margin: 5px;
+        }
+        .customer-opinion h2 {
+          font-size: 1.6rem;
+          margin: 0;
+        }
+      }
+
+      /* Similar Items Section CSS */
+      :root {
+    --primary: #0b0464;
+    --secondary: #d9c7ff;
+    --accent: #ff7f50;
+    --text-dark: #1a1a1a;
+    --text-light: #555;
+    --bg-light: #faf8ff;
   }
-  .gallery {
-    flex-direction: column;
-  }
-  .thumbnails {
-    flex-direction: row;
-    justify-content: center;
-  }
-  .main-image img {
-    max-width: 100%;
-  }
-}
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#">Home</a> › 
-      <a href="#">Products</a> › 
-      <span>Clara Maxi Dress In Yellow</span>
-    </nav>
-  </header>
 
-  <main class="container">
-    <!-- Left Side: Images -->
-    <section class="gallery">
-      <div class="thumbnails">
-        <img src="Dress1.png" alt="Dress front full" onclick="changeImage(this)">
-        <img src="dress2.png" alt="Dress front" onclick="changeImage(this)">
-        <img src="dress3.png" alt="Dress back" onclick="changeImage(this)">
-        <img src="dress4.png" alt="Dress side" onclick="changeImage(this)">
+ 
+
+  .similar-section {
+    font-family: "Poppins", sans-serif;
+    background: #fff;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+    border: 1px solid #f1eefb;
+    
+    width: 100%;
+  }
+
+  .similar-section h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+  }
+
+  /* Horizontal layout */
+  .similar-items {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+  }
+
+  .similar-items::-webkit-scrollbar {
+    height: 8px;
+  }
+  .similar-items::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+  }
+
+  .item-card {
+    flex: 0 0 250px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+  }
+
+  .item-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .item-img {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+  }
+
+  .item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .item-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .item-content {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 8px 0;
+  }
+
+  .item-price {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .rent-btn {
+    margin-top: 10px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+
+  .rent-btn:hover {
+    background: #150a8f;
+  }
+
+  @media (max-width: 768px) {
+    .item-card {
+      flex: 0 0 75%;
+      min-width: 250px;
+    }
+
+    .item-img {
+      height: 250px;
+    }
+  }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <!-- Left Side: Images -->
+      <section class="gallery">
+        <div class="thumbnails">
+          <img
+            src="Dress1.png"
+            alt="Dress front full"
+            onclick="changeImage(this)"
+          />
+          <img src="dress2.png" alt="Dress front" onclick="changeImage(this)" />
+          <img src="dress3.png" alt="Dress back" onclick="changeImage(this)" />
+          <img src="dress4.png" alt="Dress side" onclick="changeImage(this)" />
+        </div>
+        <div class="main-image">
+          <img id="currentImage" src="Dress1.png" alt="Main dress view" />
+        </div>
+      </section>
+
+      <!-- Right Side: Product Info -->
+      <section class="details">
+        <h2>Western Dress</h2>
+
+        <p class="description">
+          The Clara Maxi Dress by Cherie Attire stands out with its form fitting
+          design and elegant soft yellow colour hue. 
+          <strong>Corset</strong> bodice that shapes the waist, complemented by
+          graceful.
+        </p>
+        <p class="price">Price:₹999</p>
+
+        <!-- Size Selector -->
+        <div class="size-selector">
+          <p>Size</p>
+          <button class="size-btn active">XS</button>
+          <button class="size-btn">S</button>
+          <button class="size-btn">M</button>
+          <button class="size-btn">L</button>
+          <button class="size-btn">XL</button>
+
+          <a href="#" class="size-chart">Size chart</a>
+        </div>
+
+        <!-- Rental Dates -->
+        <div class="rental">
+          <p>Rental dates</p>
+          <div class="rental-options">
+            <button class="rental-btn active">3 days <span>₹2000</span></button>
+            <button class="rental-btn">5 days <span>₹8000</span></button>
+            <button class="rental-btn">7 days <span>₹12000</span></button>
+          </div>
+          <div class="date-inputs">
+            <label>Start date <input type="date" /></label>
+            <label>End date <input type="date" /></label>
+          </div>
+        </div>
+
+        <button class="add-cart">Rent Now</button>
+      </section>
+
+      <!-- Rating Section -->
+      <div class="ratings-section">
+        <!-- LEFT SECTION -->
+        <div class="rating-left">
+          <h2 class="rating-head">Ratings</h2>
+
+          <div class="rating-overall">
+            <div class="stars" id="starContainer">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <p class="rating-number" id="avgRating">0.0 / 5 (0 Ratings)</p>
+          </div>
+
+          <div class="rating-bars" id="ratingBars"></div>
+        </div>
+
+        <!-- RIGHT SECTION -->
+        <div class="customer-opinion">
+          <h2>Customer Opinion</h2>
+          <div class="subsection">
+            <div>
+              <h3>Size and Fit</h3>
+              <div id="fitBars"></div>
+            </div>
+
+            <div>
+              <h3>Product Quality</h3>
+              <div id="qualityBars"></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="main-image">
-        <img id="currentImage" src="Dress1.png" alt="Main dress view">
-      </div>
-    </section>
-
-    <!-- Right Side: Product Info -->
-    <section class="details">
-      <h2>Clara Maxi Dress In Yellow</h2>
       
-      <p class="description">
-        The Clara Maxi Dress by Cherie Attire stands out with its form fitting design 
-        and elegant soft yellow colour hue. This strapless maxi features a tailored 
-        <strong>corset</strong> bodice that shapes the waist, complemented by graceful 
-        draping that cascades into a sweeping floor-length skirt. Ideal for formal 
-        occasions and gala evenings, it offers an lace-up corset fit that enhances 
-        your silhouette.
-      </p>
-      <p class="price">Price: 999</p>
+      <!-- Similar Items Section -->
+      <div class="similar-section">
+    <h2>Similar Items </h2>
 
-      <!-- Size Selector -->
-      <div class="size-selector">
-        <p>Size</p>
-        <button class="size-btn active">XS</button>
-        <button class="size-btn">S</button>
-        <a href="#" class="size-chart">Size chart</a>
-      </div>
-
-      <!-- Rental Dates -->
-      <div class="rental">
-        <p>Rental dates</p>
-        <div class="rental-options">
-          <button class="rental-btn active">4 days <span>2000</span></button>
-          <button class="rental-btn">8 days <span>8000</span></button>
+    <div class="similar-items">
+      <div class="item-card">
+        <div class="item-img">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="Dress 1">
         </div>
-        <div class="date-inputs">
-          <label>Start date <input type="date"></label>
-          <label>End date <input type="date"></label>
+        <div class="item-content">
+          <h3 class="item-title">Luna Satin Gown</h3>
+          <p class="item-price">Rent ₹999 / 48 hrs</p>
+          <button class="rent-btn">Rent Now</button>
         </div>
       </div>
 
-      <button class="add-cart">Add to Cart</button>
-    </section>
-  </main>
+      <div class="item-card">
+        <div class="item-img">
+          <img src="https://images.unsplash.com/photo-1555529669-08f70346315a?auto=format&fit=crop&w=800&q=80" alt="Dress 2">
+        </div>
+        <div class="item-content">
+          <h3 class="item-title">Amara Maxi Dress</h3>
+          <p class="item-price">Rent ₹899 / 48 hrs</p>
+          <button class="rent-btn">Rent Now</button>
+        </div>
+      </div>
 
-  <script >
-    // Image Switcher
-function changeImage(element) {
-  document.getElementById("currentImage").src = element.src;
-}
+      <div class="item-card">
+        <div class="item-img">
+          <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?auto=format&fit=crop&w=800&q=80" alt="Dress 3">
+        </div>
+        <div class="item-content">
+          <h3 class="item-title">Celeste Party Wear</h3>
+          <p class="item-price">Rent ₹1099 / 48 hrs</p>
+          <button class="rent-btn">Rent Now</button>
+        </div>
+      </div>
 
-// Active State Toggle for size buttons
-const sizeButtons = document.querySelectorAll(".size-btn");
-sizeButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    sizeButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  });
-});
+      <div class="item-card">
+        <div class="item-img">
+          <img src="https://images.unsplash.com/photo-1586078130702-d208859b6223?auto=format&fit=crop&w=800&q=80" alt="Dress 4">
+        </div>
+        <div class="item-content">
+          <h3 class="item-title">Chloe Evening Dress</h3>
+          <p class="item-price">Rent ₹1199 / 48 hrs</p>
+          <button class="rent-btn">Rent Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-// Active State Toggle for rental options
-const rentalButtons = document.querySelectorAll(".rental-btn");
-rentalButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    rentalButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  });
-});
-  </script>
-</body>
+    </main>
+
+    <script>
+      // --- IMAGE SWITCHER ---
+      function changeImage(element) {
+        document.getElementById("currentImage").src = element.src;
+        document
+          .querySelectorAll(".thumbnails img")
+          .forEach((img) => img.classList.remove("active"));
+        element.classList.add("active");
+      }
+
+      // --- SIZE BUTTON ACTIVE STATE ---
+      const sizeButtons = document.querySelectorAll(".size-btn");
+      sizeButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sizeButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      // --- RENTAL OPTION ACTIVE STATE ---
+      const rentalButtons = document.querySelectorAll(".rental-btn");
+      rentalButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          rentalButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+
+      // --- RATING SECTION FUNCTIONALITY ---
+
+      // Sample data — you can replace with real API or database data later
+      const ratingData = [
+        { stars: 5, percent: 65 },
+        { stars: 4, percent: 20 },
+        { stars: 3, percent: 10 },
+        { stars: 2, percent: 3 },
+        { stars: 1, percent: 2 },
+      ];
+
+      const fitData = [
+        { label: "True to Size", percent: 70 },
+        { label: "Runs Small", percent: 20 },
+        { label: "Runs Large", percent: 10 },
+      ];
+
+      const qualityData = [
+        { label: "Excellent", percent: 75 },
+        { label: "Good", percent: 20 },
+        { label: "Average", percent: 5 },
+      ];
+
+      // Ensure DOM loaded before running rating logic
+      document.addEventListener("DOMContentLoaded", () => {
+        // Calculate average rating
+        const totalPercent = ratingData.reduce((sum, r) => sum + r.percent, 0);
+        const weightedSum = ratingData.reduce(
+          (sum, r) => sum + r.stars * r.percent,
+          0
+        );
+        const avg = weightedSum / totalPercent;
+
+        // Display average rating
+        const avgRatingEl = document.getElementById("avgRating");
+        if (avgRatingEl) {
+          avgRatingEl.textContent = `${avg.toFixed(1)} / 5 (${
+            ratingData.length
+          } Ratings)`;
+        }
+
+        // Fill stars dynamically
+        const stars = document.querySelectorAll("#starContainer i");
+        const filledStars = Math.round(avg);
+        stars.forEach((s, i) => {
+          if (i < filledStars) s.classList.add("active");
+        });
+
+        // Generate rating bars
+        const ratingBars = document.getElementById("ratingBars");
+        if (ratingBars) {
+          ratingData.forEach((r) => {
+            const div = document.createElement("div");
+            div.className = "bar";
+            div.innerHTML = `
+          <span>${r.stars}★</span>
+          <div class="bar-line"><div class="bar-fill" style="width:0;"></div></div>
+          <span>${r.percent}%</span>
+        `;
+            ratingBars.appendChild(div);
+          });
+        }
+
+        // Animate rating bars
+        setTimeout(() => {
+          document.querySelectorAll(".bar-fill").forEach((bar, i) => {
+            bar.style.width = ratingData[i].percent + "%";
+          });
+        }, 300);
+
+        // Render opinion bars (fit & quality)
+        function renderOpinions(containerId, data) {
+          const container = document.getElementById(containerId);
+          if (!container) return;
+          data.forEach((d) => {
+            const div = document.createElement("div");
+            div.className = "option";
+            div.innerHTML = `
+          <span>${d.label}</span>
+          <div class="option-bar"><div class="fill" style="width:0;"></div></div>
+          <span>${d.percent}%</span>
+        `;
+            container.appendChild(div);
+          });
+        }
+
+        renderOpinions("fitBars", fitData);
+        renderOpinions("qualityBars", qualityData);
+
+        // Animate opinion bars
+        setTimeout(() => {
+          const all = [...fitData, ...qualityData];
+          document.querySelectorAll(".fill").forEach((f, i) => {
+            if (all[i]) f.style.width = all[i].percent + "%";
+          });
+        }, 500);
+      });
+    </script>
+  </body>
 </html>

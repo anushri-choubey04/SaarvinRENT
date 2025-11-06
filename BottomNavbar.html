@@ -5,97 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAARVIN</title>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-     .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  border-top: 2px solid rgb(222, 230, 246);
-  height: 80px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 999;
-}
+      .bottom-nav {
+        display: none; /* Hidden by default */
+      }
 
-.nav-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 14px;
-  color: #333;
-  text-decoration: none;
-  padding: 8px;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
+      /* Mobile styles */
+      @media (max-width: 768px) {
+        .bottom-nav {
+          display: flex;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-top: 1px solid rgba(0, 0, 0, 0.4);
+          height: 70px;
+          justify-content: space-around;
+          align-items: center;
+          z-index: 999;
+          padding: 5px 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          font-weight: 600;
+          
+        }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #06c342;
-}
+        .nav-link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-size: 15px;
+          font-weight: 700;
+          color: #333;
+          text-decoration: none;
+          padding: 8px;
+          transition: all 0.3s ease;
+          min-width: 50px;
+        }
 
-.nav-link:hover i,
-.nav-link:focus i {
-  transform: scale(1.1);
-}
+        .nav-link i {
+          width: 22px;
+          height: 22px;
+          margin-bottom: 4px;
+          transition: transform 0.2s ease;
+          stroke-width: 2;
+        }
 
-.center-btn {
-  background-color: rgb(186, 43, 48);
-  color: #fff;
-  border-radius: 50%;
-  padding: 12px;
-  margin-top: -24px;
-}
+        .nav-link span {
+          font-size: 12px;
+          opacity: 0.9;
+        }
 
-.nav-link i {
-  width: 24px;
-  height: 24px;
-  display: block;
-}
+      .center-btn {
+        background: linear-gradient(135deg, #ff4b4b 0%, #ba2b30 100%);
+        color: white;
+        border-radius: 16px;
+        padding: 18px;
+        margin-top: -40px;
+        box-shadow: 0 8px 20px -6px rgba(186, 43, 48, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+      }
 
-@media (max-width: 768px) {
-  .nav-link:hover i,
-  .nav-link:hover,
-  .nav-link:focus i,
-  .nav-link:focus {
-    transform: none;
-    color: inherit;
-  }
-}
- 
-      
+      .center-btn:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 12px 25px -4px rgba(186, 43, 48, 0.6);
+        background: linear-gradient(135deg, #ff5c5c 0%, #d63131 100%);
+      }
+
+      .center-btn i {
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+
+      .center-btn:hover i {
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      }
+
+      /* Refined active state indicator */
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #06c342;
+        transform: translate(-50%, 10px) scale(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 0 12px rgba(6, 195, 66, 0.3);
+      }
+
+      .nav-link.active::after {
+        transform: translate(-50%, 10px) scale(1);
+      }
+      }
+        
     </style>
   </head>
   <body>
-    <nav class="bottom-nav">
-  <a href="index.html" class="nav-link">
-    <i data-lucide="home"></i>
-    <span>Home</span>
-  </a>
-  <a href="HTML/shop.html" class="nav-link">
-    <i data-lucide="search"></i>
-    <span>Rent</span>
-  </a>
-  <a href="#" class="nav-link center-btn">
-    <i data-lucide="plus-circle"></i>
-    <span>Feed</span>
-  </a>
-  <a href="ProductSection/bottomICON.html" class="nav-link">
-    <i data-lucide="grid"></i>
-    <span>Categories</span>
-  </a>
-  <a href="wishlist.html" class="nav-link">
-    <i data-lucide="heart"></i>
-    <span>Wishlist</span>
-  </a>
-</nav>
+    <nav class="bottom-nav md:hidden">
+      <a href="index.html" class="nav-link active">
+        <i data-lucide="home"></i>
+        <span>Home</span>
+      </a>
+      <a href="HTML/shop.html" class="nav-link">
+        <i data-lucide="search"></i>
+        <span>Rent</span>
+      </a>
+      <a href="#" class="nav-link center-btn">
+        <i data-lucide="plus-circle"></i>
+        <span>Feed</span>
+      </a>
+      
+      <a href="wishlist.html" class="nav-link">
+        <i data-lucide="heart"></i>
+        <span>Wishlist</span>
+      </a>
+      <a href="HTML/account.html" class="nav-link">
+        <i data-lucide="user"></i>
+        <span>Account</span>
+    </nav>
 
     <!-- initialize lucide -->
     <script>

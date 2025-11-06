@@ -42,7 +42,27 @@
         font-size: 18px;
         font-weight: 500;
       }
-      .header-icons a,
+      .header-icons {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .header-icons a {
+        color: black;
+        font-size: 20px;
+        transition: color 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        .header-icons {
+          gap: 15px;
+        }
+
+        .header-icons a {
+          font-size: 16px;
+        }
+      }
+
       .back-link {
         font-size: 20px;
         color: #000;
@@ -82,9 +102,13 @@
         padding: 10px;
         background: #fff;
         border-bottom: 1px solid #eee;
-        position: sticky;
+        position: fixed; /* Change from sticky to fixed */
         top: 90px;
+        left: 0;
+        right: 0;
         z-index: 18;
+        white-space: nowrap; /* Prevent wrapping */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
       }
       .category-pill {
         padding: 6px 15px;
@@ -104,10 +128,21 @@
       /* --- Product Grid --- */
       .product-grid {
         display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 10px;
+        margin: 5px;
+         /* Increased margin to account for all fixed elements */
+      }
+
+      @media (max-width: 768px) {
+        .product-grid {
+        display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         padding: 10px;
-        margin-top: 90px; /* space for header + action bar + pills */
+        margin-top: 140px; /* Increased margin to account for all fixed elements */
+      }
       }
       .product-card {
         background: #fff;
@@ -177,17 +212,24 @@
         font-weight: bold;
         margin-bottom: 4px;
       }
-      .rent-btn {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-        font-weight: 600;
-      }
+      .rent-link {
+  display: block;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.rent-link:hover {
+  background: #222;
+  transform: scale(1.03);
+}
+
 
       /* --- Modals --- */
       .modal {
@@ -265,7 +307,7 @@
         padding: 10px 15px;
         border-top: 1px solid #eee;
         position: sticky;
-        
+
         background-color: #fff;
       }
       .footer-btn {
@@ -417,6 +459,8 @@
           font-size: 16px;
         }
         .category-pills-container {
+          position: relative;
+          top: 0;
           flex-wrap: wrap;
           overflow-x: visible;
           padding: 15px 30px;
@@ -427,12 +471,7 @@
           font-size: 14px;
           margin-right: 10px;
         }
-        .product-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          padding: 20px 30px;
-          margin-top: 0;
-        }
+        
         .modal-content {
           width: 600px; /* Default desktop width for modals */
           bottom: auto;
@@ -471,9 +510,11 @@
     <!-- Header -->
     <header class="header">
       <a href="#" class="back-link"><i class="fas fa-arrow-left"></i></a>
-      <h1>Shop All</h1>
+      <h1>Rent Now</h1>
       <div class="header-icons">
-        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+        <a href="#"><i class="fas fa-search"></i></a>
+        <a href="../NAVBAR/wishlist.html"><i class="fas fa-heart"></i></a>
+        <a href="../NAVBAR/bag.html"><i class="fas fa-shopping-bag"></i></a>
       </div>
     </header>
 
@@ -495,8 +536,8 @@
       <div class="category-pill active">Dresses</div>
       <div class="category-pill">Tops</div>
       <div class="category-pill">Bottoms</div>
-      <div class="category-pill">Jewellery</div>
-      <div class="category-pill">Co-ords</div>
+      <div class="category-pill">Sherwani</div>
+      <div class="category-pill">Tuexdo</div>
     </section>
 
     <!-- Product Grid -->
@@ -515,7 +556,7 @@
           </div>
           <p class="name">Burgundy Round Neck Regular T-shirt</p>
           <p class="price">₹479</p>
-          <button class="rent-btn">Rent Now</button>
+          <a href="Hero3.html" class="rent-link">Rent Now</a>
         </div>
       </div>
       <div class="product-card">
@@ -528,7 +569,7 @@
           <div class="rating"><span class="stars">★ 5.0</span></div>
           <p class="name">Black Cold Shoulder Crop Top</p>
           <p class="price">₹1199</p>
-          <button class="rent-btn">Rent Now</button>
+          <a href="Hero3.html" class="rent-link">Rent Now</a>
         </div>
       </div>
     </main>
@@ -537,7 +578,7 @@
     <div id="size-modal" class="modal size-modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h2>Straight Size</h2>
+          <h2>Select Size</h2>
           <a href="#" class="select-all">Select All</a>
           <span class="close-btn"><i class="fas fa-times"></i></span>
         </div>
@@ -594,7 +635,7 @@
           </div>
           <div class="filter-detail">
             <h3 class="price-title">PRICE RANGE</h3>
-            <p class="price-value">₹300 - ₹4,000</p>
+            <p class="price-value">₹0 - ₹4,000</p>
             <div class="range-slider-placeholder">
               <div class="slider-track"></div>
               <div class="slider-thumb left"></div>

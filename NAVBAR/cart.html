@@ -1,207 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shopping Bag</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart</title>
   <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+    /* ======== CART PAGE ======== */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    .cart-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
 
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #e5e5e5;
-}
+    .cart-title {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
 
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
 
-.back-arrow {
-  font-size: 1.5rem;
-  cursor: pointer;
-}
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fafafa;
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+      position: relative;
+    }
 
-.header h2 {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
+    .cart-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
 
-.heart {
-  font-size: 1.3rem;
-  cursor: pointer;
-}
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
-/* Tabs */
-.tabs {
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid #e5e5e5;
-}
+    .cart-item-details {
+      flex: 1;
+      margin-left: 1rem;
+      text-align: left;
+    }
 
-.tab {
-  flex: 1;
-  text-align: center;
-  padding: 1rem 0;
-  font-weight: 500;
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  position: relative;
-  color: #666;
-}
+    .cart-item-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #222;
+    }
 
-.tab.active {
-  font-weight: 600;
-  color: #000;
-}
+    .cart-item-desc {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 0.6rem;
+    }
 
-.tab.active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 2px;
-  width: 50%;
-  background-color: black;
-}
+    .cart-price-qty {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* Empty section */
-.empty-section {
-  text-align: center;
-  margin-top: 4rem;
-  flex-grow: 1;
-}
+    .cart-item-price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111;
+    }
 
-.bag-icon img {
-  width: 100px;
-  height: auto;
-  margin-bottom: 1.5rem;
-}
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
 
-.empty-section h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
+    .qty-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
 
-.empty-section p {
-  color: #757575;
-  font-size: 0.95rem;
-}
+    .qty-btn:hover {
+      background: #222;
+    }
 
-/* Bottom Button */
-.bottom-btn {
-  padding: 1rem;
-  background-color: #fff;
-  border-top: 1px solid #e5e5e5;
-}
+    .qty {
+      padding: 0.3rem 0.8rem;
+      font-weight: 500;
+      color: #333;
+    }
 
-.bottom-btn button {
-  width: 100%;
-  background-color: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 10px;
-  padding: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    /* Remove Button */
+    .remove-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: #888;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
 
-.bottom-btn button:hover {
-  background-color: #89908c;
-}
+    .remove-btn:hover {
+      color: #ff4d4d;
+    }
 
+    /* Summary */
+    .cart-summary {
+      margin-top: 2rem;
+      border-top: 1px solid #eee;
+      padding-top: 1.2rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .summary-row.total {
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-top: 1px solid #ddd;
+      padding-top: 0.8rem;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: #000;
+      color: #fff;
+      padding: 0.9rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+
+    .checkout-btn:hover {
+      background: #222;
+    }
+
+    /* ======== EMPTY CART ======== */
+    .empty-cart {
+      text-align: center;
+      padding: 4rem 1rem;
+      display: none;
+    }
+
+    .empty-cart img {
+      width: 180px;
+      margin-bottom: 1rem;
+    }
+
+    .empty-cart h2 {
+      font-size: 1.6rem;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+
+    .empty-cart p {
+      color: #777;
+      margin-bottom: 1.5rem;
+    }
+
+    .rent-btn {
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .rent-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 117, 252, 0.3);
+    }
+
+    /* ======== MOBILE RESPONSIVE ======== */
+    @media (max-width: 600px) {
+      .cart-container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .cart-item-image {
+        width: 100%;
+        height: 180px;
+      }
+
+      .cart-item-details {
+        width: 100%;
+      }
+
+      .cart-price-qty {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+
+      .checkout-btn {
+        font-size: 0.95rem;
+      }
+
+      .empty-cart img {
+        width: 140px;
+      }
+
+      .empty-cart h2 {
+        font-size: 1.3rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-left">
-      <span class="back-arrow">←</span>
-      <h2>Shopping bag</h2>
-    </div>
-    
-  </header>
 
-  <nav class="tabs">
-    <button class="tab active" data-tab="bag">Added to bag</button>
-    <button class="tab" data-tab="wishlist">Add from Wishlist</button>
-  </nav>
+  <section class="cart-container">
+    <h2 class="cart-title">My Cart</h2>
 
-  <main id="content" class="empty-section">
-    <!-- Default: Bag content -->
-    <div class="empty-bag">
-      <div class="bag-icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Bag" />
+    <div class="cart-items" id="cartItems">
+      <!-- Cart Item 1 -->
+      <div class="cart-item">
+        <img src="images/lehnga2.png" alt="Hoodie" class="cart-item-image" />
+        <div class="cart-item-details">
+          <h3 class="cart-item-name">Premium Hoodie</h3>
+          <p class="cart-item-desc">Unisex, Oversized Fit, Cotton Blend</p>
+          <div class="cart-price-qty">
+            <span class="cart-item-price">₹1,299</span>
+            <div class="qty-controls">
+              <button class="qty-btn decrease">−</button>
+              <span class="qty">1</span>
+              <button class="qty-btn increase">+</button>
+            </div>
+          </div>
+        </div>
+        <button class="remove-btn">✕</button>
       </div>
-      <h3>Your Bag is Empty!</h3>
-      <p>Start Shopping now</p>
-    </div>
-  </main>
 
-  <div class="bottom-btn">
-    <button id="homeBtn">Home</button>
-  </div>
+      <!-- Cart Item 2 -->
+      <div class="cart-item">
+        <img src="images/lehnga1.png" alt="Sneakers" class="cart-item-image" />
+        <div class="cart-item-details">
+          <h3 class="cart-item-name">Casual Sneakers</h3>
+          <p class="cart-item-desc">Comfort Fit, Lightweight Design</p>
+          <div class="cart-price-qty">
+            <span class="cart-item-price">₹2,499</span>
+            <div class="qty-controls">
+              <button class="qty-btn decrease">−</button>
+              <span class="qty">2</span>
+              <button class="qty-btn increase">+</button>
+            </div>
+          </div>
+        </div>
+        <button class="remove-btn">✕</button>
+      </div>
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary" id="cartSummary">
+      <div class="summary-row">
+        <span>Subtotal</span>
+        <span id="subtotal">₹6,297</span>
+      </div>
+      <div class="summary-row">
+        <span>Delivery</span>
+        <span>Free</span>
+      </div>
+      <div class="summary-row total">
+        <span>Total</span>
+        <span id="total">₹6,297</span>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+
+    <!-- Empty Cart -->
+    <div class="empty-cart" id="emptyCart">
+      <img src="https://cdn-icons-png.flaticon.com/512/11329/11329060.png" alt="Empty Cart">
+      <h2>Your cart is empty</h2>
+      <p>Looks like you haven’t added anything yet.</p>
+      <button class="rent-btn">Rent Now</button>
+    </div>
+  </section>
 
   <script>
-    const tabs = document.querySelectorAll(".tab");
-const content = document.getElementById("content");
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("increase") || e.target.classList.contains("decrease")) {
+        const qtyElement = e.target.parentElement.querySelector(".qty");
+        let currentQty = parseInt(qtyElement.textContent);
 
-tabs.forEach(tab => {
-  tab.addEventListener("click", () => {
-    tabs.forEach(t => t.classList.remove("active"));
-    tab.classList.add("active");
+        if (e.target.classList.contains("increase")) {
+          qtyElement.textContent = currentQty + 1;
+        } else if (currentQty > 1) {
+          qtyElement.textContent = currentQty - 1;
+        }
+      }
 
-    const selected = tab.getAttribute("data-tab");
-    if (selected === "bag") {
-      content.innerHTML = `
-        <div class="empty-bag">
-          <div class="bag-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Bag" />
-          </div>
-          <h3>Your Bag is Empty!</h3>
-          <p>Start Shopping now</p>
-        </div>
-      `;
-    } else if (selected === "wishlist") {
-      content.innerHTML = `
-        <div class="empty-bag">
-          <div class="bag-icon">
-            <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Wishlist" />
-          </div>
-          <h3>Your Wishlist is Empty.</h3>
-          <p>Tap on your favorite items.</p>
-        </div>
-      `;
+      if (e.target.classList.contains("remove-btn")) {
+        e.target.closest(".cart-item").remove();
+        checkEmptyCart();
+      }
+    });
+
+    function checkEmptyCart() {
+      const cartItems = document.getElementById("cartItems");
+      const summary = document.getElementById("cartSummary");
+      const emptyCart = document.getElementById("emptyCart");
+
+      if (cartItems.children.length === 0) {
+        cartItems.style.display = "none";
+        summary.style.display = "none";
+        emptyCart.style.display = "block";
+      }
     }
-  });
-});
-
-document.getElementById("homeBtn").addEventListener("click", () => {
-  alert("Redirecting to Home Page...");
-});
-
   </script>
+
 </body>
 </html>

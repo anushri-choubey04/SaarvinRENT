@@ -212,17 +212,24 @@
         font-weight: bold;
         margin-bottom: 4px;
       }
-      .rent-btn {
-        background: #000;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-        font-weight: 600;
-      }
+      .rent-link {
+  display: block;
+  text-align: center;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.rent-link:hover {
+  background: #222;
+  transform: scale(1.03);
+}
+
 
       /* --- Modals --- */
       .modal {
@@ -506,6 +513,7 @@
       <h1>UNDER 2K</h1>
       <div class="header-icons">
         <a href="#"><i class="fas fa-search"></i></a>
+        <a href="../NAVBAR/wishlist.html"><i class="fas fa-heart"></i></a>
         <a href="../NAVBAR/bag.html"><i class="fas fa-shopping-bag"></i></a>
       </div>
     </header>
@@ -537,7 +545,7 @@
       <div class="product-card">
         <div class="product-image-container">
           <img
-            src="images/lehnga1.png"
+            src="Indian.png"
             alt="Burgundy Round Neck Regular T-shirt"
           />
           <button class="wishlist-btn"><i class="far fa-heart"></i></button>
@@ -548,12 +556,12 @@
           </div>
           <p class="name">Burgundy Round Neck Regular T-shirt</p>
           <p class="price">₹479</p>
-          <button class="rent-btn">Rent Now</button>
+          <a href="../HERO/Hero3.html" class="rent-link">Rent Now</a>
         </div>
       </div>
       <div class="product-card">
         <div class="product-image-container">
-          <img src="images/lehnga2.png" alt="Black Cold Shoulder Crop Top" />
+          <img src="Lehnga12.png" alt="Black Cold Shoulder Crop Top" />
           <span class="badge">TRENDING</span>
           <button class="wishlist-btn"><i class="far fa-heart"></i></button>
         </div>
@@ -561,7 +569,7 @@
           <div class="rating"><span class="stars">★ 5.0</span></div>
           <p class="name">Black Cold Shoulder Crop Top</p>
           <p class="price">₹1199</p>
-          <button class="rent-btn">Rent Now</button>
+          <a href="../HERO/Hero3.html" class="rent-link">Rent Now</a>
         </div>
       </div>
     </main>
