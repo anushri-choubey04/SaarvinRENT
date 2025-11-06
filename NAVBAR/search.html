@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search - Rental Clothing</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9b1e5d8e1a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      /* 🧭 Page Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+
+      /* 🔍 Search Bar */
+      .search-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        background: #f6f6f6;
+        border-radius: 12px;
+        padding: 0.6rem 1rem;
+        margin: 1.5rem auto;
+        border: 1px solid #e3e3e3;
+        max-width: 600px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      }
+
+      .search-bar input {
+        border: none;
+        outline: none;
+        background: transparent;
+        flex: 1;
+        font-size: 1rem;
+      }
+
+      .search-bar i {
+        color: #777;
+        font-size: 1.2rem;
+      }
+
+      /* 🔥 Section Titles */
+      .section-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin: 1.5rem 0 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      /* 🧥 Horizontal Scroll Sections (Mobile) */
+      .scroll-section {
+        display: flex;
+        gap: 0.8rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+        margin-bottom: 1.5rem;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .scroll-section::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* 🧢 Viral Searches Items */
+      .viral-item {
+        flex: 0 0 auto;
+        text-align: center;
+        width: 70px;
+      }
+
+      .viral-item img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #f6d5ff;
+      }
+
+      .viral-item p {
+        font-size: 0.75rem;
+        margin-top: 0.4rem;
+      }
+
+      /* 🛍️ Product Cards */
+      .product-card {
+        flex: 0 0 160px;
+        background: #f8f8f8;
+        border-radius: 12px;
+        padding: 0.6rem;
+        text-align: center;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+      }
+
+      .product-card img {
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+        height: 180px;
+      }
+
+      .product-card .name {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin: 0.3rem 0;
+        color: #333;
+      }
+
+      .product-card .price {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #111;
+      }
+
+      .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        background: #fff;
+      }
+
+      /* 💻 Desktop View */
+      @media (min-width: 769px) {
+        .container {
+          padding: 2rem 4rem;
+        }
+
+        .scroll-section {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 1.2rem;
+          overflow: visible;
+        }
+
+        .viral-item {
+          width: auto;
+          text-align: center;
+        }
+
+        .viral-item img {
+          width: 90px;
+          height: 90px;
+          border-radius: 50%;
+          border: 2px solid #f3ccff;
+        }
+
+        .viral-item p {
+          font-size: 0.9rem;
+          margin-top: 0.5rem;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+        }
+
+        .product-card img {
+          height: 240px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- 🔍 Search Bar -->
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search rental outfits, brands..." />
+      </div>
+
+      <!-- 🔥 Viral Searches -->
+      <div class="section-title">Viral Searches 🔥</div>
+      <div class="scroll-section">
+        <div class="viral-item">
+          <img src="../HERO/images/gown1.png" alt="" />
+          <p>Leopard Print</p>
+        </div>
+        <div class="viral-item">
+          <img src="../HERO/images/gown2.png" alt="" />
+          <p>Spiderman Hoodie</p>
+        </div>
+        <div class="viral-item">
+          <img src="../HERO/images/lehnga3.png" alt="" />
+          <p>Denim Jackets</p>
+        </div>
+        <div class="viral-item">
+          <img src="../ProductSection/IMAGES/sherwani.jpeg" alt="" />
+          <p>Indo Western</p>
+        </div>
+        <div class="viral-item">
+          <img src="../ProductSection/IMAGES/saree.jpeg" alt="" />
+          <p>Saree Sets</p>
+        </div>
+      </div>
+
+      <!-- 👗 Previously Viewed -->
+      <div class="section-title">Previously Viewed</div>
+      <div class="scroll-section">
+        <div class="product-card">
+          <img src="../HERO/images/gown2.png" alt="" />
+          <p class="name">Brown Cut Out Dress</p>
+          <p class="price">₹999</p>
+        </div>
+        <div class="product-card">
+          <img src="../HERO/images/gown1.png" alt="" />
+          <p class="name">Mermaid Dress</p>
+          <p class="price">₹799</p>
+        </div>
+        <div class="product-card">
+          <img src="../ProductSection/IMAGES/sherwani2.jpeg" alt="" />
+          <p class="name">Crop Top</p>
+          <p class="price">₹1,199</p>
+        </div>
+        <div class="product-card">
+          <img src="../ProductSection/IMAGES/saree.jpeg" alt="" />
+          <p class="name">Red Saree</p>
+          <p class="price">₹1,499</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
